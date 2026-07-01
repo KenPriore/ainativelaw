@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>The legal department, rewired — Today vs. AI-native</title>
-<meta name="description" content="A plain-English walk through the agreements lifecycle: what AI takes over, what stays with a lawyer, and why." />
+<title>The legal department, rewired — an introduction</title>
+<meta name="description" content="A plain-English introduction to how an in-house legal team works, and how AI changes it, step by step and at every company size." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -16,46 +16,62 @@
   }
   *{box-sizing:border-box;margin:0;padding:0;border-radius:0}
   html,body{background:var(--paper);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased}
-  body{line-height:1.5}
+  body{line-height:1.55}
   .num{font-variant-numeric:tabular-nums}
   .wrap{max-width:1180px;margin:0 auto;padding:40px 28px 84px}
 
+  /* icons */
+  .isprite{position:absolute;width:0;height:0;overflow:hidden}
+  .ic{width:22px;height:22px;display:inline-block;vertical-align:middle;color:var(--ink);flex:none}
+  .ic-lg{width:30px;height:30px}
+  .ic-sm{width:16px;height:16px}
+
   /* kicker + heads */
   .kicker{font-weight:700;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-soft)}
-  h1{font-size:clamp(32px,5.4vw,58px);line-height:1.0;letter-spacing:-.025em;margin:.2em 0 .16em;font-weight:800}
-  .dek{font-size:17px;max-width:64ch;color:var(--ink-soft);line-height:1.5}
+  h1{font-size:clamp(34px,6vw,64px);line-height:.98;letter-spacing:-.03em;margin:.18em 0 .18em;font-weight:800}
+  .dek{font-size:clamp(17px,2vw,21px);color:var(--ink-soft);line-height:1.5}
+  .masthead{border-bottom:3px solid var(--ink);padding-bottom:24px;margin-bottom:8px}
 
-  .masthead{border-bottom:3px solid var(--ink);padding-bottom:20px;margin-bottom:26px}
+  /* teaching sections */
+  .tsec{padding:38px 0;border-bottom:1.5px solid var(--line)}
+  .tsec-head{display:flex;align-items:flex-start;gap:16px;margin-bottom:16px}
+  .tnum{font-size:clamp(30px,4vw,46px);font-weight:800;letter-spacing:-.03em;line-height:.85;color:var(--ink)}
+  .tsec-head .ic{color:var(--signal)}
+  .tsec-head h2{font-size:clamp(21px,2.6vw,30px);letter-spacing:-.02em;font-weight:800;line-height:1.05}
+  .tsec-head .kicker{margin-bottom:5px}
+  .tprose{font-size:clamp(15.5px,1.5vw,18px);color:var(--ink);line-height:1.6}
+  .tprose.soft{color:var(--ink-soft)}
+  .tprose + .tprose{margin-top:14px}
+  .tprose b{font-weight:700}
 
   /* controls */
-  .controls{display:flex;flex-wrap:wrap;gap:28px;align-items:flex-end;margin:26px 0 30px}
+  .controls{display:flex;flex-wrap:wrap;gap:28px;align-items:flex-end;margin:20px 0 26px}
   .ctl-label{font-weight:700;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:8px}
   .toggle{display:inline-flex;border:2px solid var(--ink);background:var(--card)}
-  .toggle button{appearance:none;border:0;background:transparent;font-family:var(--sans);font-weight:700;
-    font-size:15px;padding:11px 20px;cursor:pointer;color:var(--ink);letter-spacing:.01em}
+  .toggle button{appearance:none;border:0;background:transparent;font-family:var(--sans);font-weight:700;font-size:15px;padding:11px 20px;cursor:pointer;color:var(--ink)}
   .toggle button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
-  .stages-ctl{display:inline-flex;flex-wrap:wrap;gap:0;border:2px solid var(--ink);background:var(--card)}
-  .stages-ctl button{appearance:none;border:0;border-right:1px solid var(--line);background:transparent;
-    font-weight:700;font-size:11px;letter-spacing:.06em;text-transform:uppercase;padding:11px 13px;cursor:pointer;color:var(--ink-soft)}
+  .stages-ctl{display:inline-flex;flex-wrap:wrap;border:2px solid var(--ink);background:var(--card)}
+  .stages-ctl button{appearance:none;border:0;border-right:1px solid var(--line);background:transparent;font-weight:700;font-size:11px;letter-spacing:.06em;text-transform:uppercase;padding:11px 13px;cursor:pointer;color:var(--ink-soft)}
   .stages-ctl button:last-child{border-right:0}
   .stages-ctl button[aria-pressed="true"]{background:var(--signal);color:#fff}
   .stages-ctl.dim{opacity:.3;pointer-events:none}
   .ctl-note{text-transform:none;letter-spacing:0;font-weight:400;color:var(--muted)}
 
   /* summary */
-  .summary{display:flex;gap:18px;align-items:baseline;border-left:5px solid var(--signal);padding:6px 0 6px 18px;margin-bottom:28px;min-height:52px}
-  .summary .big{font-size:38px;font-weight:800;letter-spacing:-.02em;line-height:1}
-  .summary .txt{font-size:15.5px;color:var(--ink-soft);max-width:64ch}
+  .summary{display:flex;gap:18px;align-items:baseline;border-left:5px solid var(--signal);padding:6px 0 6px 18px;margin-bottom:26px;min-height:52px}
+  .summary .big{font-size:clamp(30px,4vw,40px);font-weight:800;letter-spacing:-.02em;line-height:1}
+  .summary .txt{font-size:16px;color:var(--ink-soft)}
 
   /* lifecycle */
   .phase-label{font-weight:700;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft);margin:20px 0 10px}
   .phase-row{display:grid;grid-template-columns:repeat(13,1fr);gap:6px}
-  .stage{position:relative;background:var(--card);border:1.5px solid var(--line);border-top:4px solid var(--commodity);
-    padding:11px 9px 12px;cursor:pointer;min-height:132px;display:flex;flex-direction:column;transition:transform .12s;text-align:left}
+  .stage{position:relative;background:var(--card);border:1.5px solid var(--line);border-top:4px solid var(--commodity);padding:11px 9px 12px;cursor:pointer;min-height:140px;display:flex;flex-direction:column;transition:transform .12s;text-align:left}
   .stage:hover{transform:translateY(-3px);outline:2px solid var(--ink);outline-offset:-1px;z-index:2}
   .stage.sel{outline:3px solid var(--ink);outline-offset:-1px}
+  .stage .stop{display:flex;align-items:center;justify-content:space-between;gap:4px}
   .stage .n{font-weight:700;font-size:11px;color:var(--muted);letter-spacing:.04em}
-  .stage .nm{font-size:12.5px;font-weight:700;line-height:1.14;margin-top:3px;letter-spacing:-.01em}
+  .stage .ic-sm{color:var(--ink)}
+  .stage .nm{font-size:12.5px;font-weight:700;line-height:1.14;margin-top:5px;letter-spacing:-.01em}
   .stage .who{margin-top:auto;font-weight:600;font-size:9.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
   .stage .post{display:inline-block;font-weight:700;font-size:9px;letter-spacing:.05em;padding:2px 5px;border:1.5px solid var(--line);margin-top:7px;align-self:flex-start;text-transform:uppercase}
   .stage .post.p-ss{border-color:var(--ink);color:var(--ink)}
@@ -64,8 +80,7 @@
   .stage.lane-craft{border-top-color:var(--craft)}
   .stage.lane-custody{border-top-color:var(--custody)}
   .stage.today{border-top-color:var(--ink)}
-  .stage .pivot,.stage .neck{position:absolute;top:-10px;right:-1px;font-weight:700;font-size:8px;letter-spacing:.08em;
-    background:var(--ink);color:var(--paper);padding:3px 6px;text-transform:uppercase}
+  .stage .pivot,.stage .neck{position:absolute;top:-10px;right:-1px;font-weight:700;font-size:8px;letter-spacing:.08em;background:var(--ink);color:var(--paper);padding:3px 6px;text-transform:uppercase}
   .stage .neck{background:var(--signal)}
   .stage.off{opacity:.34;filter:saturate(.35)}
   .stage.off .who::after{content:" · off"}
@@ -76,106 +91,222 @@
   .detail .lane-tag{font-weight:700;font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:3px 8px;border:1.5px solid var(--ink);margin-left:10px;vertical-align:middle}
   .detail .cols{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:16px}
   .detail .cols h4{font-weight:700;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);margin:0 0 7px;border-bottom:1.5px solid var(--line);padding-bottom:6px}
-  .detail .cols p{margin:0;font-size:14.5px;line-height:1.5}
-  .detail .ph{color:var(--ink-soft);font-size:14px}
+  .detail .cols p{margin:0;font-size:15px;line-height:1.55}
+  .detail .ph{color:var(--ink-soft);font-size:14.5px}
   .detail .ph b{color:var(--ink)}
 
-  /* posture + loop */
-  .lower{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:32px}
-  @media(max-width:820px){.lower{grid-template-columns:1fr}}
-  .panel{border:2px solid var(--ink);background:var(--card);padding:22px 24px}
-  .panel h3{margin:0 0 5px;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
-  .panel .sub{font-size:13.5px;color:var(--ink-soft);margin:0 0 16px;line-height:1.5}
-  .pbar{display:flex;height:36px;border:2px solid var(--ink);font-weight:700;font-size:10px;overflow:hidden}
+  /* posture bar */
+  .posture{margin-top:30px}
+  .posture h3{margin:0 0 5px;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+  .posture .sub{font-size:15px;color:var(--ink-soft);margin:0 0 14px}
+  .pbar{display:flex;height:38px;border:2px solid var(--ink);font-weight:700;font-size:11px;overflow:hidden}
   .pbar div{display:flex;align-items:center;justify-content:center;transition:flex-basis .5s ease;letter-spacing:.05em;text-transform:uppercase}
   .pseg-over{background:var(--commodity);color:#fff}
   .pseg-on{background:var(--craft);color:var(--ink)}
   .pseg-in{background:var(--custody);color:#fff}
-  .ploop{font-size:14.5px}
-  .ploop ol{margin:8px 0 0;padding-left:0;list-style:none;counter-reset:l}
-  .ploop li{counter-increment:l;position:relative;padding:9px 0 9px 36px;border-top:1.5px solid var(--line);line-height:1.5}
-  .ploop li b{font-weight:700}
-  .ploop li::before{content:counter(l);position:absolute;left:0;top:8px;width:24px;height:24px;background:var(--ink);color:var(--paper);
-    font-weight:700;font-size:12px;display:flex;align-items:center;justify-content:center}
-  .ploop .arrow{text-align:center;color:var(--signal);font-size:12px;padding-top:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
 
-  /* legend + footer */
-  .legend{display:flex;flex-wrap:wrap;gap:18px;margin-top:30px;font-size:12.5px;color:var(--ink-soft);align-items:center}
+  /* legend */
+  .legend{display:flex;flex-wrap:wrap;gap:18px;margin-top:26px;font-size:13px;color:var(--ink-soft);align-items:center}
   .legend .sw{display:inline-block;width:13px;height:13px;margin-right:7px;vertical-align:-1px}
   .legend b{color:var(--ink)}
-  .foot{margin-top:36px;border-top:2px solid var(--ink);padding-top:18px;font-size:13.5px;color:var(--ink-soft);max-width:88ch;line-height:1.55}
-  .foot b{color:var(--ink)}
 
-  /* sections */
-  .sec{margin-top:40px}
-  .sec-h{font-weight:700;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft);margin:0 0 6px}
-  .sec-d{font-size:15px;color:var(--ink-soft);max-width:84ch;margin:0 0 16px;line-height:1.55}
-  .triptych{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-  .pcard{border:1.5px solid var(--line);background:var(--card);border-top:5px solid var(--commodity);padding:17px 17px 19px}
+  /* three roles */
+  .triptych{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:8px}
+  .pcard{border:1.5px solid var(--line);background:var(--card);border-top:5px solid var(--commodity);padding:18px 18px 20px}
   .pcard.on{border-top-color:var(--craft)}
   .pcard.cust{border-top-color:var(--custody)}
+  .pcard .pchead{display:flex;align-items:center;gap:10px}
   .pcard .pos{font-weight:700;font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft)}
-  .pcard h4{margin:4px 0 0;font-size:19px;letter-spacing:-.015em;font-weight:800}
-  .pcard .lead{font-size:13.5px;margin:8px 0 0;line-height:1.5}
-  .pcard .role{font-size:12.5px;color:var(--ink-soft);margin:10px 0 0;line-height:1.5}
+  .pcard h4{margin:5px 0 0;font-size:20px;letter-spacing:-.015em;font-weight:800}
+  .pcard .lead{font-size:14px;margin:9px 0 0;line-height:1.5}
+  .pcard .role{font-size:13px;color:var(--ink-soft);margin:11px 0 0;line-height:1.5}
   .pcard .role b{font-weight:700;font-size:9px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink)}
-  .pcard .ex{font-size:11.5px;color:var(--muted);margin:10px 0 0;font-style:italic;line-height:1.45}
-  .fid{border:2px solid var(--ink);background:var(--card);padding:22px 24px}
-  .fid .pts{display:grid;grid-template-columns:1fr 1fr;gap:18px 26px}
-  .fid .pt h5{margin:0 0 4px;font-size:14.5px;font-weight:800;letter-spacing:-.01em}
-  .fid .pt p{font-size:13px;color:var(--ink-soft);margin:0;line-height:1.5}
-  .fid .lens{margin-top:18px;font-size:13.5px;border-top:1.5px solid var(--line);padding-top:16px}
-  .fid .lens b{color:var(--ink)}
+  .pcard .ex{font-size:12px;color:var(--muted);margin:11px 0 0;font-style:italic;line-height:1.45}
+
+  /* loop */
+  .ploop{margin-top:8px;counter-reset:l}
+  .ploop .step{display:flex;gap:16px;align-items:flex-start;padding:14px 0;border-top:1.5px solid var(--line)}
+  .ploop .step:first-child{border-top:0}
+  .ploop .step .ic{color:var(--signal);margin-top:2px}
+  .ploop .step p{font-size:16px;line-height:1.55}
+  .ploop .step p b{font-weight:700}
+  .ploop .lstep{counter-increment:l;font-weight:800;font-size:15px;min-width:26px}
+  .ploop .lstep::before{content:counter(l,decimal-leading-zero)}
+
+  /* fiduciary */
+  .fid{margin-top:8px;display:grid;grid-template-columns:1fr 1fr;gap:22px 32px}
+  @media(max-width:760px){.fid{grid-template-columns:1fr}}
+  .fid .pt{display:flex;gap:14px;align-items:flex-start}
+  .fid .pt .ic{color:var(--signal);margin-top:3px}
+  .fid .pt h5{margin:0 0 5px;font-size:16px;font-weight:800;letter-spacing:-.01em}
+  .fid .pt p{font-size:14px;color:var(--ink-soft);margin:0;line-height:1.5}
+  .fid-lens{margin-top:22px;border-top:2px solid var(--ink);padding-top:18px;font-size:16px;line-height:1.6}
+  .fid-lens b{font-weight:800}
+
+  /* size cards */
+  .sizes{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:16px}
+  @media(max-width:820px){.sizes{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:480px){.sizes{grid-template-columns:1fr}}
+  .scard{border:1.5px solid var(--line);background:var(--card);padding:15px 15px 17px;border-top:4px solid var(--ink)}
+  .scard .st{font-weight:800;font-size:15px;letter-spacing:-.01em}
+  .scard p{font-size:13px;color:var(--ink-soft);margin:8px 0 0;line-height:1.5}
+
+  /* recap */
+  .recap{margin-top:40px;border:2px solid var(--ink);background:var(--card);padding:26px 28px}
+  .recap .big{font-size:clamp(19px,2.4vw,26px);font-weight:800;letter-spacing:-.02em;line-height:1.25}
+  .foot{margin-top:26px;font-size:14px;color:var(--ink-soft);line-height:1.6}
+  .foot b{color:var(--ink)}
 
   @media(max-width:900px){.phase-row{grid-template-columns:repeat(7,1fr)}}
+  @media(max-width:640px){.triptych{grid-template-columns:1fr}}
   @media(max-width:560px){.phase-row{grid-template-columns:repeat(3,1fr)}.detail .cols{grid-template-columns:1fr}}
-  @media(max-width:760px){.triptych{grid-template-columns:1fr}.fid .pts{grid-template-columns:1fr}}
   @media (prefers-reduced-motion: reduce){*{transition:none !important}}
 </style>
 </head>
 <body>
+
+<svg class="isprite" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><defs>
+<symbol id="a-oversight" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12 Q12 5 21 12 Q12 19 3 12 Z"></path><circle fill="var(--signal)" stroke="none" cx="12" cy="12" r="2.4"></circle></symbol>
+<symbol id="a-handoff" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle fill="currentColor" stroke="none" cx="5" cy="12" r="2.4"></circle><line x1="8" y1="12" x2="15" y2="12"></line><polyline points="13,9.5 16,12 13,14.5"></polyline><circle cx="19" cy="12" r="2.4"></circle></symbol>
+<symbol id="a-escalate" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="19" x2="13" y2="19"></line><line x1="4" y1="15" x2="13" y2="15"></line><line x1="4" y1="11" x2="10" y2="11"></line><line stroke="var(--signal)" x1="18" y1="18" x2="18" y2="6"></line><polyline stroke="var(--signal)" points="15,9 18,6 21,9"></polyline></symbol>
+<symbol id="a-signoff" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="8"></circle><polyline stroke="var(--signal)" points="8,12 11,15 16,9"></polyline></symbol>
+<symbol id="a-in-loop" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="8"></circle><circle fill="var(--signal)" stroke="none" cx="12" cy="12" r="2.6"></circle></symbol>
+<symbol id="a-on-loop" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="13" r="7"></circle><circle fill="var(--signal)" stroke="none" cx="12" cy="6" r="2.6"></circle></symbol>
+<symbol id="a-over-loop" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="15" r="6"></circle><circle fill="var(--signal)" stroke="none" cx="12" cy="4" r="2.6"></circle></symbol>
+<symbol id="a-automate" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 13.5 A7 7 0 1 0 16.5 19"></path><polyline points="14.5,15 19,13.5 20.5,18"></polyline></symbol>
+<symbol id="a-override" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="8"></circle><line stroke="var(--signal)" x1="6" y1="18" x2="18" y2="6"></line></symbol>
+<symbol id="a-audit" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="7" cy="7" r="4"></circle><line x1="9" y1="11" x2="12" y2="14"></line><line x1="4" y1="18" x2="20" y2="18"></line><line x1="8" y1="18" x2="8" y2="15"></line><line x1="12" y1="18" x2="12" y2="15"></line><line x1="16" y1="18" x2="16" y2="15"></line></symbol>
+<symbol id="b-commodity" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="8" x2="20" y2="8"></line><line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="16" x2="20" y2="16"></line></symbol>
+<symbol id="b-craft" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 19 L5 7 L13 7 L13 5 L19 5 L19 19 Z"></path></symbol>
+<symbol id="b-custody" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect stroke-width="3" x="5" y="5" width="14" height="14"></rect><circle fill="var(--signal)" stroke="none" cx="12" cy="11" r="2"></circle><rect fill="var(--signal)" stroke="none" x="11" y="11" width="2" height="4"></rect></symbol>
+<symbol id="b-route" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="12" x2="10" y2="12"></line><line x1="10" y1="12" x2="20" y2="7"></line><line x1="10" y1="12" x2="20" y2="17"></line><circle fill="currentColor" stroke="none" cx="10" cy="12" r="1.8"></circle></symbol>
+<symbol id="b-ledger" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16"></rect><line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="14" x2="20" y2="14"></line><line x1="14" y1="4" x2="14" y2="20"></line></symbol>
+<symbol id="b-relocate" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="15" width="5" height="5"></rect><rect fill="var(--signal)" stroke="none" x="16" y="4" width="5" height="5"></rect><line x1="9" y1="15" x2="15" y2="9"></line><polyline points="11,9 15,9 15,13"></polyline></symbol>
+<symbol id="c-draft" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3 L15 3 L19 7 L19 21 L6 21 Z"></path><polyline points="15,3 15,7 19,7"></polyline><line stroke="var(--signal)" x1="8" y1="18" x2="17" y2="9"></line></symbol>
+<symbol id="c-redline" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3 L15 3 L19 7 L19 21 L6 21 Z"></path><polyline points="15,3 15,7 19,7"></polyline><line x1="9" y1="11" x2="16" y2="11"></line><line x1="9" y1="15" x2="16" y2="15"></line><line stroke="var(--signal)" x1="8" y1="13" x2="17" y2="13"></line></symbol>
+<symbol id="c-clause" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 5 L7 5 L7 19 L9 19"></path><line x1="11" y1="9" x2="17" y2="9"></line><line x1="11" y1="13" x2="17" y2="13"></line><line stroke="var(--signal)" x1="11" y1="17" x2="15" y2="17"></line></symbol>
+<symbol id="c-negotiate" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="9" x2="11" y2="9"></line><polyline points="8,6 11,9 8,12"></polyline><line x1="20" y1="15" x2="13" y2="15"></line><polyline points="16,12 13,15 16,18"></polyline></symbol>
+<symbol id="c-sign" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 4 L14 4 L18 8 L18 20 L5 20 Z"></path><polyline points="14,4 14,8 18,8"></polyline><path stroke="var(--signal)" d="M8 16 q2 -4 4 0 t4 0"></path></symbol>
+<symbol id="c-obligation" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="9" width="11" height="6"></rect><rect x="10" y="9" width="11" height="6"></rect></symbol>
+<symbol id="c-renewal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="7" y="7" width="11" height="13"></rect><path stroke="var(--signal)" d="M7 11 A5 5 0 0 1 17 9"></path><polyline stroke="var(--signal)" points="15,6 17.5,9 14,10.5"></polyline></symbol>
+<symbol id="c-repository" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="7" width="16" height="13"></rect><line x1="4" y1="11" x2="20" y2="11"></line><line x1="9" y1="11" x2="9" y2="20"></line><line x1="12" y1="11" x2="12" y2="20"></line><line x1="15" y1="11" x2="15" y2="20"></line></symbol>
+<symbol id="d-blueprint" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16"></rect><polyline points="8,16 8,10 14,10 14,14 17,14"></polyline><line stroke="var(--signal)" x1="4" y1="8" x2="7" y2="8"></line><line stroke="var(--signal)" x1="20" y1="16" x2="17" y2="16"></line></symbol>
+<symbol id="d-loadbearing" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="6" y1="9" x2="18" y2="9"></line><line x1="6" y1="20" x2="18" y2="20"></line><line x1="12" y1="9" x2="12" y2="20"></line><line stroke="var(--signal)" x1="12" y1="2" x2="12" y2="7"></line><polyline stroke="var(--signal)" points="9,4.5 12,7.5 15,4.5"></polyline></symbol>
+<symbol id="e-agent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle fill="var(--signal)" stroke="none" cx="12" cy="12" r="3.5"></circle><line x1="12" y1="3" x2="12" y2="6"></line><line x1="12" y1="18" x2="12" y2="21"></line><line x1="3" y1="12" x2="6" y2="12"></line><line x1="18" y1="12" x2="21" y2="12"></line></symbol>
+<symbol id="e-eval" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="18" x2="20" y2="18"></line><circle fill="currentColor" stroke="none" cx="9" cy="12" r="2"></circle><polyline stroke="var(--signal)" points="14,12 16,14 20,8"></polyline></symbol>
+</defs></svg>
+
 <div class="wrap">
 
   <div class="masthead">
-    <div class="kicker">In-house legal · how the work changes · June 2026</div>
+    <div class="kicker">In-house legal · an introduction · June 2026</div>
     <h1>The legal department, rewired.</h1>
-    <p class="dek">A legal team spends most of its time moving contracts through the same set of steps. AI can now do a lot of that work. This shows you, step by step, what the machine takes over, what stays with a lawyer, and why. Flip between how it works today and how it works when the team is rebuilt around AI. Click any step to dig in.</p>
+    <p class="dek">This is a plain-English introduction to how an in-house legal team actually works, how AI is about to change it, and why that change looks different depending on the size of the company. No jargon. Read straight through, or jump into the interactive and poke around.</p>
   </div>
 
-  <div class="controls">
-    <div>
-      <div class="ctl-label">How it runs</div>
-      <div class="toggle" role="group" aria-label="How it runs">
-        <button id="mTODAY" aria-pressed="true" onclick="setMode('today')">Today</button>
-        <button id="mAI" aria-pressed="false" onclick="setMode('ai')">AI-native</button>
+  <!-- 01 -->
+  <section class="tsec">
+    <div class="tsec-head">
+      <span class="tnum num">01</span>
+      <svg class="ic ic-lg"><use href="#c-repository"></use></svg>
+      <div><div class="kicker">Start here</div><h2>What a legal team actually does all day</h2></div>
+    </div>
+    <p class="tprose">An in-house legal team is two things at once: the company's <b>contract engine</b> and its <b>risk gate</b>. Almost everything it does is moving agreements through the same set of steps, from the moment a request comes in to the day a contract renews or ends. There are about thirteen of these steps, and they repeat thousands of times a year.</p>
+    <p class="tprose soft">Today, a lawyer touches every one of them, even the routine ones that do not really need a lawyer. That is the work AI is about to change. To see how, you first need one simple idea.</p>
+  </section>
+
+  <!-- 02 -->
+  <section class="tsec">
+    <div class="tsec-head">
+      <span class="tnum num">02</span>
+      <svg class="ic ic-lg"><use href="#b-craft"></use></svg>
+      <div><div class="kicker">The one idea</div><h2>Legal work comes in three kinds</h2></div>
+    </div>
+    <p class="tprose">Not all legal work is the same, and that is the whole key. Some of it is routine with one right answer. Some of it depends on judgment. And a little of it is a moment where a person has to answer for what happened. Each kind puts the lawyer in a different spot relative to the machine: from <b>watching over the loop</b>, to <b>sitting on the loop</b>, to <b>staying in the loop</b>. As the work gets riskier, the lawyer moves closer in, the machine gets less rope, and the responsibility goes up. Keep these three in mind and the rest of the page falls into place.</p>
+    <div class="triptych">
+      <div class="pcard">
+        <div class="pchead"><svg class="ic"><use href="#b-commodity"></use></svg><svg class="ic ic-sm"><use href="#a-over-loop"></use></svg></div>
+        <div class="pos" style="margin-top:8px">Commodity</div>
+        <h4>Watch from over the loop</h4>
+        <div class="lead">The routine, high-volume work with one right answer. You set the rules and watch the system, not every file.</div>
+        <div class="role"><b>Lawyer</b> writes the playbook, checks a sample, and watches the dashboard. You were not there for each one, and you can still answer for all of them, because you wrote the standard and you audit the results.</div>
+        <div class="role"><b>Agent</b> does the work and kicks anything odd up to a person.</div>
+        <div class="ex">Intake, screening, standard markups, storage, tracking obligations.</div>
+      </div>
+      <div class="pcard on">
+        <div class="pchead"><svg class="ic"><use href="#b-craft"></use></svg><svg class="ic ic-sm"><use href="#a-on-loop"></use></svg></div>
+        <div class="pos" style="margin-top:8px">Craft</div>
+        <h4>Sit on the loop</h4>
+        <div class="lead">The work where the right answer depends on who is across the table and how much risk the company will take. You are in the decision before it goes out.</div>
+        <div class="role"><b>Lawyer</b> weighs the options, makes the call, and writes down the reasoning.</div>
+        <div class="role"><b>Agent</b> drafts the options and flags where the other side is pushing.</div>
+        <div class="ex">Internal review, the position on the risky clauses, negotiation moves.</div>
+      </div>
+      <div class="pcard cust">
+        <div class="pchead"><svg class="ic"><use href="#b-custody"></use></svg><svg class="ic ic-sm"><use href="#a-in-loop"></use></svg></div>
+        <div class="pos" style="margin-top:8px">Custody</div>
+        <h4>Stay in the loop</h4>
+        <div class="lead">The moments where a person has to answer for what happened. You own and sign each one, and you are on the hook.</div>
+        <div class="role"><b>Lawyer</b> makes the call, signs, and answers for it. This cannot be handed to the agent.</div>
+        <div class="role"><b>Agent</b> gets the package ready and checks it is complete. It never approves or signs.</div>
+        <div class="ex">Approving a deal that binds the company, signing, enforcing or ending a contract, board minutes, regulatory sign-off.</div>
       </div>
     </div>
-    <div id="stageWrap">
-      <div class="ctl-label">Company size <span class="ctl-note">(the same model at every size)</span></div>
-      <div class="stages-ctl" id="stagesCtl" role="group" aria-label="Company size">
-        <button data-st="0" aria-pressed="false" onclick="setStage(0)">Startup</button>
-        <button data-st="1" aria-pressed="false" onclick="setStage(1)">Growth</button>
-        <button data-st="2" aria-pressed="true" onclick="setStage(2)">Mid-market</button>
-        <button data-st="3" aria-pressed="false" onclick="setStage(3)">Enterprise</button>
+  </section>
+
+  <!-- 03 -->
+  <section class="tsec">
+    <div class="tsec-head">
+      <span class="tnum num">03</span>
+      <svg class="ic ic-lg"><use href="#a-automate"></use></svg>
+      <div><div class="kicker">The shift</div><h2>What AI actually changes</h2></div>
+    </div>
+    <p class="tprose">Today a lawyer sits inside all thirteen steps, even the routine ones. That means the most expensive judgment in the building gets spent producing standard work. AI changes the split. It can take over the routine, checkable work in the Commodity lane, which frees the lawyer to spend their judgment on the Craft calls and the Custody moments, where it is actually worth something.</p>
+    <p class="tprose soft">The point is not to replace the lawyer. It is to move the lawyer to where they are worth the most, and to build the guardrails and records that let the machine handle the rest safely. That combination, and only that combination, is what "AI-native" means here. Now look at how it plays out, step by step.</p>
+  </section>
+
+  <!-- 04 -->
+  <section class="tsec">
+    <div class="tsec-head">
+      <span class="tnum num">04</span>
+      <svg class="ic ic-lg"><use href="#b-route"></use></svg>
+      <div><div class="kicker">Explore</div><h2>Walk the thirteen steps</h2></div>
+    </div>
+    <p class="tprose soft" style="margin-bottom:6px">Flip between <b>Today</b> and <b>AI-native</b> to see what changes. Change the <b>company size</b> to see how much of the AI model is switched on. Click any step for the detail: how it is done today, how it changes, the limit that keeps it safe, and who is on the hook.</p>
+
+    <div class="controls">
+      <div>
+        <div class="ctl-label">How it runs</div>
+        <div class="toggle" role="group" aria-label="How it runs">
+          <button id="mTODAY" aria-pressed="true" onclick="setMode('today')">Today</button>
+          <button id="mAI" aria-pressed="false" onclick="setMode('ai')">AI-native</button>
+        </div>
+      </div>
+      <div id="stageWrap">
+        <div class="ctl-label">Company size <span class="ctl-note">(same model at every size)</span></div>
+        <div class="stages-ctl" id="stagesCtl" role="group" aria-label="Company size">
+          <button data-st="0" aria-pressed="false" onclick="setStage(0)">Startup</button>
+          <button data-st="1" aria-pressed="false" onclick="setStage(1)">Growth</button>
+          <button data-st="2" aria-pressed="true" onclick="setStage(2)">Mid-market</button>
+          <button data-st="3" aria-pressed="false" onclick="setStage(3)">Enterprise</button>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="summary">
-    <div class="big num" id="sumBig">—</div>
-    <div class="txt" id="sumTxt"></div>
-  </div>
+    <div class="summary">
+      <div class="big num" id="sumBig">—</div>
+      <div class="txt" id="sumTxt"></div>
+    </div>
 
-  <div class="phase-label">The thirteen steps a contract goes through</div>
-  <div class="phase-row" id="row"></div>
+    <div class="phase-label">The thirteen steps a contract goes through</div>
+    <div class="phase-row" id="row"></div>
 
-  <div class="detail" id="detail">
-    <h3>Pick a step<span class="lane-tag" id="dLane" style="display:none"></span></h3>
-    <p class="ph">Click any step above to see how it is done today, how it changes with AI, who does it, where the lawyer stands, the limit that keeps it safe, and who is on the hook for the call.</p>
-  </div>
+    <div class="detail" id="detail">
+      <h3>Pick a step</h3>
+      <p class="ph">Click any step above to see how it is done today, how it changes with AI, who does it, where the lawyer stands, the limit that keeps it safe, and who is on the hook for the call.</p>
+    </div>
 
-  <div class="lower">
-    <div class="panel">
+    <div class="posture">
       <h3>Where the lawyer stands</h3>
       <p class="sub" id="postureSub">Across all thirteen steps</p>
       <div class="pbar" id="pbar">
@@ -185,85 +316,68 @@
       </div>
       <p class="sub" style="margin-top:14px" id="postureNote"></p>
     </div>
-    <div class="panel" id="loopPanel">
-      <h3>The loop that makes it better</h3>
-      <p class="sub">Only the AI-built version has this. It is what keeps the team getting better instead of leveling off.</p>
-      <div class="ploop">
-        <ol>
-          <li>Watch where a lawyer <b>changes what the agent produced</b>. That is your live map of where judgment still matters.</li>
-          <li>When the same change keeps happening, either <b>teach the agent the rule</b> behind it, or <b>keep it as a call a human always makes</b>.</li>
-          <li>Write down the reason, in your company's own terms, in a <b>running record of how you decide</b>. That record is the team's built-up judgment.</li>
-          <li>Once a call becomes routine, it moves from the judgment lane to the routine lane, and the lawyer moves up to the next hard problem.</li>
-        </ol>
-        <div class="arrow">↑ the record feeds the next decision ↑</div>
-      </div>
+
+    <div class="legend">
+      <span><span class="sw" style="background:var(--commodity)"></span><b>Commodity</b> · routine · over the loop</span>
+      <span><span class="sw" style="background:var(--craft)"></span><b>Craft</b> · judgment · on the loop</span>
+      <span><span class="sw" style="background:var(--custody)"></span><b>Custody</b> · high-stakes · in the loop</span>
+      <span><span class="sw" style="background:var(--ink)"></span><b>Today</b> · a lawyer, start to finish</span>
     </div>
-  </div>
+  </section>
 
-  <div class="legend">
-    <span><span class="sw" style="background:var(--commodity)"></span><b>Commodity</b> · routine · watch from over the loop · spot-check it</span>
-    <span><span class="sw" style="background:var(--craft)"></span><b>Craft</b> · judgment · sit on the loop · decide it</span>
-    <span><span class="sw" style="background:var(--custody)"></span><b>Custody</b> · high-stakes · stay in the loop · own and sign it</span>
-    <span><span class="sw" style="background:var(--ink)"></span><b>Today</b> · a lawyer, start to finish</span>
-  </div>
-
-  <div class="sec">
-    <div class="sec-h">Where the lawyer stands, up close</div>
-    <p class="sec-d">Legal work comes in three kinds, and each puts the lawyer in a different spot. As the work gets riskier, the lawyer moves closer in: from watching over the loop, to being on the loop, to sitting in the loop. The AI gets less rope and the lawyer's responsibility goes up. And that setting is not fixed. A step earns more independence only after its track record shows the team can answer for it without a lawyer checking every single one.</p>
-    <div class="triptych">
-      <div class="pcard">
-        <div class="pos">Commodity</div>
-        <h4>Watch from over the loop</h4>
-        <div class="lead">The routine, high-volume work with one right answer. You set the rules and watch the system, not every file.</div>
-        <div class="role"><b>Lawyer</b> writes the playbook, checks a sample, and watches the dashboard. You were not there for each one, and you can still answer for all of them, because you wrote the standard and you audit the results.</div>
-        <div class="role"><b>Agent</b> does the work and kicks anything odd up to a person.</div>
-        <div class="ex">Intake, screening, standard markups, storage, tracking obligations.</div>
-      </div>
-      <div class="pcard on">
-        <div class="pos">Craft</div>
-        <h4>Sit on the loop</h4>
-        <div class="lead">The work where the right answer depends on who is across the table and how much risk the company will take. You are in the decision before it goes out.</div>
-        <div class="role"><b>Lawyer</b> weighs the options, makes the call, and writes down the reasoning.</div>
-        <div class="role"><b>Agent</b> drafts the options and flags where the other side is pushing.</div>
-        <div class="ex">Internal review, the position on the risky clauses, negotiation moves.</div>
-      </div>
-      <div class="pcard cust">
-        <div class="pos">Custody</div>
-        <h4>Stay in the loop</h4>
-        <div class="lead">The moments where a person has to answer for what happened. You own and sign each one, and you are on the hook.</div>
-        <div class="role"><b>Lawyer</b> makes the call, signs, and answers for it. This cannot be handed to the agent.</div>
-        <div class="role"><b>Agent</b> gets the package ready and checks it is complete. It never approves or signs.</div>
-        <div class="ex">Approving a deal that binds the company, signing, enforcing or ending a contract, board minutes, regulatory sign-off.</div>
-      </div>
+  <!-- 05 -->
+  <section class="tsec">
+    <div class="tsec-head">
+      <span class="tnum num">05</span>
+      <svg class="ic ic-lg"><use href="#b-ledger"></use></svg>
+      <div><div class="kicker">Why it improves</div><h2>The loop that makes it better over time</h2></div>
     </div>
-  </div>
+    <p class="tprose">A team built this way does not just run. It learns. The line between routine and judgment is not fixed: work that takes real judgment this year can become routine the next, once the team notices it keeps making the same call the same way. Only the AI-native version has a loop for capturing that, and it is what keeps the team getting better instead of leveling off.</p>
+    <div class="ploop">
+      <div class="step"><span class="lstep num"></span><svg class="ic"><use href="#a-override"></use></svg><p>Watch where a lawyer <b>changes what the agent produced</b>. That is your live map of where judgment still matters.</p></div>
+      <div class="step"><span class="lstep num"></span><svg class="ic"><use href="#e-eval"></use></svg><p>When the same change keeps happening, either <b>teach the agent the rule</b> behind it, or <b>keep it as a call a human always makes</b>.</p></div>
+      <div class="step"><span class="lstep num"></span><svg class="ic"><use href="#b-ledger"></use></svg><p>Write the reason down, in your company's own terms, in a <b>running record of how you decide</b>. That record is the team's built-up judgment.</p></div>
+      <div class="step"><span class="lstep num"></span><svg class="ic"><use href="#b-relocate"></use></svg><p>Once a call becomes routine, it <b>moves from the judgment lane to the routine lane</b>, and the lawyer moves up to the next hard problem.</p></div>
+    </div>
+  </section>
 
-  <div class="sec">
-    <div class="sec-h">Why a legal team is not just another department</div>
-    <p class="sec-d">A legal team is not a generic operations group. A lawyer carries legal duties that a tool cannot take on. Those duties shape how the team looks at every step here, and they are the reason a lawyer stays close to the work wherever the stakes are highest.</p>
+  <!-- 06 -->
+  <section class="tsec">
+    <div class="tsec-head">
+      <span class="tnum num">06</span>
+      <svg class="ic ic-lg"><use href="#e-agent"></use></svg>
+      <div><div class="kicker">By department size</div><h2>It looks different at every size</h2></div>
+    </div>
+    <p class="tprose">The model underneath does not change with the size of the company. What changes is how much of it is switched on, and how much room each agent has earned. Use the <b>size buttons in the interactive above</b> to watch the same thirteen steps shift from mostly-human to mostly-self-serve, while the highest-stakes calls stay put no matter the size.</p>
+    <div class="sizes">
+      <div class="scard"><div class="st">Startup</div><p>One lawyer running two or three agents and doing all the judgment by hand. The whole model, in miniature.</p></div>
+      <div class="scard"><div class="st">Growth</div><p>The core contract agents on off-the-shelf tools, plus a knowledge base the team built itself.</p></div>
+      <div class="scard"><div class="st">Mid-market</div><p>The full set of contract agents, plus privacy and knowledge ones, with the learning loop up and running.</p></div>
+      <div class="scard"><div class="st">Enterprise</div><p>Every agent switched on, each given more room as it earns trust, and a standing team just to govern the whole thing.</p></div>
+    </div>
+  </section>
+
+  <!-- 07 -->
+  <section class="tsec">
+    <div class="tsec-head">
+      <span class="tnum num">07</span>
+      <svg class="ic ic-lg"><use href="#a-signoff"></use></svg>
+      <div><div class="kicker">The catch</div><h2>Why a lawyer never fully leaves</h2></div>
+    </div>
+    <p class="tprose">A legal team is not a generic operations group. A lawyer carries legal duties that a tool cannot take on. Those duties are the reason a lawyer stays close to the work wherever the stakes are highest, no matter how good the AI gets.</p>
     <div class="fid">
-      <div class="pts">
-        <div class="pt">
-          <h5>The duty to answer</h5>
-          <p>A company lawyer owes the company real legal duties: loyalty, care, competence, confidentiality, honesty. An agent can do the work, but it cannot carry the duty. That is why the highest-stakes calls stay with a person who answers for them, no matter how capable the AI gets.</p>
-        </div>
-        <div class="pt">
-          <h5>Supervising the tools (Rules 5.1 and 5.3)</h5>
-          <p>A supervising lawyer answers for the work of the people and tools under them. You meet that duty, and prove you met it, with right-sized records and a human sign-off. An agent giving something a pass is not the same as review.</p>
-        </div>
-        <div class="pt">
-          <h5>Keeping it privileged (Rule 1.6)</h5>
-          <p>A lot of legal work is privileged, which means it is protected from the other side in a lawsuit. Feed it into a public AI tool and you can lose that protection, and the other side can demand it. So privilege is built in from the start: private company instances, projects walled off by matter, a locked-down AI tier, and records kept light enough to prove diligence without storing the sensitive substance.</p>
-        </div>
-        <div class="pt">
-          <h5>The bar rises with the tool</h5>
-          <p>Once you have a tool that reliably catches a problem, ignoring what it finds is worse than never having looked. Being able to catch it creates a duty to act on it. So when the system raises a flag, you resolve it. You do not leave it sitting there as a record that you knew.</p>
-        </div>
-      </div>
-      <p class="lens"><b>What this changes.</b> For a lawyer, the question is not just whether the work is good and fast. It is whether they can stand behind it, whether it is protected, and who answers for it. That is what pushes the high-duty work closer in, and it shapes the records the team keeps. Fast is necessary. It is never enough.</p>
+      <div class="pt"><svg class="ic"><use href="#a-signoff"></use></svg><div><h5>The duty to answer</h5><p>A company lawyer owes the company real legal duties: loyalty, care, competence, confidentiality, honesty. An agent can do the work, but it cannot carry the duty. So the highest-stakes calls stay with a person who answers for them.</p></div></div>
+      <div class="pt"><svg class="ic"><use href="#a-oversight"></use></svg><div><h5>Supervising the tools (Rules 5.1 and 5.3)</h5><p>A supervising lawyer answers for the work of the people and tools under them. You meet that duty, and prove you met it, with right-sized records and a human sign-off. An agent giving something a pass is not the same as review.</p></div></div>
+      <div class="pt"><svg class="ic"><use href="#b-custody"></use></svg><div><h5>Keeping it privileged (Rule 1.6)</h5><p>A lot of legal work is privileged, which means it is protected from the other side in a lawsuit. Feed it into a public AI tool and you can lose that protection. So privilege is built in from the start: private instances, projects walled off by matter, a locked-down AI tier, and records kept light enough to prove diligence without storing the sensitive substance.</p></div></div>
+      <div class="pt"><svg class="ic"><use href="#d-loadbearing"></use></svg><div><h5>The bar rises with the tool</h5><p>Once you have a tool that reliably catches a problem, ignoring what it finds is worse than never having looked. Being able to catch it creates a duty to act on it. So when the system raises a flag, you resolve it. You do not leave it sitting there as a record that you knew.</p></div></div>
     </div>
-  </div>
+    <p class="fid-lens"><b>What this changes.</b> For a lawyer, the question is not just whether the work is good and fast. It is whether they can stand behind it, whether it is protected, and who answers for it. That is what pushes the high-duty work closer in, and it shapes the records the team keeps. Fast is necessary. It is never enough.</p>
+  </section>
 
+  <!-- recap -->
+  <div class="recap">
+    <div class="big">The short version: AI takes the routine, a lawyer keeps the judgment and the sign-off, and the line between them moves as the record proves what can safely run on its own.</div>
+  </div>
   <div class="foot">
     <b>How to read this.</b> Most of the work is routine, and it runs in the Commodity lane with a lawyer spot-checking the output instead of reading every file. A smaller set stays with a person: the few clauses that carry real risk, like the liability cap, the indemnity, and price, plus the moments that actually bind the company. Those stay human even when the deal looks routine, because someone has to be able to answer for them. The model underneath is the same at any size. What grows with the company is how many agents are switched on and how much room each one has earned.
   </div>
@@ -272,55 +386,55 @@
 
 <script>
 const STAGES = [
-  {n:1, nm:"Intake", lane:"commodity", post:"over", agent:"Intake agent",
+  {n:1, nm:"Intake", lane:"commodity", post:"over", agent:"Intake agent", icon:"a-handoff",
    today:"A request comes in by email or chat. Someone logs it by hand, if it gets logged at all. There is no real front door.",
    ai:"An agent captures every request, figures out what kind of document it is, pulls the key details, and opens a clean file for it.",
    limit:"The threshold", guard:"The agent only hands off to a person once it is confident enough, and counterparty files are kept walled off.", owns:"No sign-off needed. Just a light log."},
-  {n:2, nm:"Triage & routing", lane:"craft", post:"on", pivot:"Pivot", agent:"Triage agent",
+  {n:2, nm:"Triage & routing", lane:"craft", post:"on", pivot:"Pivot", agent:"Triage agent", icon:"b-route",
    today:"A senior lawyer sorts by gut, or the work just piles up in an inbox with no order to it.",
    ai:"The agent scores the matter and suggests a lane, Commodity, Craft, or Custody, and a person owns every close call and every high-stakes one.",
    limit:"The watch", guard:"Sorting is treated as skilled work, and how often it mis-sorts is a number the team watches.", owns:"The Attorney-Architect owns the lane decision."},
-  {n:3, nm:"Conflicts & risk screen", lane:"commodity", post:"over", agent:"Screening agent",
+  {n:3, nm:"Conflicts & risk screen", lane:"commodity", post:"over", agent:"Screening agent", icon:"a-audit",
    today:"Manual checks against watchlists and past dealings, often skipped when things are busy.",
    ai:"The agent runs conflict, sanctions, and data-sensitivity checks and stops the work cold on a flag.",
    limit:"The halt", guard:"A flag stops the line, and the agent can never clear its own flag.", owns:"Going ahead despite a real flag is a human call (Custody)."},
-  {n:4, nm:"Template & playbook", lane:"commodity", post:"over", agent:"Drafting agent",
+  {n:4, nm:"Template & playbook", lane:"commodity", post:"over", agent:"Drafting agent", icon:"d-blueprint",
    today:"The lawyer hunts for the right template and tries to remember the standard positions.",
    ai:"The agent picks the right document and the playbook that governs it, from the request.",
    limit:"The check", guard:"It flags stale templates, and the choice is logged.", owns:"Writing the playbook itself is a separate, governed act."},
-  {n:5, nm:"Drafting", lane:"commodity", post:"over", agent:"Drafting agent",
+  {n:5, nm:"Drafting", lane:"commodity", post:"over", agent:"Drafting agent", icon:"c-draft",
    today:"The lawyer writes the first draft from a template. This is the slow part of the day.",
    ai:"The agent writes the first draft for standard documents, and a lawyer shapes the custom ones.",
    limit:"The proof", guard:"Every citation is checked against its source.", owns:"Sign-off comes later, at the position and the signature."},
-  {n:6, nm:"Internal review", lane:"craft", post:"on", agent:"Review agent",
+  {n:6, nm:"Internal review", lane:"craft", post:"on", agent:"Review agent", icon:"c-clause",
    today:"The document gets handed one by one to security, finance, privacy, and tax. Days of waiting.",
    ai:"The agent checks it against the standards and sends only the clauses that need it to the right specialist, all at once.",
    limit:"The gate", guard:"Signing off on a high-stakes clause is itself a Custody gate.", owns:"Specialists own the clauses that land on their desk."},
-  {n:7, nm:"Redline vs. playbook", lane:"craft", post:"on", neck:"Time sink", agent:"Redline agent",
+  {n:7, nm:"Redline vs. playbook", lane:"craft", post:"on", neck:"Time sink", agent:"Redline agent", icon:"c-redline",
    today:"The busiest part of the job. Roughly three hours a contract, line by line.",
    ai:"Standard markups within the safe range go out with a person attesting on send. On the risky clauses, the agent proposes and a lawyer owns the position.",
    limit:"The limit", guard:"A conservative safe range, and positions on the risky clauses are never sent automatically.", owns:"The lawyer owns the position on liability, indemnity, IP, and data."},
-  {n:8, nm:"Negotiation", lane:"craft", post:"on", agent:"Negotiation agent",
+  {n:8, nm:"Negotiation", lane:"craft", post:"on", agent:"Negotiation agent", icon:"c-negotiate",
    today:"The lawyer tracks versions by hand and negotiates every round.",
    ai:"The agent tracks the rounds, points out where a deal can land, and drafts replies. On the big deals, the lawyer runs the table.",
    limit:"The brake", guard:"No concession happens on its own, and the review reads both sides of the deal.", owns:"Every concession that matters is a human call."},
-  {n:9, nm:"Escalation & approval", lane:"custody", post:"in", agent:"Approval agent",
+  {n:9, nm:"Escalation & approval", lane:"custody", post:"in", agent:"Approval agent", icon:"a-escalate",
    today:"Approval lives in email threads, checked against a half-remembered authority chart.",
    ai:"The agent checks the deal against who is allowed to approve what and assembles the approval package.",
    limit:"The line", guard:"The agent builds the package. It never grants the approval.", owns:"The GC or their delegate approves. This is the moment that binds the company."},
-  {n:10, nm:"Signature & execution", lane:"custody", post:"in", agent:"Execution agent",
+  {n:10, nm:"Signature & execution", lane:"custody", post:"in", agent:"Execution agent", icon:"c-sign",
    today:"Someone routes it for signature by hand, with the occasional out-of-process signing.",
    ai:"The agent checks the signer is authorized, confirms every approval is in, and runs the signing.",
    limit:"The lock", guard:"It cannot release anything for signature until the chain is complete, and it cannot sign.", owns:"A person signs. Binding the company stays human."},
-  {n:11, nm:"Storage & repository", lane:"commodity", post:"over", agent:"Obligations agent",
+  {n:11, nm:"Storage & repository", lane:"commodity", post:"over", agent:"Obligations agent", icon:"c-repository",
    today:"Filing is a mess. Signed contracts scattered across drives and inboxes.",
    ai:"The agent files the signed contract, pulls out the clauses, and indexes it so you can search it.",
    limit:"The filter", guard:"Anything it is unsure about is queued for a person to check.", owns:"No sign-off. Just a light log."},
-  {n:12, nm:"Obligation management", lane:"commodity", post:"over", agent:"Obligations agent",
+  {n:12, nm:"Obligation management", lane:"commodity", post:"over", agent:"Obligations agent", icon:"c-obligation",
    today:"Renewals missed and commitments forgotten until something breaks.",
    ai:"The agent pulls out the commitments, tracks whether they are met, and alerts the owner.",
    limit:"The trip-wire", guard:"A missed commitment raises an alert, not an action.", owns:"Enforcing, waiving, or ending it is a human call, and often privileged."},
-  {n:13, nm:"Renewals & terminations", lane:"commodity", post:"over", agent:"Obligations agent",
+  {n:13, nm:"Renewals & terminations", lane:"commodity", post:"over", agent:"Obligations agent", icon:"c-renewal",
    today:"Reactive. Auto-renewals slip past the deadline to cancel.",
    ai:"The agent flags renewals early and drafts the notice, and people decide the contested ones.",
    limit:"The catch", guard:"Silent auto-renewals get surfaced before the window closes.", owns:"A contested termination is a human call, and a high-stakes one."}
@@ -339,7 +453,6 @@ const STAGE_TXT = {
   3:"A large, regulated company runs every agent, gives each one more room as it earns it, and has a standing team that governs the whole thing."
 };
 const LANE_NAME={commodity:"Commodity",craft:"Craft",custody:"Custody"};
-const POST_NAME={over:"over the loop",on:"on the loop",in:"in the loop"};
 const SELFSERVE_TIER={1:2,11:2,3:3,4:3,5:3,12:3,13:3};
 function grantedPosture(st,cs){
   if(st.lane==="custody") return cs>=3?{label:"In · attested",cls:"att"}:{label:"In the loop",cls:"in"};
@@ -375,15 +488,13 @@ function render(){
     let post;
     if(mode==="ai"){const g=grantedPosture(st,stage);post=`<span class="post p-${g.cls}">${g.label}</span>`;}
     else{post=`<span class="post">in the loop</span>`;}
-    el.innerHTML = `${badge}<span class="n num">${String(st.n).padStart(2,"0")}</span>
+    el.innerHTML = `${badge}<span class="stop"><span class="n num">${String(st.n).padStart(2,"0")}</span><svg class="ic ic-sm"><use href="#${st.icon}"></use></svg></span>
       <span class="nm">${st.nm}</span>${post}<span class="who">${who}</span>`;
     el.onclick=()=>{selected=st.n; render(); showDetail(st);};
     row.appendChild(el);
   });
   updateSummary();
   updatePosture();
-  const lp=document.getElementById("loopPanel");
-  lp.style.opacity = mode==="ai" ? "1" : ".3";
   document.getElementById("stagesCtl").classList.toggle("dim", mode!=="ai");
   if(selected){ const st=STAGES.find(s=>s.n===selected); if(st) showDetail(st); }
 }
@@ -396,7 +507,7 @@ function updateSummary(){
   } else {
     const ss=STAGES.filter(s=>grantedPosture(s,stage).cls==="ss").length;
     big.textContent=ss+" / 13";
-    txt.innerHTML="of the steps the business can now handle on its own at this size. The rest still need a lawyer, in one of three roles you will see below, and the highest-stakes calls never leave a lawyer's hands. <b>"+STAGE_TXT[stage]+"</b>";
+    txt.innerHTML="of the steps the business can now handle on its own at this size. The rest still need a lawyer, in one of the three roles above, and the highest-stakes calls never leave a lawyer's hands. <b>"+STAGE_TXT[stage]+"</b>";
   }
 }
 
