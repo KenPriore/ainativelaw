@@ -216,7 +216,7 @@
         <div class="tag">External ring</div>
         <h3>Common to every company</h3>
         <p>The law and the market's norms, kept current by the outside world itself. None of it is unique to any one company; the work is subscribing to the change stream, not maintaining the content.</p>
-        <div class="verb">Arrives maintained</div>
+        <div class="verb">Someone else maintains it</div>
       </div>
       <div class="ring-card r-inner">
         <div class="tag">Inner ring</div>
@@ -286,13 +286,13 @@
         <h2>Each kind, the records it requires</h2>
       </div>
     </div>
-    <p class="tprose">The whole page in one table. Two kinds arrive maintained from outside. One is wired from the systems that own it. One lies latent in the department's own documents until extracted. One has to be written by lawyers. Three exist only at the moment the work happens and must be captured then; they cannot be reconstructed later.</p>
+    <p class="tprose">The whole page in one table. Two kinds are maintained outside. One is read live from the systems that own it. One sits locked in documents until extracted. One has to be written by lawyers. Three exist only at the moment the work happens and must be captured then; they cannot be reconstructed later.</p>
     <div class="states">
-      <span><b>Arrives maintained</b> · kept current outside</span>
-      <span><b>Wired</b> · read live from the owning system</span>
-      <span><b>Latent</b> · in the documents until extracted</span>
-      <span><b>Written</b> · authored by lawyers or it doesn't exist</span>
-      <span><b>Emitted</b> · captured at the moment or lost</span>
+      <span><b>Maintained outside</b> · the world keeps it current</span>
+      <span><b>Read from the source</b> · live from the owning system, never copied</span>
+      <span><b>Locked in documents</b> · extraction turns paper into data</span>
+      <span><b>Must be written</b> · lawyers author it; no system can</span>
+      <span><b>Capture it or lose it</b> · exists only while the work happens</span>
     </div>
     <table class="ttable" id="ttable">
       <thead><tr><th>Kind</th><th>The data underneath</th><th>State</th><th>Who keeps the judgment</th></tr></thead>
@@ -356,35 +356,35 @@ const RINGS = {ext:{label:"External",cls:"",color:"var(--ext)"}, inner:{label:"I
 
 const TYPES = [
  {id:"T1", name:"Business context", ring:"outer", icon:"a-handoff", what:"Why this deal, the stakes, what the internal client really wants.",
-  state:"Emitted", data:"Structured fields on the request record: deal rationale, stakes, urgency, the client's intent, tied to the matter for its whole life.",
+  state:"Capture it or lose it", data:"Structured fields on the request record: deal rationale, stakes, urgency, the client's intent, tied to the matter for its whole life.",
   who:"The requester supplies it; lawyers size the stakes.",
   note:"Exists for days, in a thread or a head. Routing metadata gets recorded today; the why does not. The fields are cheap; the habit is the build."},
  {id:"T2", name:"The playbook", ring:"inner", icon:"d-blueprint", what:"Positions, fallbacks, walk-aways, templates, the approval matrix, and the why behind each position.",
-  state:"Written", data:"Positions, fallback ladders, and walk-aways as structured records per clause: versioned, owned, each carrying its rationale.",
+  state:"Must be written", data:"Positions, fallback ladders, and walk-aways as structured records per clause: versioned, owned, each carrying its rationale.",
   who:"Lawyers, entirely.",
   note:"This data cannot be collected; a lawyer writes it. A playbook stored as prose in a PDF is not yet data, and a position without its rationale cannot be maintained."},
  {id:"T3", name:"The corpus", ring:"inner", icon:"c-repository", what:"The company's executed agreements, amendments, and extracted terms.",
-  state:"Latent", data:"Executed agreements and amendments extracted into queryable terms: parties, clauses, values, dates, deviation flags.",
+  state:"Locked in documents", data:"Executed agreements and amendments extracted into queryable terms: parties, clauses, values, dates, deviation flags.",
   who:"The platform extracts; lawyers spot-check.",
   note:"The documents exist; the data doesn't until extraction. Coverage and freshness decide whether anything downstream can trust it."},
  {id:"T4", name:"Public law", ring:"ext", icon:"a-audit", what:"Statutes, regs, case law. The live part is the change stream, a new rule landing, more than the static library.",
-  state:"Arrives maintained", data:"The authorities themselves, plus change events: what rule changed, when, and which terms it touches.",
+  state:"Maintained outside", data:"The authorities themselves, plus change events: what rule changed, when, and which terms it touches.",
   who:"Maintained outside; lawyers apply it.",
   note:"Reference data kept current by the world. The useful feed is the delta, a rule changed, wired to the clauses it affects."},
  {id:"T5", name:"Market terms", ring:"ext", icon:"b-ledger", what:"What's market for a clause at this size, in this industry.",
-  state:"Arrives maintained → Latent", data:"Large samples of comparable clauses with acceptance signals: which language holds, at what deal size, in which industry.",
+  state:"Maintained outside", data:"Large samples of comparable clauses with acceptance signals: which language holds, at what deal size, in which industry.",
   who:"Lawyers call what's market; the platform computes the sample.",
   note:"Starts as curated external data. Once enough of the department's own terms are extracted, what's market becomes a query over its own corpus."},
  {id:"T6", name:"Negotiation history", ring:"outer", icon:"c-negotiate", what:"What happened with this party before: their paper, their past concessions, how they negotiate. A view built from the corpus plus outcomes.",
-  state:"Emitted + derived", data:"Concession events by counterparty: what was conceded, in exchange for what, when, plus their prior paper from the corpus.",
+  state:"Capture it or lose it", data:"Concession events by counterparty: what was conceded, in exchange for what, when, plus their prior paper from the corpus.",
   who:"The team logs it; lawyers read what's real.",
   note:"Redline versions get stored; the concession event and its reason do not. One structured line per concession creates this data."},
  {id:"T7", name:"Authority state", ring:"outer", icon:"c-sign", what:"Entities, delegations, signing power, identity. Reference data, scattered across HR and org systems.",
-  state:"Wired", data:"Entity records, delegation chains, signing authority, and identity assertions, read live from the systems that own them.",
+  state:"Read from the source", data:"Entity records, delegation chains, signing authority, and identity assertions, read live from the systems that own them.",
   who:"Source systems own it; the platform wires it.",
   note:"Copying it creates the failure mode: a lapsed authority relied on as live. Read from the source at decision time."},
  {id:"T8", name:"Outcome data", ring:"outer", icon:"e-eval", what:"What happened after signing: performance, disputes traced to clauses, renewals won or lost.",
-  state:"Emitted", data:"Outcome events linked to agreement and clause IDs: performance, disputes, renewal results, where it hurt.",
+  state:"Capture it or lose it", data:"Outcome events linked to agreement and clause IDs: performance, disputes, renewal results, where it hurt.",
   who:"The platform records events; lawyers grade the outcome.",
   note:"The rarest data in the map, and the feed every renewal call and every playbook revision needs."}
 ];
