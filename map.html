@@ -176,7 +176,7 @@
   <header class="masthead">
     <div class="kicker">Legal × product · The intelligence underneath · July 2026</div>
     <h1>What the legal work runs on</h1>
-    <p class="dek">Every step of contract work draws on knowledge from somewhere: the law, our positions, our own signed paper, what happened last time. And every one of those kinds of knowledge runs, in turn, on data that either exists today or doesn't. This page names the eight kinds, shows which steps use which, and specifies the data each one requires, so legal and product can see what has to exist before any step can be made intelligent.</p>
+    <p class="dek">Every step of contract work draws on knowledge from somewhere: the law, the department's positions, its own signed paper, what happened last time. And every one of those kinds of knowledge runs, in turn, on data that either exists today or doesn't. This page names the eight kinds, shows which steps use which, and specifies the data each one requires, so legal and product can see what has to exist before any step can be made intelligent.</p>
   </header>
 
   <section class="tsec">
@@ -187,7 +187,7 @@
         <h2>Intelligence is the input to every step, and data is the input to intelligence</h2>
       </div>
     </div>
-    <p class="tprose">Ask why a contract step needs a lawyer and the answer is always some piece of knowledge: what the law requires, what our position is, what we agreed with this party before, who is allowed to sign. Teams usually treat all of that as one pile called experience. It separates into eight kinds. Each kind then depends on specific records: some already exist and stay maintained, some lie inside our own documents waiting to be extracted, some have to be written by lawyers, and some exist only for the moment the work happens and are gone unless captured. The build conversation gets concrete the moment the kinds and their data are named.</p>
+    <p class="tprose">Ask why a contract step needs a lawyer and the answer is always some piece of knowledge: what the law requires, what the position is, what was agreed with this party before, who is allowed to sign. Teams usually treat all of that as one pile called experience. It separates into eight kinds. Each kind then depends on specific records: some already exist and stay maintained, some lie inside the department's own documents waiting to be extracted, some have to be written by lawyers, and some exist only for the moment the work happens and are gone unless captured. The build conversation gets concrete the moment the kinds and their data are named.</p>
     <p class="tprose soft">Scope: this maps the transactional-contract function, the high-volume repeatable-agreement work. Disputes, employment, M&amp;A, and IP run on different intelligence.</p>
   </section>
 
@@ -204,13 +204,13 @@
       <div class="ring-card">
         <div class="tag">External ring</div>
         <h3>Outside the company</h3>
-        <p>Public law and market benchmarks. The data exists and someone else keeps it current; nothing here is unique to us.</p>
+        <p>Public law and market benchmarks. The data exists and someone else keeps it current; nothing here is unique to any one company.</p>
         <div class="verb">Arrives maintained</div>
       </div>
       <div class="ring-card r-inner">
         <div class="tag">Inner ring</div>
-        <h3>Where our agreements live</h3>
-        <p>The playbook and the signed corpus, sitting in the repository and the envelopes. Ours already; the work is turning documents into structured, queryable records.</p>
+        <h3>Where the agreements live</h3>
+        <p>The playbook and the signed corpus, sitting in the repository and the envelopes. Already in house; the work is turning documents into structured, queryable records.</p>
         <div class="verb">Extract into structure; write the playbook as records</div>
       </div>
       <div class="ring-card r-outer">
@@ -256,11 +256,11 @@
         <h2>Each kind, the records it requires</h2>
       </div>
     </div>
-    <p class="tprose">The whole page in one table. Two kinds arrive maintained from outside. One is wired from the systems that own it. One lies latent in our own documents until extracted. One has to be written by lawyers. Three exist only at the moment the work happens and must be captured then or reconstructed never.</p>
+    <p class="tprose">The whole page in one table. Two kinds arrive maintained from outside. One is wired from the systems that own it. One lies latent in the department's own documents until extracted. One has to be written by lawyers. Three exist only at the moment the work happens and must be captured then or reconstructed never.</p>
     <div class="states">
       <span><b>Arrives maintained</b> · kept current outside</span>
       <span><b>Wired</b> · read live from the owning system</span>
-      <span><b>Latent</b> · in our documents until extracted</span>
+      <span><b>Latent</b> · in the documents until extracted</span>
       <span><b>Written</b> · authored by lawyers or it doesn't exist</span>
       <span><b>Emitted</b> · captured at the moment or lost</span>
     </div>
@@ -281,7 +281,7 @@
     <p class="tprose">Six steps generate intelligence that later steps need, and today most of it evaporates into email and memory. Then negotiation runs without counterparty memory and renewal runs without outcome data. Each capture is a field or an event on an existing surface, nothing platform-sized.</p>
     <div class="emits">
       <div class="ecard"><div class="en num">Step 01 · Intake</div><h3>The why</h3><p>Deal rationale, stakes, the internal client's real intent. Used again at triage, drafting, and escalation.</p><div class="fix">Capture: structured why-fields on the request record</div></div>
-      <div class="ecard"><div class="en num">Step 07 · Redline</div><h3>Deviation decisions</h3><p>Which departures from the playbook we accepted, and why. Used again at the next redline of the same clause.</p><div class="fix">Capture: a deviation event per accepted departure</div></div>
+      <div class="ecard"><div class="en num">Step 07 · Redline</div><h3>Deviation decisions</h3><p>Which departures from the playbook the team accepted, and why. Used again at the next redline of the same clause.</p><div class="fix">Capture: a deviation event per accepted departure</div></div>
       <div class="ecard"><div class="en num">Step 08 · Negotiation</div><h3>Concession history</h3><p>What was conceded, to whom, in exchange for what. The verbal layer no document captures. Used again at the next negotiation with the same party.</p><div class="fix">Capture: one structured line per concession</div></div>
       <div class="ecard"><div class="en num">Step 09 · Escalation</div><h3>Exception rationales</h3><p>Why the exception was granted. Used again the next time the same exception is requested.</p><div class="fix">Capture: rationale text on the approval record</div></div>
       <div class="ecard"><div class="en num">Step 10 · Signature</div><h3>The authorization record</h3><p>Who was authorized to bind, and did. The one emission already kept as data.</p><div class="fix">Already captured: the completion record</div></div>
@@ -326,18 +326,18 @@ const RINGS = {ext:{label:"External",cls:"",color:"var(--ext)"}, inner:{label:"I
 
 const TYPES = [
  {id:"T1", name:"Public law", ring:"ext", icon:"a-audit", what:"Statutes, regs, case law. The live part is the change stream, a new rule landing, more than the static library.",
-  state:"Arrives maintained", data:"The authorities themselves, plus change events: what rule changed, when, and which of our terms it touches.",
+  state:"Arrives maintained", data:"The authorities themselves, plus change events: what rule changed, when, and which terms it touches.",
   who:"Maintained outside; lawyers apply it.",
   note:"Reference data kept current by the world. The useful feed is the delta, a rule changed, wired to the clauses it affects."},
  {id:"T2", name:"Market terms", ring:"ext", icon:"b-ledger", what:"What's market for a clause at this size, in this industry.",
   state:"Arrives maintained → Latent", data:"Large samples of comparable clauses with acceptance signals: which language holds, at what deal size, in which industry.",
   who:"Lawyers call what's market; the platform computes the sample.",
-  note:"Starts as curated external data. Once enough of our own terms are extracted, what's market for us becomes a query over our own corpus."},
+  note:"Starts as curated external data. Once enough of the department's own terms are extracted, what's market becomes a query over its own corpus."},
  {id:"T3", name:"The playbook", ring:"inner", icon:"d-blueprint", what:"Positions, fallbacks, walk-aways, templates, the approval matrix, and the why behind each position.",
   state:"Written", data:"Positions, fallback ladders, and walk-aways as structured records per clause: versioned, owned, each carrying its rationale.",
   who:"Lawyers, entirely.",
   note:"This data cannot be collected; a lawyer writes it. A playbook stored as prose in a PDF is not yet data, and a position without its rationale cannot be maintained."},
- {id:"T4", name:"The corpus", ring:"inner", icon:"c-repository", what:"Our executed agreements, amendments, and extracted terms.",
+ {id:"T4", name:"The corpus", ring:"inner", icon:"c-repository", what:"The company's executed agreements, amendments, and extracted terms.",
   state:"Latent", data:"Executed agreements and amendments extracted into queryable terms: parties, clauses, values, dates, deviation flags.",
   who:"The platform extracts; lawyers spot-check.",
   note:"The documents exist; the data doesn't until extraction. Coverage and freshness decide whether anything downstream can trust it."},
