@@ -51,8 +51,18 @@
   .ring-card p{font-size:14.5px;color:var(--ink-soft);line-height:1.55}
   .ring-card .verb{margin-top:12px;font-weight:700;font-size:12px;letter-spacing:.08em;text-transform:uppercase;border-top:1.5px solid var(--line);padding-top:10px}
 
+  /* flow rail */
+  .rail{display:flex;flex-wrap:wrap;gap:6px;align-items:stretch;margin:20px 0 6px}
+  .rail .ri{border:1.5px solid var(--line);border-top:4px solid var(--ext);background:var(--card);padding:8px 10px 9px;flex:1;min-width:104px}
+  .rail .ri.r-inner{border-top-color:var(--inner)}
+  .rail .ri.r-outer{border-top-color:var(--outer)}
+  .rail .rs{font-weight:700;font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+  .rail .rn{font-weight:700;font-size:12px;line-height:1.15;margin-top:3px;letter-spacing:-.01em}
+  .rail .ra{align-self:center;color:var(--muted);font-weight:700;font-size:13px;padding:0 1px}
+  .rail-note{font-size:13px;color:var(--muted);margin-bottom:8px}
+
   /* type cards */
-  .types{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:22px}
+  .types{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:16px}
   .tcard{border:1.5px solid var(--line);background:var(--card);border-top:6px solid var(--ext);padding:16px 16px 18px;text-align:left;cursor:pointer;font-family:var(--sans);transition:transform .12s}
   .tcard:hover{transform:translateY(-3px);outline:2px solid var(--ink);outline-offset:-1px}
   .tcard.sel{outline:3px solid var(--ink);outline-offset:-1px}
@@ -148,6 +158,7 @@
     .rings,.emits,.maintain{grid-template-columns:1fr}
     .ttable td.wcol{display:none}
     .ttable th:last-child{display:none}
+    .rail .ra{display:none}
   }
 </style>
 </head>
@@ -203,14 +214,14 @@
     <div class="rings">
       <div class="ring-card">
         <div class="tag">External ring</div>
-        <h3>Outside the company</h3>
-        <p>Public law and market benchmarks. The data exists and someone else keeps it current; nothing here is unique to any one company.</p>
+        <h3>Common to every company</h3>
+        <p>The law and the market's norms, kept current by the outside world itself. None of it is unique to any one company; the work is subscribing to the change stream, not maintaining the content.</p>
         <div class="verb">Arrives maintained</div>
       </div>
       <div class="ring-card r-inner">
         <div class="tag">Inner ring</div>
-        <h3>Where the agreements live</h3>
-        <p>The playbook and the signed corpus, sitting in the repository and the envelopes. Already in house; the work is turning documents into structured, queryable records.</p>
+        <h3>In and around the agreement</h3>
+        <p>The terms inside the signed paper, and the paper's immediate surroundings: the template it started from, the playbook position behind each clause, the extracted terms in the repository. Everything here is the agreement itself or one step away from it.</p>
         <div class="verb">Extract into structure; write the playbook as records</div>
       </div>
       <div class="ring-card r-outer">
@@ -227,10 +238,29 @@
       <div class="tnum num">03</div>
       <div>
         <div class="kicker">The eight kinds</div>
-        <h2>Name the intelligence, then name its data</h2>
+        <h2>The kinds, in the order the work meets them</h2>
       </div>
     </div>
-    <p class="tprose">Five kinds carry their own weight. Market terms and counterparty memory are derived from the others, and authority state is reference data, but each still needs a data home. Click any card to see which steps run on it and what records it requires.</p>
+    <p class="tprose">A request arrives with a reason. The department takes its position, drafts from its own paper, inside what the law requires, at terms the market accepts. It negotiates the gap with this party, the right person signs, and the signed agreement teaches the next one. The eight kinds below follow that path; the step numbers show where each one enters.</p>
+    <div class="rail">
+      <div class="ri r-outer"><div class="rs num">Enters at 01</div><div class="rn">Business context</div></div>
+      <div class="ra">→</div>
+      <div class="ri r-inner"><div class="rs num">02 → 07</div><div class="rn">The playbook</div></div>
+      <div class="ra">→</div>
+      <div class="ri r-inner"><div class="rs num">03 · 05</div><div class="rn">The corpus</div></div>
+      <div class="ra">→</div>
+      <div class="ri"><div class="rs num">03 · 05</div><div class="rn">Public law</div></div>
+      <div class="ra">→</div>
+      <div class="ri"><div class="rs num">04 · 07</div><div class="rn">Market terms</div></div>
+      <div class="ra">→</div>
+      <div class="ri r-outer"><div class="rs num">08</div><div class="rn">Negotiation history</div></div>
+      <div class="ra">→</div>
+      <div class="ri r-outer"><div class="rs num">09 · 10</div><div class="rn">Authority state</div></div>
+      <div class="ra">→</div>
+      <div class="ri r-outer"><div class="rs num">12 · 13</div><div class="rn">Outcome data</div></div>
+    </div>
+    <p class="rail-note">The flow starts and ends in the outer ring: the reason a deal exists and what it taught are the first knowledge in and the last knowledge out, and neither is captured today.</p>
+    <p class="tprose">Market terms and negotiation history are derived from the others, and authority state is reference data; each still needs a data home. Click any card to see which steps run on it and what records it requires.</p>
     <div class="types" id="types"></div>
   </section>
 
@@ -278,7 +308,7 @@
         <h2>The steps produce data too</h2>
       </div>
     </div>
-    <p class="tprose">Six steps generate intelligence that later steps need, and today most of it evaporates into email and memory. Then negotiation runs without counterparty memory and renewal runs without outcome data. Each capture is a field or an event on an existing surface, nothing platform-sized.</p>
+    <p class="tprose">Six steps generate intelligence that later steps need, and today most of it evaporates into email and memory. Then negotiation runs without negotiation history and renewal runs without outcome data. Each capture is a field or an event on an existing surface, nothing platform-sized.</p>
     <div class="emits">
       <div class="ecard"><div class="en num">Step 01 · Intake</div><h3>The why</h3><p>Deal rationale, stakes, the internal client's real intent. Used again at triage, drafting, and escalation.</p><div class="fix">Capture: structured why-fields on the request record</div></div>
       <div class="ecard"><div class="en num">Step 07 · Redline</div><h3>Deviation decisions</h3><p>Which departures from the playbook the team accepted, and why. Used again at the next redline of the same clause.</p><div class="fix">Capture: a deviation event per accepted departure</div></div>
@@ -311,7 +341,7 @@
     </div>
     <div class="govern">
       <h3>Governance before capture</h3>
-      <p>Business context, counterparty memory, and outcome data are the most useful kinds and the most sensitive. Before any capture surface ships, put it under a privilege model: what may be recorded, who may see it, how long it lives. And keep records light enough to prove diligence without storing the privileged substance. A capture program without these rules is a discovery program.</p>
+      <p>Business context, negotiation history, and outcome data are the most useful kinds and the most sensitive. Before any capture surface ships, put it under a privilege model: what may be recorded, who may see it, how long it lives. And keep records light enough to prove diligence without storing the privileged substance. A capture program without these rules is a discovery program.</p>
     </div>
   </section>
 
@@ -325,27 +355,27 @@
 const RINGS = {ext:{label:"External",cls:"",color:"var(--ext)"}, inner:{label:"Inner",cls:"r-inner",color:"var(--inner)"}, outer:{label:"Outer",cls:"r-outer",color:"var(--outer)"}};
 
 const TYPES = [
- {id:"T1", name:"Public law", ring:"ext", icon:"a-audit", what:"Statutes, regs, case law. The live part is the change stream, a new rule landing, more than the static library.",
-  state:"Arrives maintained", data:"The authorities themselves, plus change events: what rule changed, when, and which terms it touches.",
-  who:"Maintained outside; lawyers apply it.",
-  note:"Reference data kept current by the world. The useful feed is the delta, a rule changed, wired to the clauses it affects."},
- {id:"T2", name:"Market terms", ring:"ext", icon:"b-ledger", what:"What's market for a clause at this size, in this industry.",
-  state:"Arrives maintained → Latent", data:"Large samples of comparable clauses with acceptance signals: which language holds, at what deal size, in which industry.",
-  who:"Lawyers call what's market; the platform computes the sample.",
-  note:"Starts as curated external data. Once enough of the department's own terms are extracted, what's market becomes a query over its own corpus."},
- {id:"T3", name:"The playbook", ring:"inner", icon:"d-blueprint", what:"Positions, fallbacks, walk-aways, templates, the approval matrix, and the why behind each position.",
-  state:"Written", data:"Positions, fallback ladders, and walk-aways as structured records per clause: versioned, owned, each carrying its rationale.",
-  who:"Lawyers, entirely.",
-  note:"This data cannot be collected; a lawyer writes it. A playbook stored as prose in a PDF is not yet data, and a position without its rationale cannot be maintained."},
- {id:"T4", name:"The corpus", ring:"inner", icon:"c-repository", what:"The company's executed agreements, amendments, and extracted terms.",
-  state:"Latent", data:"Executed agreements and amendments extracted into queryable terms: parties, clauses, values, dates, deviation flags.",
-  who:"The platform extracts; lawyers spot-check.",
-  note:"The documents exist; the data doesn't until extraction. Coverage and freshness decide whether anything downstream can trust it."},
- {id:"T5", name:"Business context", ring:"outer", icon:"a-handoff", what:"Why this deal, the stakes, what the internal client really wants.",
+ {id:"T1", name:"Business context", ring:"outer", icon:"a-handoff", what:"Why this deal, the stakes, what the internal client really wants.",
   state:"Emitted", data:"Structured fields on the request record: deal rationale, stakes, urgency, the client's intent, tied to the matter for its whole life.",
   who:"The requester supplies it; lawyers size the stakes.",
   note:"Exists for days, in a thread or a head. Routing metadata gets recorded today; the why does not. The fields are cheap; the habit is the build."},
- {id:"T6", name:"Counterparty memory", ring:"outer", icon:"c-negotiate", what:"Their paper history, past concessions, negotiation behavior. A view built from the corpus plus outcomes.",
+ {id:"T2", name:"The playbook", ring:"inner", icon:"d-blueprint", what:"Positions, fallbacks, walk-aways, templates, the approval matrix, and the why behind each position.",
+  state:"Written", data:"Positions, fallback ladders, and walk-aways as structured records per clause: versioned, owned, each carrying its rationale.",
+  who:"Lawyers, entirely.",
+  note:"This data cannot be collected; a lawyer writes it. A playbook stored as prose in a PDF is not yet data, and a position without its rationale cannot be maintained."},
+ {id:"T3", name:"The corpus", ring:"inner", icon:"c-repository", what:"The company's executed agreements, amendments, and extracted terms.",
+  state:"Latent", data:"Executed agreements and amendments extracted into queryable terms: parties, clauses, values, dates, deviation flags.",
+  who:"The platform extracts; lawyers spot-check.",
+  note:"The documents exist; the data doesn't until extraction. Coverage and freshness decide whether anything downstream can trust it."},
+ {id:"T4", name:"Public law", ring:"ext", icon:"a-audit", what:"Statutes, regs, case law. The live part is the change stream, a new rule landing, more than the static library.",
+  state:"Arrives maintained", data:"The authorities themselves, plus change events: what rule changed, when, and which terms it touches.",
+  who:"Maintained outside; lawyers apply it.",
+  note:"Reference data kept current by the world. The useful feed is the delta, a rule changed, wired to the clauses it affects."},
+ {id:"T5", name:"Market terms", ring:"ext", icon:"b-ledger", what:"What's market for a clause at this size, in this industry.",
+  state:"Arrives maintained → Latent", data:"Large samples of comparable clauses with acceptance signals: which language holds, at what deal size, in which industry.",
+  who:"Lawyers call what's market; the platform computes the sample.",
+  note:"Starts as curated external data. Once enough of the department's own terms are extracted, what's market becomes a query over its own corpus."},
+ {id:"T6", name:"Negotiation history", ring:"outer", icon:"c-negotiate", what:"What happened with this party before: their paper, their past concessions, how they negotiate. A view built from the corpus plus outcomes.",
   state:"Emitted + derived", data:"Concession events by counterparty: what was conceded, in exchange for what, when, plus their prior paper from the corpus.",
   who:"The team logs it; lawyers read what's real.",
   note:"Redline versions get stored; the concession event and its reason do not. One structured line per concession creates this data."},
@@ -360,19 +390,19 @@ const TYPES = [
 ];
 
 const STEPS = [
- {n:1, name:"Intake", icon:"a-handoff", runs:[["T5",1],["T3",0]], emits:"The matter record and the why", data:"A structured request record: rationale, stakes, urgency, requester, plus routing rules held as data"},
- {n:2, name:"Triage & routing", icon:"b-route", runs:[["T3",1],["T4",0],["T5",0]], emits:"Routing decision", data:"The risk taxonomy as rules, features of similar past matters, the stakes field from intake"},
- {n:3, name:"Conflicts & risk screen", icon:"a-audit", runs:[["T4",1],["T7",0],["T1",0]], emits:"Clearance record", data:"Extracted obligation terms indexed by party (exclusivity, MFN), a live entity graph, sanctions and watch lists"},
- {n:4, name:"Template & playbook", icon:"d-blueprint", runs:[["T3",1],["T2",0]], emits:"", data:"The template library with versions and owners, position records, a market signal per standard term"},
- {n:5, name:"Drafting", icon:"c-draft", runs:[["T3",1],["T4",0],["T5",0],["T1",0]], emits:"Draft", data:"A clause library with approved language and fallbacks per clause, deal parameters from intake, jurisdiction requirements"},
- {n:6, name:"Internal review", icon:"c-clause", runs:[["T3",1],["T4",0]], emits:"Issues list", data:"Checklist rules per agreement type, prior handling of the same clause from the corpus"},
- {n:7, name:"Redline vs. playbook", icon:"c-redline", runs:[["T3",1],["T4",1],["T2",0]], emits:"Deviation decisions", data:"Playbook positions as machine-readable rules, deviation history per clause, market norms per clause"},
- {n:8, name:"Negotiation", icon:"c-negotiate", runs:[["T6",1],["T5",1],["T3",0],["T2",0]], emits:"Concession history, including the verbal layer no document captures", data:"Concession events for this counterparty, walk-away parameters from intake, the fallback ladder as data"},
- {n:9, name:"Escalation & approval", icon:"a-escalate", runs:[["T7",1],["T5",0],["T4",0]], emits:"Exception decisions and rationale", data:"The approval matrix as data, the exception register with rationale text, stakes from intake"},
+ {n:1, name:"Intake", icon:"a-handoff", runs:[["T1",1],["T2",0]], emits:"The matter record and the why", data:"A structured request record: rationale, stakes, urgency, requester, plus routing rules held as data"},
+ {n:2, name:"Triage & routing", icon:"b-route", runs:[["T2",1],["T3",0],["T1",0]], emits:"Routing decision", data:"The risk taxonomy as rules, features of similar past matters, the stakes field from intake"},
+ {n:3, name:"Conflicts & risk screen", icon:"a-audit", runs:[["T3",1],["T7",0],["T4",0]], emits:"Clearance record", data:"Extracted obligation terms indexed by party (exclusivity, MFN), a live entity graph, sanctions and watch lists"},
+ {n:4, name:"Template & playbook", icon:"d-blueprint", runs:[["T2",1],["T5",0]], emits:"", data:"The template library with versions and owners, position records, a market signal per standard term"},
+ {n:5, name:"Drafting", icon:"c-draft", runs:[["T2",1],["T3",0],["T1",0],["T4",0]], emits:"Draft", data:"A clause library with approved language and fallbacks per clause, deal parameters from intake, jurisdiction requirements"},
+ {n:6, name:"Internal review", icon:"c-clause", runs:[["T2",1],["T3",0]], emits:"Issues list", data:"Checklist rules per agreement type, prior handling of the same clause from the corpus"},
+ {n:7, name:"Redline vs. playbook", icon:"c-redline", runs:[["T2",1],["T3",1],["T5",0]], emits:"Deviation decisions", data:"Playbook positions as machine-readable rules, deviation history per clause, market norms per clause"},
+ {n:8, name:"Negotiation", icon:"c-negotiate", runs:[["T6",1],["T1",1],["T2",0],["T5",0]], emits:"Concession history, including the verbal layer no document captures", data:"Concession events for this counterparty, walk-away parameters from intake, the fallback ladder as data"},
+ {n:9, name:"Escalation & approval", icon:"a-escalate", runs:[["T7",1],["T1",0],["T3",0]], emits:"Exception decisions and rationale", data:"The approval matrix as data, the exception register with rationale text, stakes from intake"},
  {n:10, name:"Signature & execution", icon:"c-sign", runs:[["T7",1]], emits:"The authorization record", data:"Authority records, identity assertions, signing order. The one step whose data the platform already keeps"},
- {n:11, name:"Storage & repository", icon:"c-repository", runs:[], makes:"T4", emits:"The corpus: this step manufactures it", data:"The documents themselves; extraction turns them into the terms database every earlier step queries"},
- {n:12, name:"Obligation management", icon:"c-obligation", runs:[["T4",1],["T8",0]], emits:"Performance events", data:"Extracted commitments with dates and owners, performance events as they land"},
- {n:13, name:"Renewals & terminations", icon:"c-renewal", runs:[["T8",1],["T4",0],["T6",0],["T2",0]], emits:"Renewal decision", data:"Outcome tags linked to agreement and clause IDs, renewal dates and terms, counterparty history, current market signal"}
+ {n:11, name:"Storage & repository", icon:"c-repository", runs:[], makes:"T3", emits:"The corpus: this step manufactures it", data:"The documents themselves; extraction turns them into the terms database every earlier step queries"},
+ {n:12, name:"Obligation management", icon:"c-obligation", runs:[["T3",1],["T8",0]], emits:"Performance events", data:"Extracted commitments with dates and owners, performance events as they land"},
+ {n:13, name:"Renewals & terminations", icon:"c-renewal", runs:[["T8",1],["T3",0],["T6",0],["T5",0]], emits:"Renewal decision", data:"Outcome tags linked to agreement and clause IDs, renewal dates and terms, negotiation history, current market signal"}
 ];
 
 const typeById = id => TYPES.find(t=>t.id===id);
@@ -442,7 +472,7 @@ function renderDetail(){
         const t = typeById(r[0]);
         return `<p class="rline"><span class="sw" style="background:${RINGS[t.ring].color}"></span>${r[1]?"<b>"+t.id+" "+t.name+"</b> (primary)":t.id+" "+t.name}</p>`;
       }).join("")
-    : `<p class="rline">Extraction itself. This step consumes little and manufactures the corpus (T4) for every step that queries it.</p>`;
+    : `<p class="rline">Extraction itself. This step consumes little and manufactures the corpus (T3) for every step that queries it.</p>`;
   el.innerHTML = `
     <h3><svg class="ic"><use href="#${s.icon}"></use></svg> ${pad(s.n)} · ${s.name}</h3>
     <div class="cols">
