@@ -198,7 +198,7 @@
         <h2>Intelligence is the input to every step, and data is the input to intelligence</h2>
       </div>
     </div>
-    <p class="tprose">Ask why a contract step needs a lawyer and the answer is always some piece of knowledge: what the law requires, what the position is, what was agreed with this party before, who is allowed to sign. Teams usually treat all of that as one pile called experience. It separates into eight kinds. Each kind then depends on specific records: some already exist and stay maintained, some lie inside the department's own documents waiting to be extracted, some have to be written by lawyers, and some exist only for the moment the work happens and are gone unless captured. The build conversation gets concrete the moment the kinds and their data are named.</p>
+    <p class="tprose">Ask why a contract step needs a lawyer and the answer is always some piece of knowledge: what the law requires, what the position is, what was agreed with this party before, who is allowed to sign. Teams usually treat all of that as one pile called experience. It separates into eight kinds of knowledge, and named knowledge is what this page calls intelligence. Each kind then depends on specific records: some already exist and stay maintained, some lie inside the department's own documents waiting to be extracted, some have to be written by lawyers, and some exist only for the moment the work happens and are gone unless captured. The build conversation gets concrete the moment the kinds and their data are named.</p>
     <p class="tprose soft">Scope: this maps the transactional-contract function, the high-volume repeatable-agreement work. Disputes, employment, M&amp;A, and IP run on different intelligence.</p>
   </section>
 
@@ -260,7 +260,7 @@
       <div class="ri r-outer"><div class="rs num">12 · 13</div><div class="rn">Outcome data</div></div>
     </div>
     <p class="rail-note">The flow starts and ends in the outer ring: the reason a deal exists and what it taught are the first knowledge in and the last knowledge out, and neither is captured today.</p>
-    <p class="tprose">Market terms and negotiation history are derived from the others, and authority state is reference data; each still needs a data home. Click any card to see which steps run on it and what records it requires.</p>
+    <p class="tprose">Market terms and negotiation history are the two hardest kinds to source: one needs a sample of comparable deals far larger than any one corpus, the other needs a verbal layer no document holds. Authority state is reference data. Each still needs a data home. Click any card to see which steps run on it and what records it requires.</p>
     <div class="types" id="types"></div>
   </section>
 
@@ -286,12 +286,12 @@
         <h2>Each kind, the records it requires</h2>
       </div>
     </div>
-    <p class="tprose">The whole page in one table. Two kinds are maintained outside. One is read live from the systems that own it. One sits locked in documents until extracted. One has to be written by lawyers. Three exist only at the moment the work happens and must be captured then; they cannot be reconstructed later.</p>
+    <p class="tprose">The whole page in one table. Two kinds are maintained outside. One is read fresh from the systems that own it. One sits locked in documents until extracted. One has to be written by lawyers. Three exist only at the moment the work happens: caught then, each is a field on a record; dug out of email months later, it comes back at cost, without the verbal layer, and without a record anyone can trust. The executive briefing folds these five states into four fates; only the two in-house kinds share a band there.</p>
     <div class="states">
       <span><b>Maintained outside</b> · the world keeps it current</span>
-      <span><b>Read from the source</b> · live from the owning system, never copied</span>
+      <span><b>Read from the source</b> · fresh from the owning system, never trusted stale</span>
       <span><b>Locked in documents</b> · extraction turns paper into data</span>
-      <span><b>Must be written</b> · lawyers author it; no system can</span>
+      <span><b>Must be written</b> · systems can draft it; only lawyers can ratify it</span>
       <span><b>Capture it or lose it</b> · exists only while the work happens</span>
     </div>
     <table class="ttable" id="ttable">
@@ -308,9 +308,9 @@
         <h2>The steps produce data too</h2>
       </div>
     </div>
-    <p class="tprose">Six steps generate intelligence that later steps need, and today most of it evaporates into email and memory. Then negotiation runs without negotiation history and renewal runs without outcome data. Each capture is a field or an event on an existing surface, nothing platform-sized.</p>
+    <p class="tprose">Six steps generate intelligence that later steps need, and today most of it evaporates into email and memory. Then negotiation runs without negotiation history and renewal runs without outcome data. Each capture is a field or an event on an existing surface, nothing platform-sized. The field is the cheap part; keeping it filled and trustworthy is a running practice, with an owner, a shared vocabulary, and rules for who may see what.</p>
     <div class="emits">
-      <div class="ecard"><div class="en num">Step 01 · Intake</div><h3>The why</h3><p>Deal rationale, stakes, the internal client's real intent. Used again at triage, drafting, and escalation.</p><div class="fix">Capture: structured why-fields on the request record</div></div>
+      <div class="ecard"><div class="en num">Step 01 · Intake</div><h3>The why</h3><p>Deal rationale, stakes, the walk-away, what the client says they need. Used again at triage, drafting, and escalation.</p><div class="fix">Capture: structured why-fields on the request record</div></div>
       <div class="ecard"><div class="en num">Step 07 · Redline</div><h3>Deviation decisions</h3><p>Which departures from the playbook the team accepted, and why. Used again at the next redline of the same clause.</p><div class="fix">Capture: a deviation event per accepted departure</div></div>
       <div class="ecard"><div class="en num">Step 08 · Negotiation</div><h3>Concession history</h3><p>What was conceded, to whom, in exchange for what. The verbal layer no document captures. Used again at the next negotiation with the same party.</p><div class="fix">Capture: one structured line per concession</div></div>
       <div class="ecard"><div class="en num">Step 09 · Escalation</div><h3>Exception rationales</h3><p>Why the exception was granted. Used again the next time the same exception is requested.</p><div class="fix">Capture: rationale text on the approval record</div></div>
@@ -346,7 +346,7 @@
   </section>
 
   <footer class="colophon">
-    <p><b>How to read this.</b> The eight kinds are the intelligence; the table in section 05 is the data that has to exist underneath them; the thirteen steps are where both get consumed. A companion to <a href="https://ainativelaw.kenpriore.ai">The legal department, rewired</a>. July 2026.</p>
+    <p><b>How to read this.</b> The eight kinds are the intelligence; the table in section 05 is the data that has to exist underneath them; the thirteen steps are where both get consumed. A companion to <a href="https://ainativelaw.kenpriore.ai">The legal department, rewired</a>; the short version is the <a href="runs-on.html">executive briefing</a>. July 2026.</p>
   </footer>
 
 </div>
@@ -355,14 +355,14 @@
 const RINGS = {ext:{label:"External",cls:"",color:"var(--ext)"}, inner:{label:"Inner",cls:"r-inner",color:"var(--inner)"}, outer:{label:"Outer",cls:"r-outer",color:"var(--outer)"}};
 
 const TYPES = [
- {id:"T1", name:"Business context", ring:"outer", icon:"a-handoff", what:"Why this deal, the stakes, what the internal client really wants.",
-  state:"Capture it or lose it", data:"Structured fields on the request record: deal rationale, stakes, urgency, the client's intent, tied to the matter for its whole life.",
+ {id:"T1", name:"Business context", ring:"outer", icon:"a-handoff", what:"Why this deal, the stakes, what the internal client says they need and where they'd walk.",
+  state:"Capture it or lose it", data:"Structured fields on the request record: deal rationale, stakes, walk-away, urgency, tied to the matter for its whole life.",
   who:"The requester supplies it; lawyers size the stakes.",
   note:"Exists for days, in a thread or a head. Routing metadata gets recorded today; the why does not. The fields are cheap; the habit is the build."},
  {id:"T2", name:"The playbook", ring:"inner", icon:"d-blueprint", what:"Positions, fallbacks, walk-aways, templates, the approval matrix, and the why behind each position.",
   state:"Must be written", data:"Positions, fallback ladders, and walk-aways as structured records per clause: versioned, owned, each carrying its rationale.",
-  who:"Lawyers, entirely.",
-  note:"This data cannot be collected; a lawyer writes it. A playbook stored as prose in a PDF is not yet data, and a position without its rationale cannot be maintained."},
+  who:"Lawyers own and ratify it; systems may draft.",
+  note:"This data cannot be collected, and a drafted position is not yet a position; a lawyer has to ratify it as the department's own. A playbook stored as prose in a PDF is not yet data, and a position without its rationale cannot be maintained."},
  {id:"T3", name:"The corpus", ring:"inner", icon:"c-repository", what:"The company's executed agreements, amendments, and extracted terms.",
   state:"Locked in documents", data:"Executed agreements and amendments extracted into queryable terms: parties, clauses, values, dates, deviation flags.",
   who:"The platform extracts; lawyers spot-check.",
@@ -382,7 +382,7 @@ const TYPES = [
  {id:"T7", name:"Authority state", ring:"outer", icon:"c-sign", what:"Entities, delegations, signing power, identity. Reference data, scattered across HR and org systems.",
   state:"Read from the source", data:"Entity records, delegation chains, signing authority, and identity assertions, read live from the systems that own them.",
   who:"Source systems own it; the platform wires it.",
-  note:"Copying it creates the failure mode: a lapsed authority relied on as live. Read from the source at decision time."},
+  note:"The failure mode is a stale copy: a lapsed authority relied on as live. Cache it if the architecture needs to; no decision reads a value whose freshness isn't proved."},
  {id:"T8", name:"Outcome data", ring:"outer", icon:"e-eval", what:"What happened after signing: performance, disputes traced to clauses, renewals won or lost.",
   state:"Capture it or lose it", data:"Outcome events linked to agreement and clause IDs: performance, disputes, renewal results, where it hurt.",
   who:"The platform records events; lawyers grade the outcome.",
@@ -390,7 +390,7 @@ const TYPES = [
 ];
 
 const STEPS = [
- {n:1, name:"Intake", icon:"a-handoff", runs:[["T1",1],["T2",0]], emits:"The matter record and the why", data:"A structured request record: rationale, stakes, urgency, requester, plus routing rules held as data"},
+ {n:1, name:"Intake", icon:"a-handoff", runs:[["T1",1],["T2",0]], emits:"The matter record and the why", data:"A structured request record: rationale, stakes, walk-away, urgency, requester, plus routing rules held as data"},
  {n:2, name:"Triage & routing", icon:"b-route", runs:[["T2",1],["T3",0],["T1",0]], emits:"Routing decision", data:"The risk taxonomy as rules, features of similar past matters, the stakes field from intake"},
  {n:3, name:"Conflicts & risk screen", icon:"a-audit", runs:[["T3",1],["T7",0],["T4",0]], emits:"Clearance record", data:"Extracted obligation terms indexed by party (exclusivity, MFN), a live entity graph, sanctions and watch lists"},
  {n:4, name:"Template & playbook", icon:"d-blueprint", runs:[["T2",1],["T5",0]], emits:"", data:"The template library with versions and owners, position records, a market signal per standard term"},
