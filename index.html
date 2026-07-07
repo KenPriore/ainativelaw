@@ -101,7 +101,8 @@
   .posture h3{margin:0 0 5px;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
   .posture .sub{font-size:15px;color:var(--ink-soft);margin:0 0 14px}
   .pbar{display:flex;height:38px;border:2px solid var(--ink);font-weight:700;font-size:11px;overflow:hidden}
-  .pbar div{display:flex;align-items:center;justify-content:center;transition:flex-basis .5s ease;letter-spacing:.05em;text-transform:uppercase}
+  .pbar div{display:flex;align-items:center;justify-content:center;flex-basis:0;min-width:0;white-space:nowrap;transition:flex-grow .5s ease;letter-spacing:.05em;text-transform:uppercase}
+  .pseg-ss{background:#a9c4e8;color:var(--ink)}
   .pseg-over{background:var(--commodity);color:#fff}
   .pseg-on{background:var(--craft);color:var(--ink)}
   .pseg-in{background:var(--custody);color:#fff}
@@ -306,15 +307,17 @@
       <h3>Where the lawyer stands</h3>
       <p class="sub" id="postureSub">Across all thirteen steps</p>
       <div class="pbar" id="pbar">
-        <div class="pseg-over" id="segOver" style="flex-basis:0%">over</div>
-        <div class="pseg-on" id="segOn" style="flex-basis:0%">on</div>
-        <div class="pseg-in num" id="segIn" style="flex-basis:100%">in the loop</div>
+        <div class="pseg-ss num" id="segSS" style="flex-grow:0"></div>
+        <div class="pseg-over" id="segOver" style="flex-grow:0"></div>
+        <div class="pseg-on" id="segOn" style="flex-grow:0"></div>
+        <div class="pseg-in num" id="segIn" style="flex-grow:1">in the loop</div>
       </div>
       <p class="sub" style="margin-top:14px" id="postureNote"></p>
     </div>
 
     <div class="legend">
       <span><span class="sw" style="background:var(--commodity)"></span><b>Commodity</b> · routine · over the loop</span>
+      <span><span class="sw" style="background:#a9c4e8"></span><b>Self-serve</b> · routine · run by the business</span>
       <span><span class="sw" style="background:var(--craft)"></span><b>Craft</b> · judgment · on the loop</span>
       <span><span class="sw" style="background:var(--custody)"></span><b>Custody</b> · high-stakes · in the loop</span>
       <span><span class="sw" style="background:var(--ink)"></span><b>Today</b> · a lawyer, start to finish</span>
@@ -505,20 +508,25 @@ function updateSummary(){
 }
 
 function updatePosture(){
-  const over=document.getElementById("segOver"), on=document.getElementById("segOn"), inn=document.getElementById("segIn");
-  const note=document.getElementById("postureNote");
+  const ss=document.getElementById("segSS"), over=document.getElementById("segOver"), on=document.getElementById("segOn"), inn=document.getElementById("segIn");
+  const note=document.getElementById("postureNote"), sub=document.getElementById("postureSub");
+  const stageNames=["Startup","Growth","Mid-market","Enterprise"];
   if(mode==="today"){
-    over.style.flexBasis="0%"; over.textContent="";
-    on.style.flexBasis="0%"; on.textContent="";
-    inn.style.flexBasis="100%"; inn.textContent="in the loop, everywhere";
+    sub.textContent="Today · across all thirteen steps";
+    ss.style.flexGrow="0"; ss.textContent="";
+    over.style.flexGrow="0"; over.textContent="";
+    on.style.flexGrow="0"; on.textContent="";
+    inn.style.flexGrow="1"; inn.textContent="in the loop, everywhere";
     note.textContent="Today a lawyer sits inside every step, even the routine ones that do not need one. So senior judgment gets spent cranking out work.";
   } else {
-    const c={over:0,on:0,in:0}; STAGES.forEach(s=>{const g=grantedPosture(s,stage);const k=(g.cls==="ss")?"over":(g.cls==="att")?"in":g.cls;c[k]++;});
+    sub.textContent="AI-native · "+stageNames[stage]+" · across all thirteen steps";
+    const c={ss:0,over:0,on:0,in:0}; STAGES.forEach(s=>{const g=grantedPosture(s,stage);const k=(g.cls==="att")?"in":g.cls;c[k]++;});
     const t=STAGES.length;
     const pct=k=>Math.round(c[k]/t*100);
-    over.style.flexBasis=pct("over")+"%"; over.textContent="over "+pct("over")+"%";
-    on.style.flexBasis=pct("on")+"%"; on.textContent="on "+pct("on")+"%";
-    inn.style.flexBasis=pct("in")+"%"; inn.textContent="in "+pct("in")+"%";
+    ss.style.flexGrow=String(c.ss); ss.textContent=c.ss?("self-serve "+pct("ss")+"%"):"";
+    over.style.flexGrow=String(c.over); over.textContent=c.over?("over "+pct("over")+"%"):"";
+    on.style.flexGrow=String(c.on); on.textContent=c.on?("on "+pct("on")+"%"):"";
+    inn.style.flexGrow=String(c.in); inn.textContent=c.in?("in "+pct("in")+"%"):"";
     note.innerHTML="As the company grows up, it builds the systems, rules, and playbooks that let it safely give agents more room. More of the routine work becomes self-serve for the business, while the judgment calls stay with a lawyer and the highest-stakes calls never move, no matter how good the AI gets.";
   }
 }
