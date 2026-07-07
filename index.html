@@ -113,6 +113,9 @@
 
   /* three roles */
   .triptych{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:8px}
+  .loop-motion{margin-top:22px;width:100%;aspect-ratio:940/430;border:1.5px solid var(--line);background:#f5f2ea}
+  .loop-motion iframe{width:100%;height:100%;border:0;display:block}
+  .loop-motion-cap{margin:8px 0 0;font-size:12px;color:var(--ink-soft);text-align:center;letter-spacing:.02em}
   .pcard{border:1.5px solid var(--line);background:var(--card);border-top:5px solid var(--commodity);padding:18px 18px 20px}
   .pcard.on{border-top-color:var(--craft)}
   .pcard.cust{border-top-color:var(--custody)}
@@ -122,7 +125,9 @@
   .pcard .lead{font-size:14px;margin:9px 0 0;line-height:1.5}
   .pcard .role{font-size:13px;color:var(--ink-soft);margin:11px 0 0;line-height:1.5}
   .pcard .role b{font-weight:700;font-size:9px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink)}
-  .pcard .ex{font-size:12px;color:var(--muted);margin:11px 0 0;font-style:italic;line-height:1.45}
+  .pcard .ex{font-size:12px;color:var(--ink-soft);margin:12px 0 0;font-style:italic;line-height:1.45;border-left:3px solid var(--commodity);padding-left:10px}
+  .pcard.on .ex{border-left-color:var(--craft)}
+  .pcard.cust .ex{border-left-color:var(--custody)}
 
   /* loop */
   .ploop{margin-top:8px;counter-reset:l}
@@ -157,6 +162,16 @@
   .recap .big{font-size:clamp(19px,2.4vw,26px);font-weight:800;letter-spacing:-.02em;line-height:1.25}
   .foot{margin-top:26px;font-size:14px;color:var(--ink-soft);line-height:1.6}
   .foot b{color:var(--ink)}
+  .recap .split{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:22px;border-top:1.5px solid var(--line);padding-top:20px}
+  .recap .half{border-left:4px solid var(--line);padding-left:14px}
+  .recap .half.blue{border-left-color:var(--commodity)}
+  .recap .half.red{border-left-color:var(--custody)}
+  .recap .half b{display:block;font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px}
+  .recap .half.blue b{color:var(--commodity)}
+  .recap .half.red b{color:var(--custody)}
+  .recap .half p{font-size:14px;color:var(--ink-soft);line-height:1.55;margin:0}
+  .recap .close{margin-top:20px;font-size:14px;color:var(--ink-soft);line-height:1.6}
+  @media(max-width:640px){.recap .split{grid-template-columns:1fr;gap:14px}}
 
   @media(max-width:900px){.phase-row{grid-template-columns:repeat(7,1fr)}}
   @media(max-width:640px){.triptych{grid-template-columns:1fr}}
@@ -212,8 +227,9 @@
       <svg class="ic ic-lg"><use href="#c-repository"></use></svg>
       <div><div class="kicker">The work</div><h2>What a legal team does all day</h2></div>
     </div>
-    <p class="tprose">An in-house legal team is two things at once: the company's <b>contract engine</b> and its <b>risk gate</b>. Almost everything it does is moving agreements through the same set of steps, from the moment a request comes in to the day a contract renews or ends. There are about thirteen of these steps, and they repeat thousands of times a year.</p>
-    <p class="tprose soft">Today, a lawyer touches every one of them, even the routine ones that do not need a lawyer. That is the work AI is about to change, and it starts with one idea.</p>
+    <p class="tprose">An in-house legal team does two jobs at once. It is the company's <b>contract engine</b>, turning out the NDAs, sales agreements, and vendor contracts the business runs on. And it is the <b>risk gate</b>, the last read before the company signs its name to something it will have to live with. Nearly all of that work is the same handful of moves, over and over: a request comes in, and an agreement gets drafted, negotiated, approved, signed, and one day renewed or ended. About thirteen steps, repeated thousands of times a year.</p>
+    <p class="tprose soft">Today a lawyer touches all thirteen, even the routine ones that never needed one, like the standard NDA that comes back signed with nothing changed.</p>
+    <p class="tprose">That is what AI changes. As it takes over the routine, the lawyer is pulled off the steps that never needed them, and the familiar idea of a <b>human in the loop</b> splits into three, depending on how much is at stake. <b>Over the loop</b>, the lawyer sets the rules once and sees only the exceptions. <b>On the loop</b>, they watch from the edge and step in on the calls that matter. <b>In the loop</b>, they keep their hands on the work and sign it. Which work belongs where is the one idea the rest of this page is built on.</p>
   </section>
 
   <!-- 02 -->
@@ -223,7 +239,7 @@
       <svg class="ic ic-lg"><use href="#b-craft"></use></svg>
       <div><div class="kicker">The one idea</div><h2>Legal work comes in three kinds</h2></div>
     </div>
-    <p class="tprose">Not all legal work is the same, and that is the whole key. Some of it is routine with one right answer. Some of it depends on judgment. And a little of it is a moment where a person has to answer for what happened. Each kind puts the lawyer in a different spot relative to the machine: from <b>watching over the loop</b>, to <b>sitting on the loop</b>, to <b>staying in the loop</b>. As the work gets riskier, the lawyer moves closer in, the machine gets less rope, and the responsibility goes up. Get these three, and the rest follows.</p>
+    <p class="tprose">Not all legal work is the same, and that is the whole key. Some of it is routine, with one right answer. Some of it turns on judgment. And a little of it is a moment where a person has to answer for what happened. Which kind it is decides where the lawyer stands: the riskier the work, the closer in they move, the less rope the machine gets, and the more they are on the hook. Here are the three.</p>
     <div class="triptych">
       <div class="pcard">
         <div class="pchead"><svg class="ic"><use href="#b-commodity"></use></svg><svg class="ic ic-sm"><use href="#a-over-loop"></use></svg></div>
@@ -232,7 +248,7 @@
         <div class="lead">The routine, high-volume work with one right answer. You set the rules and watch the system, not every file.</div>
         <div class="role"><b>Lawyer</b> writes the playbook, checks a sample, and watches the dashboard. You were not there for each one, and you can still answer for all of them, because you wrote the standard and you audit the results.</div>
         <div class="role"><b>Agent</b> does the work and kicks anything odd up to a person.</div>
-        <div class="ex">Intake, screening, standard markups, storage, tracking obligations.</div>
+        <div class="ex">Logging and routing a new request, the conflicts check on a new counterparty, the routine markup on a standard order form, filing the signed copy, and watching the renewal dates.</div>
       </div>
       <div class="pcard on">
         <div class="pchead"><svg class="ic"><use href="#b-craft"></use></svg><svg class="ic ic-sm"><use href="#a-on-loop"></use></svg></div>
@@ -241,7 +257,7 @@
         <div class="lead">The work where the right answer depends on who is across the table and how much risk the company will take. You are in the decision before it goes out.</div>
         <div class="role"><b>Lawyer</b> weighs the options, makes the call, and writes down the reasoning.</div>
         <div class="role"><b>Agent</b> drafts the options and flags where the other side is pushing.</div>
-        <div class="ex">Internal review, the position on the risky clauses, negotiation moves.</div>
+        <div class="ex">How hard to push on the liability cap, whether to bend on indemnification, spotting the one buried clause that shifts real risk, and the give-and-take that lands the deal.</div>
       </div>
       <div class="pcard cust">
         <div class="pchead"><svg class="ic"><use href="#b-custody"></use></svg><svg class="ic ic-sm"><use href="#a-in-loop"></use></svg></div>
@@ -250,7 +266,7 @@
         <div class="lead">The moments where a person has to answer for what happened. You own and sign each one, and you are on the hook.</div>
         <div class="role"><b>Lawyer</b> makes the call, signs, and answers for it. This cannot be handed to the agent.</div>
         <div class="role"><b>Agent</b> gets the package ready and checks it is complete. It never approves or signs.</div>
-        <div class="ex">Approving a deal that binds the company, signing, enforcing or ending a contract, board minutes, regulatory sign-off.</div>
+        <div class="ex">Signing the contract that binds the company for years, approving the discount that sets a precedent, cutting off a vendor for breach, the board minutes, and the sign-off a regulator will read.</div>
       </div>
     </div>
   </section>
@@ -259,17 +275,6 @@
   <section class="tsec">
     <div class="tsec-head">
       <span class="tnum num">03</span>
-      <svg class="ic ic-lg"><use href="#a-automate"></use></svg>
-      <div><div class="kicker">The shift</div><h2>What AI changes</h2></div>
-    </div>
-    <p class="tprose">Today a lawyer sits inside all thirteen steps, even the routine ones. That means the most expensive judgment in the building gets spent producing standard work. AI changes the split. It can take over the routine, checkable work in the Commodity lane, which frees the lawyer to spend their judgment on the Craft calls and the Custody moments, where it is actually worth something.</p>
-    <p class="tprose soft">The point is not to replace the lawyer. It is to move the lawyer to where they are worth the most, and to build the guardrails and records that let the machine handle the rest safely. That combination is what "AI-native" means.</p>
-  </section>
-
-  <!-- 04 -->
-  <section class="tsec">
-    <div class="tsec-head">
-      <span class="tnum num">04</span>
       <svg class="ic ic-lg"><use href="#b-route"></use></svg>
       <div><div class="kicker">Step by step</div><h2>Walk the thirteen steps</h2></div>
     </div>
@@ -326,14 +331,14 @@
     </div>
   </section>
 
-  <!-- 05 -->
+  <!-- 04 -->
   <section class="tsec">
     <div class="tsec-head">
-      <span class="tnum num">05</span>
+      <span class="tnum num">04</span>
       <svg class="ic ic-lg"><use href="#b-ledger"></use></svg>
       <div><div class="kicker">Why it improves</div><h2>The loop that makes it better over time</h2></div>
     </div>
-    <p class="tprose">A team built this way does not just run. It learns. The line between routine and judgment is not fixed: work that takes real judgment this year can become routine the next, once the team notices it keeps making the same call the same way. Only the AI-native version has a loop for capturing that, and it is what keeps the team getting better instead of leveling off.</p>
+    <p class="tprose">A team built this way keeps getting better. The line between routine and judgment is not fixed: work that takes real judgment this year can become routine the next, once the team notices it keeps making the same call the same way. Only the AI-native version has a loop for capturing that, and that loop is what keeps the team improving instead of leveling off.</p>
     <div class="ploop">
       <div class="step"><span class="lstep num"></span><svg class="ic"><use href="#a-override"></use></svg><p>Watch where a lawyer <b>changes what the agent produced</b>. That is your live map of where judgment still matters.</p></div>
       <div class="step"><span class="lstep num"></span><svg class="ic"><use href="#e-eval"></use></svg><p>When the same change keeps happening, either <b>teach the agent the rule</b> behind it, or <b>keep it as a call a human always makes</b>.</p></div>
@@ -342,10 +347,10 @@
     </div>
   </section>
 
-  <!-- 06 -->
+  <!-- 05 -->
   <section class="tsec">
     <div class="tsec-head">
-      <span class="tnum num">06</span>
+      <span class="tnum num">05</span>
       <svg class="ic ic-lg"><use href="#e-agent"></use></svg>
       <div><div class="kicker">By department size</div><h2>It looks different at every size</h2></div>
     </div>
@@ -358,10 +363,10 @@
     </div>
   </section>
 
-  <!-- 07 -->
+  <!-- 06 -->
   <section class="tsec">
     <div class="tsec-head">
-      <span class="tnum num">07</span>
+      <span class="tnum num">06</span>
       <svg class="ic ic-lg"><use href="#a-signoff"></use></svg>
       <div><div class="kicker">The catch</div><h2>Why a lawyer never fully leaves</h2></div>
     </div>
@@ -372,15 +377,12 @@
       <div class="pt"><svg class="ic"><use href="#b-custody"></use></svg><div><h5>Keeping it privileged (Rule 1.6)</h5><p>A lot of legal work is privileged, which means it is protected from the other side in a lawsuit. Feed it into a public AI tool and you can lose that protection. So privilege is built in from the start: private instances, projects walled off by matter, a locked-down AI tier, and records kept light enough to prove diligence without storing the sensitive substance.</p></div></div>
       <div class="pt"><svg class="ic"><use href="#d-loadbearing"></use></svg><div><h5>The bar rises with the tool</h5><p>Once you have a tool that reliably catches a problem, ignoring what it finds is worse than never having looked. Being able to catch it creates a duty to act on it. So when the system raises a flag, you resolve it. You do not leave it sitting there as a record that you knew.</p></div></div>
     </div>
-    <p class="fid-lens"><b>What this changes.</b> For a lawyer, the question is not just whether the work is good and fast. It is whether they can stand behind it, whether it is protected, and who answers for it. That is what pushes the high-duty work closer in, and it shapes the records the team keeps. Fast is necessary. It is never enough.</p>
+    <p class="fid-lens"><b>What this changes.</b> For a lawyer, good and fast is only half the question. The rest is whether they can stand behind the work, whether it is protected, and who answers for it. That is what pushes the high-duty work closer in, and it shapes the records the team keeps.</p>
   </section>
 
-  <!-- recap -->
+  <!-- conclusion -->
   <div class="recap">
-    <div class="big">AI takes the routine, a lawyer keeps the judgment and the sign-off, and the line between them moves as the record proves what can safely run on its own.</div>
-  </div>
-  <div class="foot">
-    Most of the work is routine, and it runs in the Commodity lane with a lawyer spot-checking the output instead of reading every file. A smaller set stays with a person: the few clauses that carry real risk, like the liability cap, the indemnity, and price, plus the moments that actually bind the company. Those stay human even when the deal looks routine, because someone has to be able to answer for them. The model underneath is the same at any size. What grows with the company is how many agents are switched on and how much room each one has earned.
+    <div class="big">AI takes the routine, a lawyer keeps the judgment and the sign-off, and the line between them moves as the record proves what can safely run on its own. That is what "AI-native" means: the lawyer is not replaced but moved to where they are worth the most, with the guardrails and records that let the machine handle the rest safely.</div>
   </div>
 
 </div>
@@ -448,7 +450,7 @@ const STAGE_AGENTS = {
   3:"ALL"
 };
 const STAGE_TXT = {
-  0:"A one-person legal team runs two or three AI agents and makes every judgment call by hand. Same model, just small.",
+  0:"A one-person legal team runs two or three AI agents and makes every judgment call by hand. The same model, scaled down.",
   1:"A growing team runs the core contract agents on off-the-shelf tools, plus a knowledge base it built itself.",
   2:"A mid-sized team runs the full set of contract agents, plus privacy and knowledge ones, with the learning loop up and running.",
   3:"A large, regulated company runs every agent, gives each one more room as it earns it, and has a standing team that governs the whole thing."
