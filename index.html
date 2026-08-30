@@ -76,6 +76,9 @@ a:hover{border-bottom:2px solid currentColor}
 .wordmark{display:flex;align-items:center;gap:14px;color:var(--ink);text-decoration:none}
 .wm-name{font-size:20px;font-weight:800;letter-spacing:-.02em;line-height:1.5;color:var(--ink)}
 .wm-sub{font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-top:2px;line-height:1.5}
+/* flex:none or the mark squashes to an ellipse when the masthead is tight —
+   it rendered 32.1 x 34 at 375px */
+.loopmark{flex:none}
 /* wait one beat, then turn for four */
 .loopmark .orbit{transform-origin:17px 17px;animation:orbit-once calc(var(--beat)*4) var(--ease-cut) var(--beat) 1 forwards}
 @keyframes orbit-once{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
