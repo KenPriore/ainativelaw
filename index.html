@@ -40,8 +40,10 @@
 }
 
 *{box-sizing:border-box;border-radius:0 !important;margin:0;padding:0}
-html{scroll-behavior:smooth;scroll-padding-top:96px} /* clears the sticky masthead on anchor jumps */
-@media(max-width:820px){html{scroll-padding-top:180px}}
+/* clears the sticky masthead on anchor jumps. Base was 96px against an 88.5px
+   header — only 7.5px of air; 112 matches the rest of the family. */
+html{scroll-behavior:smooth;scroll-padding-top:112px}
+@media(max-width:880px){html{scroll-padding-top:190px}}
 html,body{background:var(--paper);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased}
 body{font-size:16px;line-height:1.55;overflow-x:clip} /* contains .bleed's 100vw on classic-scrollbar platforms */
 .num,.stage .n,.ledger .no{font-variant-numeric:tabular-nums}
@@ -64,13 +66,26 @@ a:hover{border-bottom:2px solid currentColor}
 
 /* ---------- masthead (NEW — fixes the zero-links terminal node) ---------- */
 .mast{position:sticky;top:0;background:var(--paper);border-bottom:4px solid var(--line-firm);z-index:10}
-.mast-in{display:flex;align-items:center;justify-content:space-between;gap:16px;max-width:var(--container);margin:0 auto;padding:14px var(--inset)}
-.wordmark{display:flex;align-items:center;gap:14px}
-.wm-name{font-size:16px;font-weight:800;letter-spacing:-.01em;line-height:1.1;color:var(--ink)}
-.wm-sub{font-size:10px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
-nav.top{display:flex;gap:24px;flex-wrap:wrap}
+/* Masthead geometry is the family spec, shared with kenpriore.com, kenpriore.ai,
+   the resume and fiduciary: 18px padding, 34px mark, 20px/-0.02em wordmark at
+   1.5 leading, 11px sub-line 2px beneath. Resolves to 88.5px everywhere, so page
+   content starts at the same y when a reader crosses between properties.
+   The sub-line's leading is pinned — inheriting a page's body ratio is what
+   drifted the lab's header by half a pixel. */
+.mast-in{display:flex;align-items:center;justify-content:space-between;gap:16px;max-width:var(--container);margin:0 auto;padding:18px var(--inset)}
+.wordmark{display:flex;align-items:center;gap:14px;color:var(--ink);text-decoration:none}
+.wm-name{font-size:20px;font-weight:800;letter-spacing:-.02em;line-height:1.5;color:var(--ink)}
+.wm-sub{font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-top:2px;line-height:1.5}
+/* wait one beat, then turn for four */
+.loopmark .orbit{transform-origin:17px 17px;animation:orbit-once calc(var(--beat)*4) var(--ease-cut) var(--beat) 1 forwards}
+@keyframes orbit-once{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+nav.top{display:flex;gap:28px;flex-wrap:wrap}
 nav.top a{font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ink);border-bottom:2px solid transparent;padding-bottom:2px;transition:color 240ms var(--ease-snap),border-color 240ms var(--ease-snap)}
-nav.top a:hover,nav.top a[aria-current]{border-bottom-color:var(--hue)}
+/* hover is ink, current page is blue — the system rule. One shared rule made the
+   active state indistinguishable from hover, and this page DOES carry
+   aria-current, so the collision was live rather than latent. */
+nav.top a:hover{border-bottom-color:var(--ink)}
+nav.top a[aria-current]{border-bottom-color:var(--c-blue)}
 
 /* ---------- type ---------- */
 .kicker{font-weight:700;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
@@ -266,7 +281,11 @@ footer.sig-foot{border-top:4px solid var(--line-firm);padding:48px 0 64px;margin
 /* Queries run widest → narrowest so later blocks always win. Do not reorder. */
 @media(max-width:1200px){.phase-row{grid-template-columns:repeat(7,minmax(0,1fr))}}
 @media(max-width:900px){.foot-grid{grid-template-columns:repeat(2,1fr)}.contents ol{grid-template-columns:repeat(3,1fr)}.contents li:nth-child(3n){border-right:0}.sizes{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:820px){.mast-in{flex-direction:column;align-items:flex-start}nav.top{border-top:1px solid var(--line);padding-top:12px;width:100%}.group-head{grid-template-columns:1fr}.fid{grid-template-columns:1fr}.detail .cols{grid-template-columns:1fr}
+/* Masthead reflows at 880 to match kenpriore.com, kenpriore.ai, the resume and
+   fiduciary. Its own block, ordered between 900 and 820, because the rest of the
+   820 rules below are unrelated layout and should not move with it. */
+@media(max-width:880px){.mast-in{flex-direction:column;align-items:flex-start}nav.top{border-top:1px solid var(--line);padding-top:12px;width:100%}}
+@media(max-width:820px){.group-head{grid-template-columns:1fr}.fid{grid-template-columns:1fr}.detail .cols{grid-template-columns:1fr}
   /* stacked: drop subgrid or all three cards would share the same rows */
   .triptych{grid-template-columns:1fr;grid-template-rows:none;row-gap:24px}
   .pcard{display:flex;flex-direction:column;grid-row:auto}}
@@ -332,13 +351,18 @@ footer.sig-foot{border-top:4px solid var(--line-firm);padding:48px 0 64px;margin
 <!-- ===================== MASTHEAD (NEW) ===================== -->
 <header class="mast">
   <div class="mast-in">
-    <div class="wordmark">
-      <svg class="ic ic-lg"><use href="#a-over-loop"></use></svg>
+    <a class="wordmark" href="/">
+      <!-- the loop house-mark at family scale, not the a-over-loop sprite icon.
+           Dot at 12 o'clock sitting on the ring, matching the locked m-loop motif. -->
+      <svg class="loopmark" width="34" height="34" viewBox="0 0 34 34" aria-hidden="true">
+        <circle cx="17" cy="17" r="12" fill="none" stroke="#0A0A0A" stroke-width="3"/>
+        <g class="orbit"><circle cx="17" cy="5" r="3.4" fill="#0057B8"/></g>
+      </svg>
       <div>
-        <div class="wm-name">Ken Priore</div>
-        <div class="wm-sub">Law · Technology · Innovation</div>
+        <div class="wm-name">KEN PRIORE</div>
+        <div class="wm-sub">The operating model · kenpriore.ai</div>
       </div>
-    </div>
+    </a>
     <nav class="top">
       <a href="/" aria-current="page">Rewired</a>
       <a href="https://kenpriore.ai">The Lab</a>
