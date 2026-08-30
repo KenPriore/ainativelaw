@@ -253,12 +253,14 @@ footer.sig-foot{border-top:4px solid var(--line-firm);padding:48px 0 64px;margin
 .foot-col.read .kicker{border-top-color:var(--ill-slate)}
 .foot-col.interactive .kicker{border-top-color:var(--ill-orange)}
 .foot-col.record .kicker{border-top-color:var(--ill-mustard)}
-.foot-col.elsewhere .kicker{border-top-color:var(--ill-rose)}
+.foot-col.follow .kicker{border-top-color:var(--ill-rose)}
 .foot-col ul{list-style:none;margin-top:12px}
 .foot-col li{padding:5px 0;font-size:14px}
 .foot-col li a{color:var(--ink);border:0;transition:color 240ms var(--ease-snap)}
 .foot-col li a:hover{color:var(--hue);border:0}
 .colophon{margin-top:44px;border-top:1px solid var(--line);padding-top:16px;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.colophon a{color:inherit;border:0}
+.colophon a:hover{color:var(--hue);border:0}
 
 /* ---------- breakpoints ---------- */
 /* Queries run widest → narrowest so later blocks always win. Do not reorder. */
@@ -588,34 +590,39 @@ footer.sig-foot{border-top:4px solid var(--line-firm);padding:48px 0 64px;margin
       <div class="foot-col read">
         <span class="kicker">Read</span>
         <ul>
-          <li><a href="https://kenpriore.com">Writing · kenpriore.com</a></li>
           <li><a href="https://kenpriore.com/tag/signals/">Signals</a></li>
+          <li><a href="https://kenpriore.com/tag/reflections/">Reflections</a></li>
+          <li><a href="https://kenpriore.com/tag/foundations/">Foundations</a></li>
         </ul>
       </div>
       <div class="foot-col interactive">
-        <span class="kicker">This site</span>
+        <span class="kicker">Interactive</span>
         <ul>
-          <li><a href="/">The agreement work, rewired</a></li>
-          <li><a href="/map.html">The working map</a></li>
-          <li><a href="/runs-on.html">The executive briefing</a></li>
+          <li><a href="https://kenpriore.ai/#maps">The maps</a></li>
+          <li><a href="https://kenpriore.ai/#model">The operating model</a></li>
+          <li><a href="https://kenpriore.ai/#proof">The proof lane</a></li>
+          <li><a href="https://lab.kenpriore.ai">Lab log in</a></li>
         </ul>
       </div>
       <div class="foot-col record">
-        <span class="kicker">Record</span>
-        <ul>
-          <li><a href="https://kenpriore.ai">The Lab</a></li>
-        </ul>
-      </div>
-      <div class="foot-col elsewhere">
-        <span class="kicker">About</span>
+        <span class="kicker">On the record</span>
         <ul>
           <li><a href="https://kenpriore.com/about/">About Ken</a></li>
+          <li><a href="https://resume.kenpriore.ai">Resume</a></li>
+        </ul>
+      </div>
+      <div class="foot-col follow">
+        <span class="kicker">Follow</span>
+        <ul>
+          <li><a href="https://kenpriore.com">Subscribe</a></li>
+          <li><a href="https://kenpriore.com/rss/">RSS</a></li>
+          <li><a href="https://linkedin.com/in/kennethpriore">LinkedIn</a></li>
         </ul>
       </div>
     </div>
-    <div class="colophon">
+    <div class="colophon num">
       <span>© 2026 Ken Priore · Personal views · Not legal advice</span>
-      <span>In-house legal · June 2026</span>
+      <span><a href="https://kenpriore.ai">kenpriore.ai</a> · <a href="https://kenpriore.com">kenpriore.com</a></span>
     </div>
   </div>
 </footer>
