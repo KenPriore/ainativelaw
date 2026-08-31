@@ -4,8 +4,13 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>The agreement work, rewired</title>
-<meta name="description" content="How the lawyers who work on agreements run the company's contracts, and how AI changes it, step by step and at every company size." />
-<!-- MOCK: Signal v2 alignment of ainativelaw.kenpriore.ai (from v7). Not for deploy. See CHANGES.md. -->
+<meta name="description" content="How the lawyers who work on agreements run the company's contracts, and how AI changes it, step by step." />
+<!-- SIMPLIFICATION PASS — 2026-08-31. Base = index.html at f318751 (md5 ad369aab…).
+     Six sections to four. Cuts: 04 By size, 05 Why it improves. Merges the three
+     postures out of 01 into 02. Contents strip becomes the 1-of-4 series strip.
+     The catch trimmed from four duty points to two.
+     CSS for the cut sections is PARKED, not deleted, so the cut is one paste to undo.
+     Cut markup preserved verbatim in SIMPLIFIED-NOTES.md. -->
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23FFFFFF'/%3E%3Crect x='6' y='7' width='20' height='4' fill='%234A6FA5'/%3E%3Crect x='6' y='14' width='20' height='4' fill='%23D4A24C'/%3E%3Crect x='6' y='21' width='20' height='4' fill='%23C76B7E'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -64,7 +69,7 @@ a:hover{border-bottom:2px solid currentColor}
 .wipe{clip-path:inset(0 100% 0 0);animation:wipe calc(var(--beat)*1.5) var(--ease-cut) forwards}
 @keyframes wipe{to{clip-path:inset(0 0 0 0)}}
 
-/* ---------- masthead (NEW — fixes the zero-links terminal node) ---------- */
+/* ---------- masthead ---------- */
 .mast{position:sticky;top:0;background:var(--paper);border-bottom:4px solid var(--line-firm);z-index:10}
 /* Masthead geometry is the family spec, shared with kenpriore.com, kenpriore.ai,
    the resume and fiduciary: 18px padding, 34px mark, 20px/-0.02em wordmark at
@@ -97,18 +102,27 @@ nav.top a[aria-current]{border-bottom-color:var(--c-blue)}
 h2,.h2{font-size:clamp(22px,2.8vw,32px);font-weight:800;letter-spacing:-.02em;line-height:1.12}
 .dek{font-size:clamp(17px,2vw,21px);color:var(--ink-soft);line-height:1.5}
 
-/* ---------- hero + contents ---------- */
+/* ---------- hero + series strip ---------- */
+/* REPLACES .contents. Same real estate, opposite signal: the six-cell table of
+   contents told a reader "this page is long." Four cells numbered 1 of 4 tell them
+   "this is a spine you can follow." Parts 2-4 carry no href on purpose — live
+   /map.html is still v1 design and the old framing, so a link would drop the
+   reader off the design system mid-series. Wire them when map v3 ships. */
 .hero{padding:88px 0 0}
-.contents{border-top:2px solid var(--line-firm);border-bottom:2px solid var(--line-firm);margin-top:36px}
-.contents ol{list-style:none;display:grid;grid-template-columns:repeat(6,1fr)}
-.contents li{border-right:1px solid var(--line)}
-.contents li:last-child{border-right:0}
-.contents a{display:block;padding:16px 18px;color:var(--ink);border:0;transition:background 240ms var(--ease-snap),color 240ms var(--ease-snap)}
-.contents a:hover{background:var(--ink);color:var(--paper)}
-.contents a:hover .c-no{color:var(--hue)}
-.contents .c-no{font-size:11px;font-weight:800;letter-spacing:.12em;color:var(--muted);display:block}
-.contents .c-t{font-size:15px;font-weight:800;letter-spacing:-.01em;display:block;margin-top:6px}
-.contents .c-d{font-size:12.5px;opacity:.7;display:block;margin-top:4px}
+.series{border-top:2px solid var(--line-firm);border-bottom:2px solid var(--line-firm);margin-top:36px}
+.series ol{list-style:none;display:grid;grid-template-columns:repeat(4,1fr)}
+.series li{border-right:1px solid var(--line)}
+.series li:last-child{border-right:0}
+.series .cell{display:block;padding:16px 18px;color:var(--ink);border:0;transition:background 240ms var(--ease-snap),color 240ms var(--ease-snap)}
+a.cell:hover{background:var(--ink);color:var(--paper)}
+a.cell:hover .s-no{color:var(--hue)}
+.series .s-no{font-size:11px;font-weight:800;letter-spacing:.12em;color:var(--muted);display:block}
+.series .s-t{font-size:15px;font-weight:800;letter-spacing:-.01em;display:block;margin-top:6px}
+.series .s-d{font-size:12.5px;opacity:.7;display:block;margin-top:4px}
+.series li.here{background:var(--fill-soft);box-shadow:inset 0 4px 0 var(--hue)}
+.series li.here .s-no{color:var(--ink)}
+.series li.soon .cell{color:var(--muted)}
+.series li.soon .s-t{color:var(--ink-soft)}
 
 /* ---------- sections ---------- */
 .group{padding:72px 0 56px;border-top:2px solid var(--line-firm)}
@@ -117,15 +131,13 @@ h2,.h2{font-size:clamp(22px,2.8vw,32px);font-weight:800;letter-spacing:-.02em;li
 /* stacked head: the intro sits directly under the heading as a sub-paragraph,
    instead of being stranded in a second column with dead space beside it */
 .group-head.stack{display:block}
-.group-head.stack h2{max-width:46ch} /* fits the longest head ("...better over time") on one line */
+.group-head.stack h2{max-width:46ch}
 .group-head.stack .tprose{margin-top:16px}
 .gh-meta{grid-column:1/-1;margin-bottom:14px;display:flex;align-items:center;gap:12px}
 .gh-meta > div:last-child{display:flex;align-items:center;gap:10px}
 .gh-meta .hue-tick{margin-bottom:0}
 .gh-meta .ic{--signal:var(--ink)} /* section markers stay pure ink, no blue speckle */
 .gh-num{font-size:clamp(30px,4vw,46px);font-weight:800;letter-spacing:-.03em;line-height:.85}
-/* Prose that follows a .group-head runs the full width in two balanced columns,
-   so the section doesn't dead-end at a 66ch column with half the page empty. */
 /* two-up figure: the two jobs a legal team does at once */
 .duo{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:26px}
 .duo .card{border:2px solid var(--line-firm);padding:24px}
@@ -134,9 +146,15 @@ h2,.h2{font-size:clamp(22px,2.8vw,32px);font-weight:800;letter-spacing:-.02em;li
 .duo p{margin:10px 0 0;font-size:15px;line-height:1.55;color:var(--ink-soft)}
 @media(max-width:820px){.duo{grid-template-columns:1fr}}
 
+/* Prose that follows a .group-head runs the full width in two balanced columns,
+   so the section doesn't dead-end at a 66ch column with half the page empty. */
 .body-after{margin-top:24px;columns:2;column-gap:44px}
 .body-after .tprose{max-width:none;margin:0 0 14px}
 .body-after .tprose:last-child{margin-bottom:0}
+/* NEW: a single paragraph in two balanced columns reads as a layout accident.
+   Sections that are down to one paragraph opt out and keep the 66ch measure. */
+.body-after.one-col{columns:1}
+.body-after.one-col .tprose{max-width:78ch}
 @media(max-width:820px){.body-after{columns:1}.body-after .tprose{max-width:66ch}}
 .tprose{font-size:16px;color:var(--ink);line-height:1.6;max-width:66ch}
 .tprose.soft{color:var(--ink-soft)}
@@ -233,15 +251,6 @@ h2,.h2{font-size:clamp(22px,2.8vw,32px);font-weight:800;letter-spacing:-.02em;li
 .pcard .role b{font-weight:700;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink);display:block;margin-bottom:4px}
 .pcard .ex{font-size:12.5px;color:var(--ink-soft);margin:14px 0 0;line-height:1.5;background:var(--fill-soft);padding:12px 14px}
 
-/* ---------- improvement loop ---------- */
-.ploop{margin-top:26px;counter-reset:l;border-top:2px solid var(--line-firm)}
-.ploop .step{display:flex;gap:16px;align-items:flex-start;padding:16px 0;border-bottom:1px solid var(--line)}
-.ploop .step .ic{margin-top:3px}
-.ploop .step p{font-size:16px;line-height:1.55;color:var(--ink-soft)}
-.ploop .step p b{font-weight:700;color:var(--ink)}
-.ploop .lstep{counter-increment:l;font-weight:800;font-size:13px;min-width:30px;font-variant-numeric:tabular-nums}
-.ploop .lstep::before{content:counter(l,decimal-leading-zero)}
-
 /* ---------- fiduciary ---------- */
 .fid{margin-top:26px;display:grid;grid-template-columns:1fr 1fr;gap:26px 32px}
 .fid .pt{display:flex;gap:14px;align-items:flex-start}
@@ -253,18 +262,45 @@ h2,.h2{font-size:clamp(22px,2.8vw,32px);font-weight:800;letter-spacing:-.02em;li
 .fid-lens span{display:block;font-size:17px;line-height:1.55;color:var(--ink-soft)}
 .fid-lens b{font-weight:800;color:var(--ink)}
 
-/* ---------- size cards ---------- */
+/* ---------- recap (the one large colour fill the system allows) ---------- */
+.recap{margin-top:0;border:2px solid var(--line-firm);background:var(--c-blue);color:var(--paper);padding:32px 34px}
+.recap .big{font-size:clamp(19px,2.4vw,26px);font-weight:800;letter-spacing:-.02em;line-height:1.3;max-width:66ch}
+
+/* ---------- next in the series ---------- */
+/* NEW. Gives the two cut sections a visible destination so the page reads as
+   deliberately scoped rather than thin. Matches the .nplate pattern already in
+   the unshipped map rewrite. */
+.next-up{margin-top:56px}
+.next-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:18px}
+.nplate{border:2px solid var(--line-firm);padding:22px 24px}
+.nplate .np-no{font-weight:800;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.nplate h4{margin:8px 0 0;font-size:20px;font-weight:800;letter-spacing:-.02em;line-height:1.14}
+.nplate p{margin:10px 0 0;font-size:14.5px;color:var(--ink-soft);line-height:1.55}
+.nplate .np-rule{width:34px;height:6px;background:var(--hue);margin-bottom:14px}
+@media(max-width:820px){.next-grid{grid-template-columns:1fr}}
+
+/* ============================================================
+   PARKED — styles for the two cut sections. Kept, not deleted, so
+   restoring either is one paste of markup with no CSS archaeology.
+   .ploop is destined for part 3 (Memory). .sizes is unhomed; it belongs
+   to whatever piece eventually makes the company-size argument properly.
+   ============================================================ */
+/* improvement loop — MOVES TO PART 3 */
+.ploop{margin-top:26px;counter-reset:l;border-top:2px solid var(--line-firm)}
+.ploop .step{display:flex;gap:16px;align-items:flex-start;padding:16px 0;border-bottom:1px solid var(--line)}
+.ploop .step .ic{margin-top:3px}
+.ploop .step p{font-size:16px;line-height:1.55;color:var(--ink-soft)}
+.ploop .step p b{font-weight:700;color:var(--ink)}
+.ploop .lstep{counter-increment:l;font-weight:800;font-size:13px;min-width:30px;font-variant-numeric:tabular-nums}
+.ploop .lstep::before{content:counter(l,decimal-leading-zero)}
+/* size cards — HELD FOR A LATER PIECE */
 .sizes{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:26px}
 .scard{border:2px solid var(--line-firm);padding:20px}
 .scard .st{font-weight:800;font-size:17px;letter-spacing:-.01em}
 .scard .rule{width:34px;height:6px;background:var(--hue);margin-bottom:14px}
 .scard p{font-size:13.5px;color:var(--ink-soft);margin:8px 0 0;line-height:1.55}
 
-/* ---------- recap (the one large colour fill the system allows) ---------- */
-.recap{margin-top:0;border:2px solid var(--line-firm);background:var(--c-blue);color:var(--paper);padding:32px 34px}
-.recap .big{font-size:clamp(19px,2.4vw,26px);font-weight:800;letter-spacing:-.02em;line-height:1.3;max-width:66ch}
-
-/* ---------- footer (NEW) ---------- */
+/* ---------- footer ---------- */
 footer.sig-foot{border-top:4px solid var(--line-firm);padding:48px 0 64px;margin-top:72px}
 .foot-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:32px}
 .foot-col .kicker{border-top:4px solid var(--line);padding-top:10px;display:block}
@@ -283,7 +319,7 @@ footer.sig-foot{border-top:4px solid var(--line-firm);padding:48px 0 64px;margin
 /* ---------- breakpoints ---------- */
 /* Queries run widest → narrowest so later blocks always win. Do not reorder. */
 @media(max-width:1200px){.phase-row{grid-template-columns:repeat(7,minmax(0,1fr))}}
-@media(max-width:900px){.foot-grid{grid-template-columns:repeat(2,1fr)}.contents ol{grid-template-columns:repeat(3,1fr)}.contents li:nth-child(3n){border-right:0}.sizes{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:900px){.foot-grid{grid-template-columns:repeat(2,1fr)}.series ol{grid-template-columns:repeat(2,1fr)}.series li:nth-child(2n){border-right:0}.sizes{grid-template-columns:repeat(2,1fr)}}
 /* Masthead reflows at 880 to match kenpriore.com, kenpriore.ai, the resume and
    fiduciary. Its own block, ordered between 900 and 820, because the rest of the
    820 rules below are unrelated layout and should not move with it. */
@@ -294,8 +330,8 @@ footer.sig-foot{border-top:4px solid var(--line-firm);padding:48px 0 64px;margin
   .pcard{display:flex;flex-direction:column;grid-row:auto}}
 @media(max-width:760px){.phase-row{grid-template-columns:repeat(3,minmax(0,1fr))}.phase-row .stage:last-child{grid-column:1/-1;min-height:0}}
 @media(max-width:620px){
-  .contents ol{grid-template-columns:1fr}
-  .contents li{border-right:0;border-bottom:1px solid var(--line)}
+  .series ol{grid-template-columns:1fr}
+  .series li{border-right:0;border-bottom:1px solid var(--line)}
   .sizes{grid-template-columns:1fr}
   .foot-grid{grid-template-columns:1fr}
 }
@@ -304,7 +340,8 @@ footer.sig-foot{border-top:4px solid var(--line-firm);padding:48px 0 64px;margin
    recap and every filled chip as white text on white paper. */
 @media print{
   .recap,.stage,.toggle button[aria-pressed="true"],.stages-ctl button[aria-pressed="true"],
-  .legend .sw,.hero-rule,.hue-tick,.scard .rule,.pcard .ex,.duo .ic-xl,.stage .pivot{
+  .legend .sw,.hero-rule,.hue-tick,.scard .rule,.pcard .ex,.duo .ic-xl,.stage .pivot,
+  .series li.here,.nplate .np-rule{
     -webkit-print-color-adjust:exact;print-color-adjust:exact}
   .mast{position:static}
   .group{break-inside:avoid-page}
@@ -351,7 +388,7 @@ footer.sig-foot{border-top:4px solid var(--line-firm);padding:48px 0 64px;margin
 <symbol id="e-eval" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="18" x2="20" y2="18"></line><circle fill="currentColor" stroke="none" cx="9" cy="12" r="2"></circle><polyline stroke="var(--signal)" points="14,12 16,14 20,8"></polyline></symbol>
 </defs></svg>
 
-<!-- ===================== MASTHEAD (NEW) ===================== -->
+<!-- ===================== MASTHEAD ===================== -->
 <header class="mast">
   <div class="mast-in">
     <a class="wordmark" href="/">
@@ -380,19 +417,21 @@ footer.sig-foot{border-top:4px solid var(--line-firm);padding:48px 0 64px;margin
   <section class="hero">
     <!-- Zero red. "One red element per screen, or zero. Red always means live or
          changed right now." Nothing on a dated explainer is live. See CHANGES.md. -->
-    <div class="kicker">In-house legal · the agreement work · June 2026</div>
+    <div class="kicker">In-house legal · the agreement work · 1 of 4 · June 2026</div>
     <div class="hero-rule"></div>
     <h1 class="poster wipe">The agreement work, rewired</h1>
-    <p class="dek" style="margin-top:20px">This is not all of in-house legal. It is the lawyers who work on agreements, and today one of them touches every step of every contract the company signs. AI is about to change that, but not who answers for the result, and it changes a startup's agreement work differently than a large regulated company's.</p>
+    <!-- DEK: the size clause is cut with section 04. It was the page promising a
+         second argument in its first breath. Three claims down to two. -->
+    <p class="dek" style="margin-top:20px">This is not all of in-house legal. It is the lawyers who work on agreements, and today one of them touches every step of every contract the company signs. AI is about to change that, but not who answers for the result.</p>
 
-    <div class="contents">
+    <!-- SERIES STRIP replaces the six-cell contents. Parts 2-4 are deliberately
+         unlinked: live /map.html is still v1 design and the old framing. -->
+    <div class="series">
       <ol>
-        <li><a href="#s01"><span class="c-no">01</span><span class="c-t">The work</span><span class="c-d">What the agreement work is</span></a></li>
-        <li><a href="#s02"><span class="c-no">02</span><span class="c-t">The one idea</span><span class="c-d">Three kinds of agreement work</span></a></li>
-        <li><a href="#s03"><span class="c-no">03</span><span class="c-t">Step by step</span><span class="c-d">Walk the thirteen steps</span></a></li>
-        <li><a href="#s04"><span class="c-no">04</span><span class="c-t">By size</span><span class="c-d">Different at every size</span></a></li>
-        <li><a href="#s05"><span class="c-no">05</span><span class="c-t">Why it improves</span><span class="c-d">The loop that compounds</span></a></li>
-        <li><a href="#s06"><span class="c-no">06</span><span class="c-t">The catch</span><span class="c-d">Why a lawyer never leaves</span></a></li>
+        <li class="here"><span class="cell"><span class="s-no">01 · The work</span><span class="s-t">The agreement work, rewired</span><span class="s-d">You are here</span></span></li>
+        <li class="soon"><span class="cell"><span class="s-no">02 · Intelligence</span><span class="s-t">What the work runs on</span><span class="s-d">Coming</span></span></li>
+        <li class="soon"><span class="cell"><span class="s-no">03 · Memory</span><span class="s-t">What the work remembers</span><span class="s-d">Coming</span></span></li>
+        <li class="soon"><span class="cell"><span class="s-no">04 · Judgment</span><span class="s-t">What stays human</span><span class="s-d">Coming</span></span></li>
       </ol>
     </div>
   </section>
@@ -424,9 +463,11 @@ footer.sig-foot{border-top:4px solid var(--line-firm);padding:48px 0 64px;margin
       </div>
     </div>
 
-    <div class="body-after">
-      <p class="tprose">Nearly all of it is the same thirteen moves, thousands of times a year: a request comes in, and an agreement gets drafted, negotiated, approved, signed, and one day renewed or ended. Today a lawyer touches all thirteen, even the standard NDA that comes back signed with nothing changed.</p>
-      <p class="tprose">That is what AI changes. As it takes the routine, the familiar <b>human in the loop</b> splits into three. <b>Over the loop</b>, the lawyer sets the rules once and sees only the exceptions. <b>On the loop</b>, they watch from the edge and step in on the calls that matter. <b>In the loop</b>, they keep their hands on the work and sign it. Which work belongs where is the one idea the rest of this page is built on.</p>
+    <!-- CUT: the over/on/in paragraph moves to 02, where the three postures are
+         taught once alongside the three kinds of work they belong to. This section
+         now does one job: here is the work, and here is the thing AI moves. -->
+    <div class="body-after one-col">
+      <p class="tprose">Nearly all of it is the same thirteen moves, thousands of times a year: a request comes in, and an agreement gets drafted, negotiated, approved, signed, and one day renewed or ended. Today a lawyer touches all thirteen, even the standard NDA that comes back signed with nothing changed. That is what AI changes. The question is which of the thirteen still needs a lawyer's hands on it.</p>
     </div>
   </section>
 
@@ -440,8 +481,11 @@ footer.sig-foot{border-top:4px solid var(--line-firm);padding:48px 0 64px;margin
       </div>
       <div><h2>The agreement work comes in three kinds</h2></div>
     </div>
+    <!-- MERGED: the kind of work and where the lawyer stands are one idea with two
+         faces, and the page used to teach them as two. Taught once, here. -->
     <div class="body-after">
-      <p class="tprose">Not all of it is the same, and that is the whole key. Some of it is routine, with one right answer. Some of it turns on judgment. And a little of it is a moment where a person has to answer for what happened. Which kind it is decides where the lawyer stands: the riskier the work, the closer in they move, the less rope the machine gets, and the more they are on the hook.</p>
+      <p class="tprose">Not all of it is the same, and that is the whole key. Some of it is routine, with one right answer. Some of it turns on judgment. And a little of it is a moment where a person has to answer for what happened.</p>
+      <p class="tprose">Which kind it is decides where the lawyer stands. As AI takes the routine, the familiar <b>human in the loop</b> splits into three. <b>Over the loop</b>, the lawyer sets the rules once and sees only the exceptions. <b>On the loop</b>, they watch from the edge and step in on the calls that matter. <b>In the loop</b>, they keep their hands on the work and sign it. The riskier the work, the closer in they stand, the less rope the machine gets, and the more they are on the hook.</p>
     </div>
     <div class="triptych">
       <div class="pcard">
@@ -484,10 +528,10 @@ footer.sig-foot{border-top:4px solid var(--line-firm);padding:48px 0 64px;margin
       </div>
       <div><h2>How the agreement work runs, step by step</h2></div>
     </div>
-    <div class="body-after">
-      <p class="tprose">The row of thirteen blocks below is a contract's whole path, left to right: a request comes in at block one, and the agreement is renewed or ended at block thirteen. Each block's colour tells you who runs that step, and the legend under the row decodes the colours.</p>
-      <p class="tprose">Two controls set what you are looking at. <b>How it runs</b> flips the row between the work today, where a lawyer touches every step, and the AI-native version. <b>Company size</b> sets how much of the AI model is switched on. Size only matters in the AI-native view, so it sits greyed out until you flip.</p>
-      <p class="tprose">Click any block to open it. The panel under the row shows how that step is done today, how it changes with AI, the limit that keeps it safe, and who answers for the call.</p>
+    <!-- CUT: three paragraphs of instructions down to one. Needing that much setup
+         was the tell that the control set had outgrown the argument. -->
+    <div class="body-after one-col">
+      <p class="tprose">The row of thirteen blocks below is a contract's whole path, left to right: a request comes in at block one, and the agreement is renewed or ended at block thirteen. Each block's colour tells you who runs that step. <b>How it runs</b> flips between the work today and the AI-native version, <b>company size</b> sets how much of the model is switched on, and clicking any block opens that step.</p>
     </div>
 
     <div class="controls">
@@ -499,7 +543,8 @@ footer.sig-foot{border-top:4px solid var(--line-firm);padding:48px 0 64px;margin
         </div>
       </div>
       <div id="stageWrap">
-        <div class="ctl-label">Company size <span class="ctl-note">(same model at every size)</span></div>
+        <!-- the whole of the cut section 04, compressed into a control note -->
+        <div class="ctl-label">Company size <span class="ctl-note">(same model at every size, more of it switched on)</span></div>
         <div class="stages-ctl" id="stagesCtl" role="group" aria-label="Company size">
           <button data-st="0" aria-pressed="false" onclick="setStage(0)">Startup</button>
           <button data-st="1" aria-pressed="false" onclick="setStage(1)">Growth</button>
@@ -515,15 +560,18 @@ footer.sig-foot{border-top:4px solid var(--line-firm);padding:48px 0 64px;margin
       .nojs-note p{max-width:66ch}
     </style></noscript>
     <div class="nojs-note">
-      <p class="tprose">The thirteen steps are an interactive walk-through, and it needs JavaScript. The three sections below cover the same argument without it.</p>
+      <p class="tprose">The thirteen steps are an interactive walk-through, and it needs JavaScript. The sections above and below carry the same argument without it.</p>
     </div>
 
     <div class="phase-label">The thirteen steps · click a block to open it</div>
     <div class="bleed"><div class="phase-row" id="row" role="group" aria-label="The thirteen steps a contract goes through"></div></div>
 
+    <!-- Self-serve reworded to sit UNDER commodity rather than beside it. Section 02
+         teaches three kinds; the legend showed five entries. This subordinates the
+         fourth instead of promoting it. ⛔ Ken's call — see SIMPLIFIED-NOTES.md. -->
     <div class="legend" id="legend">
       <span data-key="commodity"><span class="sw" style="background:var(--lane-commodity)"></span><b>Commodity</b> · routine · over the loop</span>
-      <span data-key="selfserve"><span class="sw" style="background:var(--lane-selfserve)"></span><b>Self-serve</b> · routine · run by the business</span>
+      <span data-key="selfserve"><span class="sw" style="background:var(--lane-selfserve)"></span><b>Self-serve</b> · commodity the business runs without legal</span>
       <span data-key="craft"><span class="sw" style="background:var(--lane-craft)"></span><b>Craft</b> · judgment · on the loop</span>
       <span data-key="custody"><span class="sw" style="background:var(--lane-custody)"></span><b>Custody</b> · high-stakes · in the loop</span>
       <span data-key="today"><span class="sw" style="background:var(--ink)"></span><b>A lawyer</b> · start to finish, no agent</span>
@@ -537,78 +585,76 @@ footer.sig-foot{border-top:4px solid var(--line-firm);padding:48px 0 64px;margin
 
   </section>
 
-  <!-- ===================== 04 ===================== -->
+  <!-- =====================================================================
+       CUT — 04 By size. The size buttons survive inside the interactive above,
+       where the shift from startup to enterprise is a discovery. As a standing
+       section it turned that discovery into a second argument, and the page was
+       already carrying one. Markup preserved in SIMPLIFIED-NOTES.md.
+
+       CUT — 05 Why it improves. The graduation loop is about noticing a repeated
+       call, writing down the reason, and having the system inherit it. That is
+       part 3, Memory. It is also the only section on the page about time rather
+       than structure, which is why it read as a different concept.
+       Markup preserved in SIMPLIFIED-NOTES.md.
+       ===================================================================== -->
+
+  <!-- ===================== 04 (was 06) ===================== -->
   <section class="group" id="s04">
     <div class="group-head stack">
       <div class="gh-meta">
         <span class="gh-num num">04</span>
-        <svg class="ic ic-lg"><use href="#e-agent"></use></svg>
-        <div><div class="hue-tick"></div><div class="kicker">By size</div></div>
-      </div>
-      <div><h2>It looks different at every size</h2></div>
-    </div>
-    <div class="body-after">
-      <p class="tprose">The model underneath does not change with the size of the company. What changes is how much of it is switched on, and how much room each agent has earned. Use the <b>size buttons in the interactive above</b> to watch the same thirteen steps shift from mostly lawyer-run at a startup to entirely agent-run by enterprise, while the highest-stakes calls stay in the loop no matter the size.</p>
-    </div>
-    <div class="sizes">
-      <div class="scard"><div class="rule"></div><div class="st">Startup</div><p>One lawyer running two or three agents and doing all the judgment by hand. The whole model, in miniature.</p></div>
-      <div class="scard"><div class="rule"></div><div class="st">Growth</div><p>The core contract agents on off-the-shelf tools, plus a knowledge base the team built itself.</p></div>
-      <div class="scard"><div class="rule"></div><div class="st">Mid-market</div><p>The full set of contract agents, with the system learning as it goes.</p></div>
-      <div class="scard"><div class="rule"></div><div class="st">Enterprise</div><p>Every agent switched on, each given more room as it earns trust, and a standing team just to govern the whole thing.</p></div>
-    </div>
-  </section>
-
-  <!-- ===================== 05 ===================== -->
-  <section class="group" id="s05">
-    <div class="group-head stack">
-      <div class="gh-meta">
-        <span class="gh-num num">05</span>
-        <svg class="ic ic-lg"><use href="#b-ledger"></use></svg>
-        <div><div class="hue-tick"></div><div class="kicker">Why it improves</div></div>
-      </div>
-      <div><h2>The loop that makes it better over time</h2></div>
-    </div>
-    <div class="body-after">
-      <p class="tprose">Agreement work run this way keeps getting better. The line between routine and judgment is not fixed: work that takes real judgment this year can become routine the next, once the lawyers notice they keep making the same call the same way. Only the AI-native version has a loop for capturing that, and that loop is what keeps the work improving instead of leveling off.</p>
-    </div>
-    <div class="ploop">
-      <div class="step"><span class="lstep"></span><svg class="ic"><use href="#a-override"></use></svg><p>Watch where a lawyer <b>changes what the agent produced</b>. That is your live map of where judgment still matters.</p></div>
-      <div class="step"><span class="lstep"></span><svg class="ic"><use href="#e-eval"></use></svg><p>When the same change keeps happening, either <b>teach the agent the rule</b> behind it, or <b>keep it as a call a human always makes</b>.</p></div>
-      <div class="step"><span class="lstep"></span><svg class="ic"><use href="#b-ledger"></use></svg><p>Write the reason down, in your company's own terms, in a <b>running record of how you decide</b>. That record is your built-up judgment.</p></div>
-      <div class="step"><span class="lstep"></span><svg class="ic"><use href="#b-relocate"></use></svg><p>Once a call becomes routine, it <b>moves from the judgment lane to the routine lane</b>, and the lawyer moves up to the next hard problem.</p></div>
-    </div>
-  </section>
-
-  <!-- ===================== 06 ===================== -->
-  <section class="group" id="s06">
-    <div class="group-head stack">
-      <div class="gh-meta">
-        <span class="gh-num num">06</span>
         <svg class="ic ic-lg"><use href="#a-signoff"></use></svg>
         <div><div class="hue-tick"></div><div class="kicker">The catch</div></div>
       </div>
       <div><h2>Why a lawyer never fully leaves</h2></div>
     </div>
-    <div class="body-after">
+    <div class="body-after one-col">
       <p class="tprose">Agreement work is not generic operations work. A lawyer carries legal duties that a tool cannot take on. Those duties are the reason a lawyer stays close to the work wherever the stakes are highest, no matter how good the AI gets.</p>
     </div>
+    <!-- TRIMMED four points to two. ⛔ THE MOST DEBATABLE CUT ON THE PAGE.
+         Kept: the two that make THIS page's argument (a duty cannot be delegated;
+         capability creates obligation). Moved to part 4, Judgment: Rules 5.1/5.3
+         and Rule 1.6, which are the mechanics of how you comply rather than the
+         reason a lawyer stays. Both preserved verbatim in SIMPLIFIED-NOTES.md —
+         restoring is one paste. -->
     <div class="fid">
       <div class="pt"><svg class="ic"><use href="#a-signoff"></use></svg><div><h5>The duty to answer</h5><p>A company lawyer owes the company real legal duties: loyalty, care, competence, confidentiality, honesty. An agent can do the work, but it cannot carry the duty. So the highest-stakes calls stay with a person who answers for them.</p></div></div>
-      <div class="pt"><svg class="ic"><use href="#a-oversight"></use></svg><div><h5>Supervising the tools (Rules 5.1 and 5.3)</h5><p>A supervising lawyer answers for the work of the people and tools under them. You meet that duty, and prove you met it, with right-sized records and a human sign-off. An agent giving something a pass is not the same as review.</p></div></div>
-      <div class="pt"><svg class="ic"><use href="#b-custody"></use></svg><div><h5>Keeping it privileged (Rule 1.6)</h5><p>A lot of legal work is privileged, which means it is protected from the other side in a lawsuit. Feed it into a public AI tool and you can lose that protection. So privilege is built in from the start: private instances, projects walled off by matter, a locked-down AI tier, and records kept light enough to prove diligence without storing the sensitive substance.</p></div></div>
       <div class="pt"><svg class="ic"><use href="#d-loadbearing"></use></svg><div><h5>The bar rises with the tool</h5><p>Once you have a tool that reliably catches a problem, ignoring what it finds is worse than never having looked. Being able to catch it creates a duty to act on it. So when the system raises a flag, you resolve it. You do not leave it sitting there as a record that you knew.</p></div></div>
     </div>
     <p class="fid-lens"><span><b>What this changes.</b> For a lawyer, good and fast is only half the question. The rest is whether they can stand behind the work, whether it is protected, and who answers for it. That is what pushes the high-duty work closer in, and it shapes the records you keep.</span></p>
   </section>
 
   <!-- ===================== RECAP ===================== -->
+  <!-- Unchanged. Its closing clause used to summarise section 05; with 05 cut it
+       now works as the handoff into part 3. Better as a tee than as a summary. -->
   <div class="recap">
     <div class="big">AI takes the routine, a lawyer keeps the judgment and the sign-off, and the line between them moves as the record proves what can safely run on its own. That is what "AI-native" means: the lawyer is not replaced but moved to where they are worth the most, with the guardrails and records that let the machine handle the rest safely.</div>
   </div>
 
+  <!-- ===================== NEXT IN THE SERIES ===================== -->
+  <!-- Gives the cut sections a visible destination, so a shorter page reads as
+       scoped rather than thin. Unlinked until map v3 ships. -->
+  <section class="next-up">
+    <div class="kicker">Next in this series</div>
+    <div class="next-grid">
+      <div class="nplate">
+        <div class="np-rule"></div>
+        <div class="np-no">Part 2 · Intelligence</div>
+        <h4>What the work runs on</h4>
+        <p>Judgment runs on what the lawyer knows. The agreement work needs eight kinds of intelligence, and each one lives somewhere different and feeds a different set of the thirteen steps.</p>
+      </div>
+      <div class="nplate">
+        <div class="np-rule"></div>
+        <div class="np-no">Part 3 · Memory</div>
+        <h4>What the work remembers</h4>
+        <p>The line between routine and judgment moves. It moves when a lawyer changes what the agent produced, someone writes down the reason in the company's own terms, and the system inherits it.</p>
+      </div>
+    </div>
+  </section>
+
 </main>
 
-<!-- ===================== FOOTER (NEW) ===================== -->
+<!-- ===================== FOOTER ===================== -->
 <footer class="sig-foot">
   <div class="container">
     <div class="foot-grid">
