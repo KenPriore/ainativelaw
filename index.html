@@ -154,9 +154,9 @@ a.cell:hover .s-no{color:var(--hue)}
 /* NEW: a single paragraph in two balanced columns reads as a layout accident.
    Sections that are down to one paragraph opt out and keep the 66ch measure. */
 .body-after.one-col{columns:1}
-.body-after.one-col .tprose{max-width:78ch}
+.body-after.one-col .tprose{max-width:none}
 @media(max-width:820px){.body-after{columns:1}.body-after .tprose{max-width:66ch}}
-.tprose{font-size:16px;color:var(--ink);line-height:1.6;max-width:66ch}
+.tprose{font-size:16px;color:var(--ink);line-height:1.6}
 .tprose.soft{color:var(--ink-soft)}
 .tprose + .tprose{margin-top:14px}
 .tprose b{font-weight:700}
@@ -226,7 +226,7 @@ a.cell:hover .s-no{color:var(--hue)}
 .detail .cols h4{font-weight:700;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin:0 0 7px;border-bottom:1px solid var(--line);padding-bottom:6px}
 .detail .cols p{margin:0;font-size:14.5px;line-height:1.55;color:var(--ink-soft)}
 .detail .cols p b{color:var(--ink);font-weight:700}
-.detail .ph{color:var(--ink-soft);font-size:14.5px;max-width:66ch}
+.detail .ph{color:var(--ink-soft);font-size:14.5px}
 
 /* ---------- legend ---------- */
 .legend{display:flex;flex-wrap:wrap;gap:18px;margin-top:26px;font-size:13px;color:var(--ink-soft);align-items:center}
@@ -494,7 +494,7 @@ footer.sig-foot{border-top:4px solid var(--line-firm);padding:48px 0 64px;margin
     <div class="triptych">
       <div class="pcard">
         <div class="pchead"><svg class="ic"><use href="#b-commodity"></use></svg><svg class="ic ic-sm"><use href="#a-over-loop"></use></svg></div>
-        <div class="pos">Commodity</div>
+        <div class="pos">Routine</div>
         <h4>Watch from over the loop</h4>
         <div class="lead">The routine, high-volume work with one right answer. You set the rules and watch the system, not every file.</div>
         <div class="role"><b>Lawyer</b>Writes the playbook, checks a sample, and watches the dashboard. You were not there for each one, and you can still answer for all of them, because you wrote the standard and you audit the results.</div>
@@ -503,7 +503,7 @@ footer.sig-foot{border-top:4px solid var(--line-firm);padding:48px 0 64px;margin
       </div>
       <div class="pcard on">
         <div class="pchead"><svg class="ic"><use href="#b-craft"></use></svg><svg class="ic ic-sm"><use href="#a-on-loop"></use></svg></div>
-        <div class="pos">Craft</div>
+        <div class="pos">Judgment</div>
         <h4>Sit on the loop</h4>
         <div class="lead">The work where the right answer depends on who is across the table and how much risk the company will take. You are in the decision before it goes out.</div>
         <div class="role"><b>Lawyer</b>Weighs the options, makes the call, and writes down the reasoning.</div>
@@ -512,7 +512,7 @@ footer.sig-foot{border-top:4px solid var(--line-firm);padding:48px 0 64px;margin
       </div>
       <div class="pcard cust">
         <div class="pchead"><svg class="ic"><use href="#b-custody"></use></svg><svg class="ic ic-sm"><use href="#a-in-loop"></use></svg></div>
-        <div class="pos">Custody</div>
+        <div class="pos">Accountable</div>
         <h4>Stay in the loop</h4>
         <div class="lead">The moments where a person has to answer for what happened. You own and sign each one, and you are on the hook.</div>
         <div class="role"><b>Lawyer</b>Makes the call, signs, and answers for it. This cannot be handed to the agent.</div>
@@ -535,7 +535,7 @@ footer.sig-foot{border-top:4px solid var(--line-firm);padding:48px 0 64px;margin
     <!-- CUT: three paragraphs of instructions down to one. Needing that much setup
          was the tell that the control set had outgrown the argument. -->
     <div class="body-after one-col">
-      <p class="tprose">The row of thirteen blocks below is a contract's whole path, left to right: a request comes in at block one, and the agreement is renewed or ended at block thirteen. Each block's colour tells you who runs that step. <b>How it runs</b> flips between the work today and the AI-native version, <b>company size</b> sets how much of the model is switched on, and clicking any block opens that step.</p>
+      <p class="tprose">Below is a contract's whole path, left to right, each block coloured by which kind of work it is. Flip <b>How it runs</b> and watch the routine steps move to the machine while the accountable ones stay put. Change <b>company size</b> to see how much a department that size has switched on. Click any block for the step.</p>
     </div>
 
     <div class="controls">
@@ -574,10 +574,10 @@ footer.sig-foot{border-top:4px solid var(--line-firm);padding:48px 0 64px;margin
          teaches three kinds; the legend showed five entries. This subordinates the
          fourth instead of promoting it. ⛔ Ken's call — see SIMPLIFIED-NOTES.md. -->
     <div class="legend" id="legend">
-      <span data-key="commodity"><span class="sw" style="background:var(--lane-commodity)"></span><b>Commodity</b> · routine · over the loop</span>
-      <span data-key="selfserve"><span class="sw" style="background:var(--lane-selfserve)"></span><b>Self-serve</b> · commodity the business runs without legal</span>
-      <span data-key="craft"><span class="sw" style="background:var(--lane-craft)"></span><b>Craft</b> · judgment · on the loop</span>
-      <span data-key="custody"><span class="sw" style="background:var(--lane-custody)"></span><b>Custody</b> · high-stakes · in the loop</span>
+      <span data-key="commodity"><span class="sw" style="background:var(--lane-commodity)"></span><b>Routine</b> · over the loop</span>
+      <span data-key="selfserve"><span class="sw" style="background:var(--lane-selfserve)"></span><b>Self-serve</b> · routine the business runs without legal</span>
+      <span data-key="craft"><span class="sw" style="background:var(--lane-craft)"></span><b>Judgment</b> · on the loop</span>
+      <span data-key="custody"><span class="sw" style="background:var(--lane-custody)"></span><b>Accountable</b> · in the loop</span>
       <span data-key="today"><span class="sw" style="background:var(--ink)"></span><b>A lawyer</b> · start to finish, no agent</span>
     </div>
 
@@ -710,12 +710,12 @@ const STAGES = [
    limit:"The threshold", guard:"The agent only hands off to a person once it is confident enough, and counterparty files are kept walled off.", owns:"No sign-off needed. Just a light log.", ss:true},
   {n:2, nm:"Triage & routing", lane:"craft", post:"on", pivot:"Pivot", agent:"Triage agent", icon:"b-route",
    today:"A senior lawyer sorts by gut, or the work just piles up in an inbox with no order to it.",
-   ai:"The agent scores the matter and suggests a lane, Commodity, Craft, or Custody, and a person owns every close call and every high-stakes one.",
+   ai:"The agent scores the matter and suggests which kind of work it is, routine, judgment, or accountable, and a person owns every close call and every high-stakes one.",
    limit:"The watch", guard:"Sorting is treated as skilled work, and how often it mis-sorts is a number the team watches.", owns:"The Attorney-Architect owns the lane decision."},
   {n:3, nm:"Conflicts & risk screen", lane:"commodity", post:"over", agent:"Screening agent", icon:"a-audit",
    today:"Manual checks against watchlists and past dealings, often skipped when things are busy.",
    ai:"The agent runs conflict, sanctions, and data-sensitivity checks and stops the work cold on a flag.",
-   limit:"The halt", guard:"A flag stops the line, and the agent can never clear its own flag.", owns:"Going ahead despite a real flag is a human call (Custody).", ss:true},
+   limit:"The halt", guard:"A flag stops the line, and the agent can never clear its own flag.", owns:"Going ahead despite a real flag is a human call, in the loop.", ss:true},
   {n:4, nm:"Template & playbook", lane:"commodity", post:"over", agent:"Drafting agent", icon:"d-blueprint",
    today:"The lawyer hunts for the right template and tries to remember the standard positions.",
    ai:"The agent picks the right document and the playbook that governs it, from the request.",
@@ -727,7 +727,7 @@ const STAGES = [
   {n:6, nm:"Internal review", lane:"craft", post:"on", agent:"Review agent", icon:"c-clause",
    today:"The document gets handed one by one to security, finance, privacy, and tax. Days of waiting.",
    ai:"The agent checks it against the standards and sends only the clauses that need it to the right specialist, all at once.",
-   limit:"The gate", guard:"Signing off on a high-stakes clause is itself a Custody gate.", owns:"Specialists own the clauses that land on their desk."},
+   limit:"The gate", guard:"Signing off on a high-stakes clause is itself an in-the-loop call.", owns:"Specialists own the clauses that land on their desk."},
   {n:7, nm:"Redline vs. playbook", lane:"craft", post:"on", neck:"Time sink", agent:"Redline agent", icon:"c-redline",
    today:"The busiest part of the job. Roughly three hours a contract, line by line.",
    ai:"Standard markups within the safe range go out with a person attesting on send. On the risky clauses, the agent proposes and a lawyer owns the position.",
@@ -763,7 +763,7 @@ const STAGE_AGENTS = {
   1:["Intake agent","Triage agent","Screening agent","Drafting agent","Review agent","Redline agent","Negotiation agent","Approval agent","Execution agent"],
   2:"ALL_CORE", 3:"ALL"
 };
-const LANE_LABEL = {commodity:"Commodity",craft:"Craft",custody:"Custody",selfserve:"Self-serve"};
+const LANE_LABEL = {commodity:"Routine",craft:"Judgment",custody:"Accountable",selfserve:"Self-serve"};
 const POST_LABEL = {over:"Over the loop",on:"On the loop",in:"In the loop",ss:"Self-serve"};
 
 let mode='today', stage=2, sel=null;
