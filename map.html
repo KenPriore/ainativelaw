@@ -3,171 +3,275 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>What the legal work runs on</title>
-<meta name="description" content="The eight types of intelligence underneath the contract lifecycle, the data each one requires, and which steps consume which." />
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23f5f2ea'/%3E%3Crect x='6' y='7' width='20' height='4' fill='%230057B8'/%3E%3Crect x='6' y='14' width='20' height='4' fill='%23FFCC00'/%3E%3Crect x='6' y='21' width='20' height='4' fill='%23FF0000'/%3E%3C/svg%3E">
+<title>What the agreement work runs on</title>
+<meta name="description" content="What the agreement work runs on: eight kinds of knowledge, where each one lives, and what has to exist before a machine can carry a step." />
+<meta name="robots" content="noindex" /><!-- soft launch: parts 2-4 are reachable by URL and from each other, unlisted on the root; remove this line to list -->
+
+<!-- MOCK: Signal v2 rework of ainativelaw.kenpriore.ai/map.html as part 2 of 4. Not deployed. -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23FFFFFF'/%3E%3Crect x='6' y='7' width='20' height='4' fill='%234A6FA5'/%3E%3Crect x='6' y='14' width='20' height='4' fill='%23D4A24C'/%3E%3Crect x='6' y='21' width='20' height='4' fill='%23C76B7E'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;800&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --paper:#f5f2ea; --ink:#14130f; --ink-soft:#4a463d; --muted:#7a7568; --line:#ddd7c8; --card:#fffdf8;
-    --ext:#0057B8; --inner:#FFCC00; --outer:#FF0000; --signal:#FF0000;
-    --sans:'Archivo','Helvetica Neue',Helvetica,Arial,system-ui,sans-serif;
-  }
-  *{box-sizing:border-box;margin:0;padding:0;border-radius:0}
-  html,body{background:var(--paper);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased}
-  body{line-height:1.55}
-  .num{font-variant-numeric:tabular-nums}
-  .wrap{max-width:none;margin:0;padding:44px clamp(28px,4vw,72px) 88px}
+/* ============================================================
+   SIGNAL V2 — tokens (verbatim from signal.css §1)
+   ============================================================ */
+:root{
+  --paper:#FFFFFF; --ink:#0A0A0A; --ink-soft:#333333; --muted:#6B6B6B;
+  --line:#D9D9D9; --line-firm:var(--ink); --fill-soft:#F4F4F4;
+  --c-red:#FF0000; --c-blue:#0057B8; --c-yellow:#FFCC00;
+  --ill-slate:#4A6FA5; --ill-rose:#C76B7E; --ill-mustard:#D4A24C;
+  --ill-orange:#FF7F50; --ill-sage:#7CA982;
+  --hue:var(--ill-orange);
+  --container:1180px; --measure:720px; --inset:clamp(20px,5vw,72px);
+  --sans:"Archivo","Helvetica Neue",Helvetica,Arial,system-ui,sans-serif;
+  --beat:480ms; --ease-cut:cubic-bezier(0.2,0.7,0.2,1); --ease-snap:cubic-bezier(0.2,0,0,1);
+}
+[data-lane="model"]{--hue:var(--ill-orange)}
 
-  .isprite{position:absolute;width:0;height:0;overflow:hidden}
-  .ic{width:22px;height:22px;display:inline-block;vertical-align:middle;color:var(--ink);flex:none}
-  .ic-lg{width:30px;height:30px}
-  .ic-sm{width:16px;height:16px}
+/* C3 lane colours carried from part 1 — same steps, same coding */
+:root{
+  --lane-commodity:var(--ill-slate);
+  --lane-craft:var(--ill-mustard);
+  --lane-custody:var(--ill-rose);
+}
 
-  .kicker{font-weight:700;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-soft)}
-  h1{font-size:clamp(34px,6vw,64px);line-height:.98;letter-spacing:-.03em;margin:.18em 0 .18em;font-weight:800}
-  .dek{font-size:clamp(17px,2vw,21px);color:var(--ink-soft);line-height:1.5}
-  .masthead{border-bottom:3px solid var(--ink);padding-bottom:24px;margin-bottom:8px}
+*{box-sizing:border-box;border-radius:0 !important;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:96px}
+@media(max-width:820px){html{scroll-padding-top:180px}}
+html,body{background:var(--paper);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased}
+body{font-size:16px;line-height:1.55;overflow-x:clip}
+.num{font-variant-numeric:tabular-nums}
+.container{max-width:var(--container);margin:0 auto;padding:0 var(--inset)}
+a{color:var(--c-blue);text-decoration:none}
+a:hover{border-bottom:2px solid currentColor}
 
-  .tsec{padding:38px 0;border-bottom:1.5px solid var(--line)}
-  .tsec-head{display:flex;align-items:flex-start;gap:16px;margin-bottom:16px}
-  .tnum{font-size:clamp(30px,4vw,46px);font-weight:800;letter-spacing:-.03em;line-height:.85;color:var(--ink)}
-  .tsec-head h2{font-size:clamp(21px,2.6vw,30px);letter-spacing:-.02em;font-weight:800;line-height:1.05}
-  .tsec-head .kicker{margin-bottom:5px}
-  .tprose{font-size:clamp(15.5px,1.5vw,18px);color:var(--ink);line-height:1.6}
-  .tprose.soft{color:var(--ink-soft)}
-  .tprose + .tprose{margin-top:14px}
-  .tprose b{font-weight:700}
+.isprite{position:absolute;width:0;height:0;overflow:hidden}
+.ic{width:18px;height:18px;display:inline-block;vertical-align:middle;flex:none;color:var(--ink);--signal:var(--c-blue)}
+.ic-lg{width:24px;height:24px}
+.ic-sm{width:16px;height:16px}
 
-  /* rings */
-  .rings{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:22px}
-  .ring-card{border:1.5px solid var(--line);background:var(--card);border-top:6px solid var(--ext);padding:18px 18px 20px}
-  .ring-card.r-inner{border-top-color:var(--inner)}
-  .ring-card.r-outer{border-top-color:var(--outer)}
-  .ring-card h3{font-size:18px;font-weight:800;letter-spacing:-.01em;margin:2px 0 6px}
-  .ring-card .tag{font-weight:700;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft)}
-  .ring-card p{font-size:14.5px;color:var(--ink-soft);line-height:1.55}
-  .ring-card .verb{margin-top:12px;font-weight:700;font-size:12px;letter-spacing:.08em;text-transform:uppercase;border-top:1.5px solid var(--line);padding-top:10px}
+.hero-rule{width:120px;height:6px;background:var(--hue);margin:26px 0}
+.hue-tick{width:34px;height:6px;background:var(--hue);margin-bottom:14px}
+.wipe{clip-path:inset(0 100% 0 0);animation:wipe calc(var(--beat)*1.5) var(--ease-cut) forwards}
+@keyframes wipe{to{clip-path:inset(0 0 0 0)}}
 
-  /* flow rail */
-  .rail{display:flex;flex-wrap:wrap;gap:6px;align-items:stretch;margin:20px 0 6px}
-  .rail .ri{border:1.5px solid var(--line);border-top:4px solid var(--ext);background:var(--card);padding:8px 10px 9px;flex:1;min-width:104px}
-  .rail .ri.r-inner{border-top-color:var(--inner)}
-  .rail .ri.r-outer{border-top-color:var(--outer)}
-  .rail .rs{font-weight:700;font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
-  .rail .rn{font-weight:700;font-size:12px;line-height:1.15;margin-top:3px;letter-spacing:-.01em}
-  .rail .ra{align-self:center;color:var(--muted);font-weight:700;font-size:13px;padding:0 1px}
-  .rail-note{font-size:13px;color:var(--muted);margin-bottom:8px}
+/* ---------- masthead ---------- */
+.mast{position:sticky;top:0;background:var(--paper);border-bottom:4px solid var(--line-firm);z-index:10}
+.mast-in{display:flex;align-items:center;justify-content:space-between;gap:16px;max-width:var(--container);margin:0 auto;padding:14px var(--inset)}
+.wordmark{display:flex;align-items:center;gap:14px}
+.wm-name{font-size:16px;font-weight:800;letter-spacing:-.01em;line-height:1.1;color:var(--ink)}
+.wm-sub{font-size:10px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
+nav.top{display:flex;gap:24px;flex-wrap:wrap}
+nav.top a{font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ink);border-bottom:2px solid transparent;padding-bottom:2px;transition:color 240ms var(--ease-snap),border-color 240ms var(--ease-snap)}
+nav.top a:hover,nav.top a[aria-current]{border-bottom-color:var(--hue)}
 
-  /* type cards */
-  .types{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:16px}
-  .tcard{border:1.5px solid var(--line);background:var(--card);border-top:6px solid var(--ext);padding:16px 16px 18px;text-align:left;cursor:pointer;font-family:var(--sans);transition:transform .12s}
-  .tcard:hover{transform:translateY(-3px);outline:2px solid var(--ink);outline-offset:-1px}
-  .tcard.sel{outline:3px solid var(--ink);outline-offset:-1px}
-  .tcard.r-inner{border-top-color:var(--inner)}
-  .tcard.r-outer{border-top-color:var(--outer)}
-  .tcard .thead{display:flex;align-items:center;gap:9px}
-  .tcard .tid{font-weight:800;font-size:12px;letter-spacing:.04em;color:var(--muted)}
-  .tcard h3{font-size:16.5px;font-weight:800;letter-spacing:-.01em;margin:7px 0 5px}
-  .tcard p{font-size:13.5px;color:var(--ink-soft);line-height:1.5}
-  .tcard .rg{margin-top:10px;font-weight:700;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft)}
-  .tcard .rg .sw{display:inline-block;width:10px;height:10px;margin-right:6px;vertical-align:-1px}
-  .tcard .st{margin-top:6px;font-weight:700;font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink);border:1.5px solid var(--line);display:inline-block;padding:2px 6px}
+/* ---------- type ---------- */
+.kicker{font-weight:700;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
+.kicker b{color:var(--ink);font-weight:700}
+.poster{font-size:clamp(34px,5vw,60px);font-weight:800;letter-spacing:-.02em;line-height:1.04}
+h2,.h2{font-size:clamp(22px,2.8vw,32px);font-weight:800;letter-spacing:-.02em;line-height:1.12}
+.dek{font-size:clamp(17px,2vw,21px);color:var(--ink-soft);line-height:1.5}
 
-  /* controls note */
-  .ctl-note{font-size:14px;color:var(--muted);margin:16px 0 10px}
-  .ctl-note b{color:var(--ink)}
-  .clearbtn{appearance:none;font-family:var(--sans);font-weight:700;font-size:11px;letter-spacing:.08em;text-transform:uppercase;border:2px solid var(--ink);background:var(--card);color:var(--ink);padding:8px 14px;cursor:pointer;margin-left:12px}
-  .clearbtn[disabled]{opacity:.35;cursor:default}
+/* ---------- hero + series strip ---------- */
+.hero{padding:88px 0 0}
+.series{border-top:2px solid var(--line-firm);border-bottom:2px solid var(--line-firm);margin-top:36px}
+.series ol{list-style:none;display:grid;grid-template-columns:repeat(4,1fr)}
+.series li{border-right:1px solid var(--line)}
+.series li:last-child{border-right:0}
+.series a,.series .cell{display:block;padding:16px 18px;color:var(--ink);border:0}
+.series a{transition:background 240ms var(--ease-snap),color 240ms var(--ease-snap)}
+.series a:hover{background:var(--ink);color:var(--paper)}
+.series a:hover .c-no{color:var(--hue)}
+.series .here{background:var(--ink);color:var(--paper)}
+.series .here .c-no{color:var(--hue)}
+.series .soon{color:var(--muted)}
+.series .c-no{font-size:11px;font-weight:800;letter-spacing:.12em;color:var(--muted);display:block}
+.series .c-t{font-size:15px;font-weight:800;letter-spacing:-.01em;display:block;margin-top:6px}
+.series .c-d{font-size:12.5px;opacity:.7;display:block;margin-top:4px}
 
-  /* step grid */
-  .phase-row{display:grid;grid-template-columns:repeat(13,1fr);gap:6px;margin-top:14px}
-  .stage{position:relative;background:var(--card);border:1.5px solid var(--line);border-top:4px solid var(--ink);padding:11px 9px 12px;cursor:pointer;min-height:132px;display:flex;flex-direction:column;transition:transform .12s;text-align:left;font-family:var(--sans)}
-  .stage:hover{transform:translateY(-3px);outline:2px solid var(--ink);outline-offset:-1px;z-index:2}
-  .stage.sel{outline:3px solid var(--ink);outline-offset:-1px}
-  .stage.off{opacity:.3;filter:saturate(.35)}
-  .stage .stop{display:flex;align-items:center;gap:6px}
-  .stage .n{font-weight:700;font-size:11px;color:var(--muted);letter-spacing:.04em}
-  .stage .ic-sm{color:var(--ink)}
-  .stage .nm{font-size:12.5px;font-weight:700;line-height:1.14;margin-top:5px;letter-spacing:-.01em}
-  .stage .mix{margin-top:auto;display:flex;flex-wrap:wrap;gap:3px;padding-top:8px}
-  .chip{font-weight:700;font-size:9px;letter-spacing:.04em;padding:2px 5px;border:1.5px solid var(--ext);color:var(--ink)}
-  .chip.r-inner{border-color:var(--inner)}
-  .chip.r-outer{border-color:var(--outer)}
-  .chip.primary{background:var(--ink);border-color:var(--ink);color:var(--paper)}
-  .chip.makes{border-style:dashed;border-color:var(--muted);color:var(--muted)}
+/* ---------- sections ---------- */
+.group{padding:72px 0 56px;border-top:2px solid var(--line-firm)}
+.group:first-of-type{border-top:0}
+.group-head.stack{display:block}
+.group-head.stack h2{max-width:46ch}
+.gh-meta{margin-bottom:14px;display:flex;align-items:center;gap:12px}
+.gh-meta > div:last-child{display:flex;align-items:center;gap:10px}
+.gh-meta .hue-tick{margin-bottom:0}
+.gh-meta .ic{--signal:var(--ink)}
+.gh-num{font-size:clamp(30px,4vw,46px);font-weight:800;letter-spacing:-.03em;line-height:.85}
+.body-after{margin-top:24px;columns:2;column-gap:44px}
+.body-after .tprose{max-width:none;margin:0 0 14px}
+.body-after .tprose:last-child{margin-bottom:0}
+/* short intros stay one full-width column — a 2-line paragraph shatters across the gutter */
+.body-after.one{columns:1}
+.body-after.one .tprose{max-width:none}
+/* a two-paragraph intro where each paragraph is one thought: a grid, not columns,
+   so the break falls between the paragraphs instead of wherever the height balances */
+.body-after.pair{columns:1;display:grid;grid-template-columns:1fr 1fr;column-gap:44px}
+.body-after.pair .tprose{margin:0}
+@media(max-width:820px){.body-after{columns:1}.body-after.pair{grid-template-columns:1fr;row-gap:14px}}
+.tprose{font-size:16px;color:var(--ink);line-height:1.6}
+.tprose.soft{color:var(--ink-soft)}
+.tprose + .tprose{margin-top:14px}
+.tprose b{font-weight:700}
+.phase-label{font-weight:700;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin:26px 0 10px}
 
-  /* detail */
-  .detail{margin-top:24px;border:2px solid var(--ink);background:var(--card);min-height:150px;padding:22px 24px}
-  .detail h3{margin:0 0 2px;font-size:20px;letter-spacing:-.015em;font-weight:800}
-  .detail .lane-tag{font-weight:700;font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:3px 8px;border:1.5px solid var(--ink);margin-left:10px;vertical-align:middle}
-  .detail .cols{display:grid;grid-template-columns:1fr 1fr 1.2fr;gap:28px;margin-top:16px}
-  .detail .cols h4{font-weight:700;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);margin:0 0 7px;border-bottom:1.5px solid var(--line);padding-bottom:6px}
-  .detail .cols p{margin:0;font-size:15px;line-height:1.55}
-  .detail .rline{margin:0 0 6px;font-size:15px;line-height:1.5}
-  .detail .rline b{font-weight:700}
-  .detail .rline .sw{display:inline-block;width:10px;height:10px;margin-right:7px;vertical-align:-1px}
+/* ---------- the eight type cards ---------- */
+/* minmax(0,1fr) — plain 1fr floors at min-content and the badge row overflows the container */
+.types{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;margin-top:26px}
+@media(max-width:1100px){.types{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:620px){.types{grid-template-columns:1fr}}
+.tcard{border:2px solid var(--line-firm);padding:20px;display:flex;flex-direction:column}
+.tcard .thead{display:flex;align-items:center;gap:10px}
+.tcard .tid{font-weight:800;font-size:11px;letter-spacing:.12em;color:var(--muted)}
+.tcard h4{font-size:17px;font-weight:800;letter-spacing:-.01em;margin:10px 0 0;line-height:1.2}
+.tcard p{font-size:13.5px;color:var(--ink-soft);line-height:1.5;margin:8px 0 0}
+.tcard .meta{margin-top:auto;padding-top:12px}
+.tcard .steps-line{border-top:1px solid var(--line);padding-top:9px;font-weight:700;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink)}
+.tcard .steps-line b{color:var(--muted);font-weight:700}
+.tcard .bset{display:flex;flex-wrap:wrap;gap:6px;margin-top:9px}
+.tbadge{display:inline-block;font-weight:700;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;padding:3px 7px;border:1.5px solid var(--line-firm);color:var(--ink);white-space:nowrap}
+.tbadge.soft{border-color:var(--line);color:var(--muted)}
 
-  /* data table */
-  .ttable{width:100%;border-collapse:collapse;margin-top:20px;background:var(--card);border:2px solid var(--ink)}
-  .ttable th{font-weight:700;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);text-align:left;padding:12px 14px;border-bottom:2px solid var(--ink)}
-  .ttable td{padding:13px 14px;border-bottom:1.5px solid var(--line);font-size:14.5px;vertical-align:top;line-height:1.5}
-  .ttable tr:last-child td{border-bottom:0}
-  .ttable td.tcol{white-space:nowrap;font-weight:800}
-  .ttable td.tcol .sw{display:inline-block;width:10px;height:10px;margin-right:8px;vertical-align:-1px}
-  .ttable td.scol{font-weight:700;font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap}
-  .ttable td.wcol{color:var(--ink-soft)}
+/* ---------- ring plates ---------- */
+.rings{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:26px}
+@media(max-width:820px){.rings{grid-template-columns:1fr}}
+/* 6px hue top rule separates the three PLACES from the eight TYPES above,
+   which share the same plate anatomy */
+.rplate{border:2px solid var(--line-firm);border-top:6px solid var(--hue);padding:20px;display:flex;flex-direction:column}
+.rplate .kicker{display:block}
+.rplate h4{font-size:17px;font-weight:800;letter-spacing:-.01em;margin:8px 0 0}
+.rplate p{font-size:13.5px;color:var(--ink-soft);line-height:1.5;margin:8px 0 14px}
+.rplate .verb{margin-top:auto;border-top:1px solid var(--line);padding-top:9px;font-weight:700;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase}
 
-  .states{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:16px;font-size:13px;color:var(--ink-soft)}
-  .states b{color:var(--ink);font-size:11px;letter-spacing:.08em;text-transform:uppercase}
+/* ---------- the sig table (from the alignment package) ---------- */
+table.sig{width:100%;border-collapse:collapse;border-top:2px solid var(--line-firm);margin-top:26px}
+table.sig th{font-weight:700;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);text-align:left;padding:12px 16px 12px 0;border-bottom:2px solid var(--line-firm)}
+table.sig td{padding:12px 16px 12px 0;border-bottom:1px solid var(--line);font-size:14px;color:var(--ink-soft);vertical-align:top;line-height:1.5}
+table.sig td b,table.sig td strong{color:var(--ink);font-weight:700}
+table.sig tr:hover td{background:var(--fill-soft)}
+table.sig td.tcol{white-space:nowrap;font-weight:800;color:var(--ink)}
+table.sig td.scol{font-weight:700;font-size:11px;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap;color:var(--ink)}
+.states{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:18px;font-size:13px;color:var(--ink-soft)}
+.states b{color:var(--ink);font-size:11px;letter-spacing:.08em;text-transform:uppercase}
+@media(max-width:720px){
+  table.sig td.wcol,table.sig th:last-child{display:none}
+  table.sig td.tcol,table.sig td.scol{white-space:normal} /* nowrap state cell overflowed 390 by 12px */
+}
 
-  /* emits */
-  .emits{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:22px}
-  .ecard{border:1.5px solid var(--line);background:var(--card);padding:16px 16px 18px;border-left:5px solid var(--signal)}
-  .ecard .en{font-weight:800;font-size:12px;letter-spacing:.06em;color:var(--muted);text-transform:uppercase}
-  .ecard h3{font-size:16px;font-weight:800;letter-spacing:-.01em;margin:6px 0 5px}
-  .ecard p{font-size:13.5px;color:var(--ink-soft);line-height:1.5}
-  .ecard .fix{margin-top:10px;border-top:1.5px solid var(--line);padding-top:8px;font-size:12.5px;font-weight:700}
+/* ---------- the thirteen blocks (same visual as part 1) ---------- */
+.bleed{width:100vw;margin-left:calc(50% - 50vw);padding:0 var(--inset)}
+.phase-row{display:grid;grid-template-columns:repeat(13,minmax(0,1fr));gap:6px}
+.stage{--lane:var(--ill-slate);--on-lane:var(--paper);--ring:var(--ink);
+  position:relative;background:var(--lane);color:var(--on-lane);border:1px solid var(--lane);
+  padding:12px 10px;cursor:pointer;min-height:104px;display:flex;flex-direction:column;text-align:left;
+  font-family:var(--sans);transition:background 240ms var(--ease-snap),border-color 240ms var(--ease-snap),color 240ms var(--ease-snap)}
+.stage:hover{outline:2px solid var(--ring);outline-offset:-6px}
+.stage.sel{outline:4px solid var(--ring);outline-offset:-8px}
+.stage .stop{display:flex;align-items:center;gap:6px}
+.stage .n{font-weight:800;font-size:11px;color:inherit;letter-spacing:.04em}
+.stage .ic-sm{color:inherit;--signal:currentColor}
+.stage .nm{font-size:12px;font-weight:800;line-height:1.16;margin-top:6px;letter-spacing:-.01em;overflow-wrap:break-word;hyphens:auto}
+.stage.lane-commodity{--lane:var(--lane-commodity);--on-lane:var(--paper)}
+.stage.lane-craft{--lane:var(--lane-craft);--on-lane:var(--ink)}
+.stage.lane-custody{--lane:var(--lane-custody);--on-lane:var(--ink)}
+@media(max-width:1200px){.phase-row{grid-template-columns:repeat(7,minmax(0,1fr))}}
+@media(max-width:760px){.phase-row{grid-template-columns:repeat(3,minmax(0,1fr))}.phase-row .stage:last-child{grid-column:1/-1;min-height:0}}
 
-  /* maintain */
-  .maintain{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:22px}
-  .mcard{border:1.5px solid var(--line);background:var(--card);padding:18px 18px 20px;border-top:6px solid var(--outer)}
-  .mcard.sys{border-top-color:var(--ext)}
-  .mcard h3{font-size:17px;font-weight:800;margin:2px 0 10px}
-  .mcard p{font-size:14.5px;color:var(--ink-soft);line-height:1.55}
-  .mcard p + p{margin-top:10px}
-  .mcard b{color:var(--ink)}
+.legend{display:flex;flex-wrap:wrap;gap:18px;margin-top:26px;font-size:13px;color:var(--ink-soft);align-items:center}
+.legend .sw{display:inline-block;width:15px;height:15px;margin-right:7px;vertical-align:-3px;border:1px solid var(--ink)}
+.legend b{color:var(--ink);font-weight:700}
 
-  .govern{margin-top:22px;border:2px solid var(--ink);background:var(--card);padding:20px 22px}
-  .govern h3{font-size:14px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px}
-  .govern p{font-size:15px;line-height:1.6;color:var(--ink)}
+/* ---------- detail ---------- */
+.detail{margin-top:24px;border:2px solid var(--line-firm);min-height:130px;padding:22px 24px}
+.detail h3{margin:0 0 2px;font-size:22px;letter-spacing:-.02em;font-weight:800;line-height:1.14}
+.detail .lane-tag{font-weight:700;font-size:10px;letter-spacing:.16em;text-transform:uppercase;padding:3px 9px;border:1.5px solid var(--line-firm);margin-left:10px;vertical-align:middle;display:inline-block}
+.detail .cols{display:grid;grid-template-columns:1fr 1fr 1.2fr;gap:28px;margin-top:16px}
+@media(max-width:820px){.detail .cols{grid-template-columns:1fr}}
+.detail .cols h4{font-weight:700;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin:0 0 7px;border-bottom:1px solid var(--line);padding-bottom:6px}
+.detail .cols p{margin:0 0 6px;font-size:14.5px;line-height:1.55;color:var(--ink-soft)}
+.detail .cols p b{color:var(--ink);font-weight:700}
+.detail .ph{color:var(--ink-soft);font-size:14.5px;max-width:66ch}
 
-  .colophon{padding-top:30px;color:var(--muted);font-size:13.5px;line-height:1.6}
-  .colophon b{color:var(--ink-soft)}
-  .colophon a{color:var(--ink-soft)}
+/* ---------- the byproduct ledger ---------- */
+.ploop{margin-top:26px;border-top:2px solid var(--line-firm)}
+.ploop .row{display:flex;gap:16px;align-items:flex-start;padding:16px 0;border-bottom:1px solid var(--line)}
+.ploop .lno{font-weight:800;font-size:13px;min-width:30px}
+.ploop .row .ic{margin-top:3px}
+.ploop .row p{font-size:15px;line-height:1.55;color:var(--ink-soft)}
+.ploop .row p b{font-weight:700;color:var(--ink)}
+.ploop .row .cap{display:block;margin-top:4px;font-weight:700;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink)}
 
-  @media (max-width:1150px){
-    .phase-row{grid-template-columns:repeat(7,1fr)}
-    .types{grid-template-columns:repeat(2,1fr)}
-    .detail .cols{grid-template-columns:1fr}
-  }
-  @media (max-width:720px){
-    .phase-row{grid-template-columns:repeat(4,1fr)}
-    .rings,.emits,.maintain{grid-template-columns:1fr}
-    .ttable td.wcol{display:none}
-    .ttable th:last-child{display:none}
-    .rail .ra{display:none}
-  }
+/* ---------- handoff plates ---------- */
+.next{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:26px}
+@media(max-width:820px){.next{grid-template-columns:1fr}}
+.nplate{border:2px solid var(--line-firm);padding:22px}
+a.nplate{display:block;color:inherit;transition:background 240ms var(--ease-snap)}
+a.nplate:hover{border-bottom:2px solid var(--line-firm);background:var(--fill-soft)}
+.nplate .kicker{display:block}
+.nplate h4{font-size:19px;font-weight:800;letter-spacing:-.01em;margin:10px 0 0}
+.nplate p{font-size:14px;color:var(--ink-soft);line-height:1.55;margin:8px 0 0}
+.nplate .rule{width:34px;height:6px;background:var(--hue);margin-bottom:14px}
+
+/* holders: the human holder carries the human hue, the systems carry slate,
+   the outside world is ink. Nothing on this page is red. */
+.rplate.h-out{border-top-color:var(--ink)}
+.rplate.h-sys{border-top-color:var(--ill-slate)}
+.rplate.h-ppl{border-top-color:var(--ill-rose)}
+.tcard{border-top:6px solid var(--line-firm)}
+.tcard.h-out{border-top-color:var(--ink)}
+.tcard.h-sys{border-top-color:var(--ill-slate)}
+.tcard.h-ppl{border-top-color:var(--ill-rose)}
+#ttable tr.grp th{text-align:left;font-weight:800;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--paper);padding:12px 14px;border-top:0;background:var(--ink)}
+#ttable tr.grp.h-sys th{background:var(--ill-slate)}
+#ttable tr.grp.h-ppl th{background:var(--ill-rose)}
+#ttable tr.grp th .gv{font-weight:400;letter-spacing:.02em;text-transform:none;color:var(--paper);opacity:.85}
+#ttable tr.grp:not(:first-child) th{border-top:14px solid var(--paper)}
+
+/* recap: the page's one large colour fill, as on the root */
+.recap{margin-top:34px;background:var(--c-blue);color:#fff;padding:26px 28px}
+.recap .big{font-size:clamp(19px,2.4vw,26px);font-weight:800;letter-spacing:-.02em;line-height:1.3}
+
+/* ---------- footer ---------- */
+footer.sig-foot{border-top:4px solid var(--line-firm);padding:48px 0 64px;margin-top:72px}
+.foot-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:32px}
+.foot-col .kicker{border-top:4px solid var(--line);padding-top:10px;display:block}
+.foot-col.read .kicker{border-top-color:var(--ill-slate)}
+.foot-col.interactive .kicker{border-top-color:var(--ill-orange)}
+.foot-col.record .kicker{border-top-color:var(--ill-mustard)}
+.foot-col.follow .kicker{border-top-color:var(--ill-rose)}
+.foot-col ul{list-style:none;margin-top:12px}
+.foot-col li{padding:5px 0;font-size:14px}
+.foot-col li a{color:var(--ink);border:0;transition:color 240ms var(--ease-snap)}
+.foot-col li a:hover{color:var(--hue);border:0}
+.colophon{margin-top:44px;border-top:1px solid var(--line);padding-top:16px;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.colophon a{color:inherit;border:0}
+.colophon a:hover{color:var(--hue);border:0}
+@media(max-width:900px){.foot-grid{grid-template-columns:repeat(2,1fr)}.series ol{grid-template-columns:repeat(2,1fr)}.series li:nth-child(2n){border-right:0}}
+@media(max-width:820px){.mast-in{flex-direction:column;align-items:flex-start}nav.top{border-top:1px solid var(--line);padding-top:12px;width:100%}}
+@media(max-width:620px){.series ol{grid-template-columns:1fr}.series li{border-right:0;border-bottom:1px solid var(--line)}.foot-grid{grid-template-columns:1fr}}
+
+@media print{
+  .stage,.series .here,.legend .sw,.hero-rule,.hue-tick,.nplate .rule{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .mast{position:static}
+  .group{break-inside:avoid-page}
+}
+.nojs-note{display:none}
+@media(prefers-reduced-motion:reduce){
+  .wipe{animation:none;clip-path:none}
+  *{transition:none !important}
+}
 </style>
 </head>
-<body>
+<body data-lane="model">
 
 <svg class="isprite" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><defs>
 <symbol id="a-handoff" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle fill="currentColor" stroke="none" cx="5" cy="12" r="2.4"></circle><line x1="8" y1="12" x2="15" y2="12"></line><polyline points="13,9.5 16,12 13,14.5"></polyline><circle cx="19" cy="12" r="2.4"></circle></symbol>
 <symbol id="a-escalate" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="19" x2="13" y2="19"></line><line x1="4" y1="15" x2="13" y2="15"></line><line x1="4" y1="11" x2="10" y2="11"></line><line stroke="var(--signal)" x1="18" y1="18" x2="18" y2="6"></line><polyline stroke="var(--signal)" points="15,9 18,6 21,9"></polyline></symbol>
 <symbol id="a-audit" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="7" cy="7" r="4"></circle><line x1="9" y1="11" x2="12" y2="14"></line><line x1="4" y1="18" x2="20" y2="18"></line><line x1="8" y1="18" x2="8" y2="15"></line><line x1="12" y1="18" x2="12" y2="15"></line><line x1="16" y1="18" x2="16" y2="15"></line></symbol>
+<symbol id="a-oversight" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12 Q12 5 21 12 Q12 19 3 12 Z"></path><circle fill="var(--signal)" stroke="none" cx="12" cy="12" r="2.4"></circle></symbol>
+<symbol id="a-over-loop" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="15" r="6"></circle><circle fill="var(--signal)" stroke="none" cx="12" cy="4" r="2.6"></circle></symbol>
 <symbol id="b-route" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="12" x2="10" y2="12"></line><line x1="10" y1="12" x2="20" y2="7"></line><line x1="10" y1="12" x2="20" y2="17"></line><circle fill="currentColor" stroke="none" cx="10" cy="12" r="1.8"></circle></symbol>
 <symbol id="b-ledger" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16"></rect><line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="14" x2="20" y2="14"></line><line x1="14" y1="4" x2="14" y2="20"></line></symbol>
 <symbol id="c-draft" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3 L15 3 L19 7 L19 21 L6 21 Z"></path><polyline points="15,3 15,7 19,7"></polyline><line stroke="var(--signal)" x1="8" y1="18" x2="17" y2="9"></line></symbol>
@@ -182,339 +286,294 @@
 <symbol id="e-eval" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="18" x2="20" y2="18"></line><circle fill="currentColor" stroke="none" cx="9" cy="12" r="2"></circle><polyline stroke="var(--signal)" points="14,12 16,14 20,8"></polyline></symbol>
 </defs></svg>
 
-<div class="wrap">
-
-  <header class="masthead">
-    <div class="kicker">Legal × product · The intelligence underneath · July 2026</div>
-    <h1>What the legal work runs on</h1>
-    <p class="dek">Every step of contract work turns on a lawyer's judgment, and that judgment draws on specific things they know: the law, the department's positions, its own signed paper, what happened last time. Named, those become eight types of intelligence, and each runs on data that either exists today or doesn't. This page names the eight types, shows which steps use which, and specifies the data each requires, so legal and product can see what has to exist before any step can be made intelligent.</p>
-  </header>
-
-  <section class="tsec">
-    <div class="tsec-head">
-      <div class="tnum num">01</div>
+<!-- ===================== MASTHEAD ===================== -->
+<header class="mast">
+  <div class="mast-in">
+    <div class="wordmark">
+      <svg class="ic ic-lg"><use href="#a-over-loop"></use></svg>
       <div>
-        <div class="kicker">The idea</div>
-        <h2>Every step runs on judgment, <span style="color:var(--ext)">and judgment runs on intelligence and data</span></h2>
+        <div class="wm-name">Ken Priore</div>
+        <div class="wm-sub">Law · Technology · Innovation</div>
       </div>
     </div>
-    <p class="tprose">Every contract step runs on a lawyer's judgment. That judgment comes from what the lawyer already knows: what the law requires, the department's position, what this party agreed to before, who can sign.</p>
-    <p class="tprose">Each type of intelligence runs on its own data. Some of that data already exists and stays current, some sits locked in the department's documents until someone pulls it out, some has to be written down by lawyers, and some exists only while the work happens and vanishes unless someone captures it. Once the types and their data have names, the build conversation gets concrete.</p>
+    <nav class="top">
+      <a href="/">Rewired</a>
+      <a href="/map.html" aria-current="page">Intelligence</a>
+      <a href="/memory.html">Memory</a>
+      <a href="/judgment.html">Judgment</a>
+      <a href="https://kenpriore.ai">The Lab</a>
+      <a href="https://kenpriore.com">Writing</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+
+  <!-- ===================== HERO ===================== -->
+  <section class="hero">
+    <div class="kicker">In-house legal · the agreement work · 2 of 4 · September 2026</div>
+    <div class="hero-rule"></div>
+    <h1 class="poster wipe">What the agreement work runs on</h1>
+    <p class="dek" style="margin-top:20px">Part one showed the steps a contract goes through and who runs each one. Every one of those steps runs on knowledge, and knowledge lives in three places: outside the company, in its systems, or in its people. This page sorts the eight kinds by where they live and names what has to exist before a machine can carry a step.</p>
+
+    <div class="series">
+      <ol>
+        <li><a href="/"><span class="c-no">01 · The work</span><span class="c-t">The agreement work, rewired</span><span class="c-d">The steps, three kinds, who runs each</span></a></li>
+        <li><div class="cell here"><span class="c-no">02 · Intelligence</span><span class="c-t">What the work runs on</span><span class="c-d">You are here</span></div></li>
+        <li><a href="/memory.html"><span class="c-no">03 · Memory</span><span class="c-t">What the work remembers</span><span class="c-d">Where memory sits, four ways it gets in</span></a></li>
+        <li><a href="/judgment.html"><span class="c-no">04 · Judgment</span><span class="c-t">What the work decides</span><span class="c-d">The parts of a call, and the record of one</span></a></li>
+      </ol>
+    </div>
   </section>
 
-  <section class="tsec">
-    <div class="tsec-head">
-      <div class="tnum num">02</div>
-      <div>
-        <div class="kicker">Where it lives</div>
-        <h2>Three rings, three data problems</h2>
+  <!-- ===================== 01 THE IDEA ===================== -->
+  <section class="group" id="s01">
+    <div class="group-head stack">
+      <div class="gh-meta">
+        <span class="gh-num num">01</span>
+        <svg class="ic ic-lg"><use href="#a-oversight"></use></svg>
+        <div><div class="hue-tick"></div><div class="kicker">Where it lives</div></div>
       </div>
+      <div><h2>Knowledge lives in three places</h2></div>
     </div>
-    <p class="tprose">Where a type of intelligence physically lives decides what data problem it is. That single fact shapes every row on this page.</p>
+    <div class="body-after pair">
+      <p class="tprose">Everything a step runs on is something somebody knows: what the law requires, what the company has signed before, which positions it will and will not accept, who is allowed to bind it, and what happened the last time it dealt with this party. A person holds <b>knowledge</b>. When the organization holds the same material in a form the next lawyer can find without asking, it is <b>intelligence</b>.</p>
+      <p class="tprose">Where the knowledge sits today decides how you get it. Each of the three places sets a different job: keep up with it, extract it, or capture it before it walks out the door.</p>
+    </div>
+
     <div class="rings">
-      <div class="ring-card r-inner">
-        <div class="tag">Inner ring</div>
-        <h3>In and around the agreement</h3>
-        <p>The agreement itself, plus everything attached to it: amendments that change the original deal, order forms that add new purchases under it, the template it started from, and the playbook that sets what the department will and won't accept. To know what a company agreed to, this is where you look, in the agreement or a step away from it.</p>
-        <div class="verb">Extract into structure; write the playbook as records</div>
+      <div class="rplate h-out">
+        <span class="kicker">Outside the company</span>
+        <h4>Someone else maintains it</h4>
+        <p>Laws, court decisions, industry standards, and market data on what terms are normal. The outside world keeps it current, and your counterparty rents the same copy.</p>
+        <div class="verb">Keep up with it</div>
       </div>
-      <div class="ring-card r-outer">
-        <div class="tag">Outer ring</div>
-        <h3>The systems and people around them</h3>
-        <p>Email, CRM, HR records, negotiators' heads: the places that say what an agreement currently means. What is captured here goes out of date with nothing to flag it, and most of it is never captured at all.</p>
-        <div class="verb">Capture at the moment, under governance</div>
+      <div class="rplate h-sys">
+        <span class="kicker">In the company's systems</span>
+        <h4>Retrievable without asking a person</h4>
+        <p>The agreements themselves, in the repository and the signing platform, with the terms pulled out of them. The playbook, once it is written down. Who is allowed to sign, in the systems that own that record.</p>
+        <div class="verb">Extract it, or read it live from the source</div>
       </div>
-      <div class="ring-card">
-        <div class="tag">External ring</div>
-        <h3>Outside the company entirely</h3>
-        <p>Laws and regulations, court decisions, industry standards and best practices, and market intelligence on what terms are normal at this size and industry. The outside world keeps all of it up to date, and none of it is unique to any one company. The job here is to subscribe and keep up.</p>
-        <div class="verb">Someone else maintains it</div>
+      <div class="rplate h-ppl">
+        <span class="kicker">In its people</span>
+        <h4>Retrievable only by asking, and it leaves when they do</h4>
+        <p>Why the deal mattered. What got conceded in the last negotiation with this party, and what it bought. How the agreement turned out once it was live. Almost none of it gets written down, and it is most of what the department knew about the deal.</p>
+        <div class="verb">Capture it as it happens, under rules for who can see it</div>
       </div>
     </div>
   </section>
 
-  <section class="tsec">
-    <div class="tsec-head">
-      <div class="tnum num">03</div>
-      <div>
-        <div class="kicker">The eight types</div>
-        <h2>The types, in the order the work meets them</h2>
+  <!-- ===================== 02 THE EIGHT TYPES ===================== -->
+  <section class="group" id="s02">
+    <div class="group-head stack">
+      <div class="gh-meta">
+        <span class="gh-num num">02</span>
+        <svg class="ic ic-lg"><use href="#b-ledger"></use></svg>
+        <div><div class="hue-tick"></div><div class="kicker">The kinds</div></div>
       </div>
+      <div><h2>The eight kinds, in the order a deal meets them</h2></div>
     </div>
-    <p class="tprose">A request comes in, and there's a reason behind it. The department pulls up its own past agreements, applies the positions it has already settled on, stays inside what the law requires, and holds to terms the market treats as normal. Then it negotiates the gaps with the other side, the right person signs, and how the deal plays out teaches the next one. The eight types below run in that order; the step numbers show where each one is used.</p>
-    <div class="rail">
-      <div class="ri r-outer"><div class="rs num">Enters at 01</div><div class="rn">Business context</div></div>
-      <div class="ra">→</div>
-      <div class="ri r-inner"><div class="rs num">03 · 05</div><div class="rn">Agreement data</div></div>
-      <div class="ra">→</div>
-      <div class="ri r-inner"><div class="rs num">02 → 07</div><div class="rn">The playbook</div></div>
-      <div class="ra">→</div>
-      <div class="ri"><div class="rs num">03 · 05</div><div class="rn">Public law</div></div>
-      <div class="ra">→</div>
-      <div class="ri"><div class="rs num">04 · 07</div><div class="rn">Market terms</div></div>
-      <div class="ra">→</div>
-      <div class="ri r-outer"><div class="rs num">08</div><div class="rn">Negotiation history</div></div>
-      <div class="ra">→</div>
-      <div class="ri r-outer"><div class="rs num">09 · 10</div><div class="rn">Authority state</div></div>
-      <div class="ra">→</div>
-      <div class="ri r-outer"><div class="rs num">12 · 13</div><div class="rn">Outcome data</div></div>
+    <div class="body-after">
+      <p class="tprose">Every deal starts inside what the law requires and what the market treats as normal. Then a request comes in, and there is a reason behind it. The lawyers pull up what the company has signed before, apply the positions they have settled on, and negotiate the gaps with the other side. The right person signs, and how the deal plays out teaches the next one.</p>
+      <p class="tprose">That walk touches all eight kinds, and each card below names one: what it is, which steps run on it, where it lives, and what shape its data is in today. Three of the eight exist only while the work is happening. <b>Business context</b> can be asked for at intake. <b>Negotiation history</b> needs what got said in the room, and almost nothing writes that down in a form the department keeps. <b>Outcome data</b> needs someone to go back after signing and record how the deal turned out, and few departments do. The other five are mostly a matter of extracting and maintaining what already exists. Each card lists the steps it feeds; the steps themselves are laid out in part one.</p>
     </div>
-    <p class="rail-note">The flow starts and ends in the outer ring: the reason a deal exists and what it taught are the first knowledge in and the last knowledge out, and neither is captured today.</p>
-    <p class="tprose">Two of these are the hard ones to get. Market terms need more comparable deals than any single company has signed. Negotiation history needs what got said in the room, which nothing writes down. Those two are where most of the real work sits; the rest is mostly extracting and maintaining what already exists.</p>
-    <p class="tprose soft">Click any card to see which steps use it and what data it needs.</p>
     <div class="types" id="types"></div>
   </section>
 
-  <section class="tsec">
-    <div class="tsec-head">
-      <div class="tnum num">04</div>
-      <div>
-        <div class="kicker">The lifecycle</div>
-        <h2>Walk the thirteen steps</h2>
+  <!-- ===================== 03 THE DATA ===================== -->
+  <section class="group" id="s03">
+    <div class="group-head stack">
+      <div class="gh-meta">
+        <span class="gh-num num">03</span>
+        <svg class="ic ic-lg"><use href="#c-repository"></use></svg>
+        <div><div class="hue-tick"></div><div class="kicker">The data</div></div>
       </div>
+      <div><h2>The record each kind needs</h2></div>
     </div>
-    <p class="tprose">Click a step to see the intelligence it runs on, what it produces, and the data that has to exist underneath it. The filled chip is the step's primary dependency. Or click a type of intelligence above to light up every step that uses it.</p>
-    <p class="ctl-note" id="filterNote">Showing: <b>step by step</b><button class="clearbtn" id="clearBtn" disabled>Clear filter</button></p>
-    <div class="phase-row" id="steps"></div>
-    <div class="detail" id="detail"></div>
-  </section>
+    <div class="body-after one">
+      <p class="tprose">A machine can run on a kind of knowledge only once that knowledge exists as a record. Part one made that the test for every step. The table applies it to the eight kinds, grouped by where each one lives, since the holder decides the job: the outside world's records are kept for you, the systems' records exist once someone extracts the terms or wires the source, and the records in people exist only once someone writes them down. Each row is the record that kind needs before a machine can carry the steps that run on it.</p>
+    </div>
 
-  <section class="tsec">
-    <div class="tsec-head">
-      <div class="tnum num">05</div>
-      <div>
-        <div class="kicker">The data</div>
-        <h2>Each type, the records it requires</h2>
-      </div>
-    </div>
-    <p class="tprose">The whole page in one table. Five of the eight types already exist somewhere: two are maintained by the outside world, one is read live from the systems that own it, one is locked in documents until extracted, and one is written by lawyers. The other three exist only while the work happens. Capture them then, and each is one field on a record. Miss the moment, and they have to be dug out of email later, at real cost, and with nothing anyone can trust. The executive briefing sorts these five states into four simpler fates.</p>
-    <div class="states">
-      <span><b>Maintained outside</b> · the world keeps it current</span>
-      <span><b>Read from the source</b> · fresh from the owning system, never trusted stale</span>
-      <span><b>Locked in documents</b> · extraction turns paper into data</span>
-      <span><b>Must be written</b> · systems can draft it; only lawyers can ratify it</span>
-      <span><b>Capture it or lose it</b> · exists only while the work happens</span>
-    </div>
-    <table class="ttable" id="ttable">
-      <thead><tr><th>Type</th><th>The data underneath</th><th>State</th><th>Who keeps the judgment</th></tr></thead>
+    <table class="sig" id="ttable">
+      <thead><tr><th>Kind</th><th>The record it needs</th></tr></thead>
       <tbody></tbody>
     </table>
   </section>
 
-  <section class="tsec">
-    <div class="tsec-head">
-      <div class="tnum num">06</div>
-      <div>
-        <div class="kicker">The byproduct</div>
-        <h2>The steps produce data too</h2>
-      </div>
+  <!-- CUT 2026-09-02: 04 The connection (the thirteen-step walker; part one owns the
+       one interactive) and 05 The byproduct (part 3's subject). Markup preserved in
+       MAP-NOTES.md, one paste to restore. -->
+
+  <!-- ===================== THE RECAP =====================
+       Was a numbered section 04 (the offboarding test) plus a five/three recap. Both cut
+       2026-09-02 per Ken. The recap now closes on the series spine: the line, what it runs
+       on, what moves it. Scanned clean (battery + structural audit) before it went in. -->
+  <section class="group" id="close">
+    <div class="recap">
+      <div class="big">The work runs on knowledge. A machine can carry a step only when what that step needs is written down somewhere it can read. The outside world's share is on record already, and so is most of what sits in the company's systems. The share held in people is not, and the steps that run on it stay with people until someone writes it down.</div>
     </div>
-    <p class="tprose">Six of the steps produce intelligence that later steps need, and most of it gets lost in inboxes and people's heads. So the team negotiates with no record of past negotiations, and renews deals without knowing how the last one turned out.</p>
-    <div class="emits">
-      <div class="ecard"><div class="en num">Step 01 · Intake</div><h3>The why</h3><p>Deal rationale, stakes, the walk-away, what the client says they need. Used again at triage, drafting, and escalation.</p><div class="fix">Capture: structured why-fields on the request record</div></div>
-      <div class="ecard"><div class="en num">Step 07 · Redline</div><h3>Deviation decisions</h3><p>Which departures from the playbook the team accepted, and why. Used again at the next redline of the same clause.</p><div class="fix">Capture: a deviation event per accepted departure</div></div>
-      <div class="ecard"><div class="en num">Step 08 · Negotiation</div><h3>Concession history</h3><p>What was conceded, to whom, in exchange for what. The verbal layer no document captures. Used again at the next negotiation with the same party.</p><div class="fix">Capture: one structured line per concession</div></div>
-      <div class="ecard"><div class="en num">Step 09 · Escalation</div><h3>Exception rationales</h3><p>Why the exception was granted. Used again the next time the same exception is requested.</p><div class="fix">Capture: rationale text on the approval record</div></div>
-      <div class="ecard"><div class="en num">Step 10 · Signature</div><h3>The authorization record</h3><p>Who was authorized to bind, and did. The one emission already kept as data.</p><div class="fix">Already captured: the completion record</div></div>
-      <div class="ecard"><div class="en num">Step 12 · Obligations</div><h3>Performance events</h3><p>Whether both sides delivered, and where it hurt. Used again at the renewal call.</p><div class="fix">Capture: outcome tags linked to agreement and clause IDs</div></div>
+
+    <div class="next">
+      <a class="nplate" href="/memory.html">
+        <div class="rule"></div>
+        <span class="kicker">Part 3 · Memory</span>
+        <h4>What the work remembers</h4>
+        <p>Where a department's memory sits, the four ways it gets into a machine, and who owns what the machine learned.</p>
+      </a>
+      <a class="nplate" href="/judgment.html">
+        <div class="rule"></div>
+        <span class="kicker">Part 4 · Judgment</span>
+        <h4>What the work decides</h4>
+        <p>Good data does not make the call. Every kind above ends with a person keeping it current and deciding what it means. Part four is about that person: what the judgment is, which parts of it a machine can learn by watching, and why some of it never transfers.</p>
+      </a>
     </div>
   </section>
 
-  <section class="tsec">
-    <div class="tsec-head">
-      <div class="tnum num">07</div>
-      <div>
-        <div class="kicker">The people</div>
-        <h2>Who maintains what</h2>
-      </div>
-    </div>
-    <div class="maintain">
-      <div class="mcard">
-        <h3>Lawyers</h3>
-        <p><b>Own outright:</b> the playbook and the reasons behind each position, plus the call on whether a deal turned out well. Both are legal judgment.</p>
-        <p><b>Curate:</b> what counts as market, how big the stakes are, whether the other side's position is real. The systems hold the data; the lawyer makes the call.</p>
-      </div>
-      <div class="mcard sys">
-        <h3>The platform</h3>
-        <p><b>Everything else:</b> pulling data out of documents, keeping it fresh, wiring to the systems that own it, and building the places where those six byproducts get captured as they happen instead of lost to email.</p>
-        <p>The playbook owner and the outcome grader are the two lawyer roles this map creates, and both sit with the legal engineer.</p>
-      </div>
-    </div>
-    <div class="govern">
-      <h3>Governance before capture</h3>
-      <p>Business context, negotiation history, and outcome data are the most useful types, and the most sensitive. Before any capture tool goes live, set the privilege rules: what can be recorded, who can see it, how long it's kept. Keep the records light enough to prove the work was done without storing the privileged detail. A capture program without these rules is a discovery program.</p>
-    </div>
-  </section>
+</main>
 
-  <footer class="colophon">
-    <p>A companion to <a href="https://ainativelaw.kenpriore.ai">The legal department, rewired</a>; the short version is the <a href="runs-on.html">executive briefing</a>. July 2026.</p>
-  </footer>
-
-</div>
+<!-- ===================== FOOTER ===================== -->
+<footer class="sig-foot">
+  <div class="container">
+    <div class="foot-grid">
+      <div class="foot-col read">
+        <span class="kicker">Read</span>
+        <ul>
+          <li><a href="https://kenpriore.com/tag/signals/">Signals</a></li>
+          <li><a href="https://kenpriore.com/tag/reflections/">Reflections</a></li>
+          <li><a href="https://kenpriore.com/tag/foundations/">Foundations</a></li>
+        </ul>
+      </div>
+      <div class="foot-col interactive">
+        <span class="kicker">Interactive</span>
+        <ul>
+          <li><a href="https://kenpriore.ai/#maps">The maps</a></li>
+          <li><a href="https://kenpriore.ai/#model">The operating model</a></li>
+          <li><a href="https://kenpriore.ai/#proof">The proof lane</a></li>
+          <li><a href="https://lab.kenpriore.ai">Lab log in</a></li>
+        </ul>
+      </div>
+      <div class="foot-col record">
+        <span class="kicker">On the record</span>
+        <ul>
+          <li><a href="https://kenpriore.com/about/">About Ken</a></li>
+          <li><a href="https://resume.kenpriore.ai">Resume</a></li>
+        </ul>
+      </div>
+      <div class="foot-col follow">
+        <span class="kicker">Follow</span>
+        <ul>
+          <li><a href="https://kenpriore.com">Subscribe</a></li>
+          <li><a href="https://kenpriore.com/rss/">RSS</a></li>
+          <li><a href="https://linkedin.com/in/kennethpriore">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="colophon num">
+      <span>© 2026 Ken Priore · Personal views · The author works in-house at an agreement platform · Not legal advice</span>
+      <span><a href="https://kenpriore.ai">kenpriore.ai</a> · <a href="https://kenpriore.com">kenpriore.com</a></span>
+    </div>
+  </div>
+</footer>
 
 <script>
-const RINGS = {ext:{label:"External",cls:"",color:"var(--ext)"}, inner:{label:"Inner",cls:"r-inner",color:"var(--inner)"}, outer:{label:"Outer",cls:"r-outer",color:"var(--outer)"}};
-
 const TYPES = [
- {id:"T1", name:"Business context", ring:"outer", icon:"a-handoff", what:"Why this deal, the stakes, what the internal client says they need and where they'd walk.",
-  state:"Capture it or lose it", data:"Structured fields on the request record: deal rationale, stakes, walk-away, urgency, tied to the matter for its whole life.",
-  who:"The requester supplies it; lawyers size the stakes.",
-  note:"Exists for days, in a thread or a head. Routing metadata gets recorded today; the why does not. The fields are cheap; the habit is the build."},
- {id:"T2", name:"Agreement data", ring:"inner", icon:"c-repository", what:"The company's executed agreements, amendments, and extracted terms.",
-  state:"Locked in documents", data:"Executed agreements and amendments extracted into queryable terms: parties, clauses, values, dates, deviation flags.",
-  who:"The platform extracts; lawyers spot-check.",
-  note:"The documents exist; the data doesn't until extraction. Coverage and freshness decide whether anything downstream can trust it."},
- {id:"T3", name:"The playbook", ring:"inner", icon:"d-blueprint", what:"Positions, fallbacks, walk-aways, templates, the approval matrix, and the why behind each position.",
-  state:"Must be written", data:"Positions, fallback ladders, and walk-aways as structured records per clause: versioned, owned, each carrying its rationale.",
-  who:"Lawyers own and ratify it; systems may draft.",
-  note:"This data cannot be collected, and a drafted position is not yet a position; a lawyer has to ratify it as the department's own. A playbook stored as prose in a PDF is not yet data, and a position without its rationale cannot be maintained."},
- {id:"T4", name:"Public law", ring:"ext", icon:"a-audit", what:"Statutes, regs, case law. The live part is the change stream, a new rule landing, more than the static library.",
-  state:"Maintained outside", data:"The authorities themselves, plus change events: what rule changed, when, and which terms it touches.",
-  who:"Maintained outside; lawyers apply it.",
-  note:"Reference data kept current by the world. The useful feed is the delta, a rule changed, wired to the clauses it affects."},
- {id:"T5", name:"Market terms", ring:"ext", icon:"b-ledger", what:"What's market for a clause at this size, in this industry.",
-  state:"Maintained outside", data:"Large samples of comparable clauses with acceptance signals: which language holds, at what deal size, in which industry.",
-  who:"Lawyers call what's market; the platform computes the sample.",
-  note:"Starts as curated external data. Once enough of the department's own terms are extracted, what's market becomes a query over its own agreement data."},
- {id:"T6", name:"Negotiation history", ring:"outer", icon:"c-negotiate", what:"What happened with this party before: their paper, their past concessions, how they negotiate. A view built from the agreement data plus outcomes.",
-  state:"Capture it or lose it", data:"Concession events by counterparty: what was conceded, in exchange for what, when, plus their prior paper from the agreement data.",
-  who:"The team logs it; lawyers read what's real.",
-  note:"Redline versions get stored; the concession event and its reason do not. One structured line per concession creates this data."},
- {id:"T7", name:"Authority state", ring:"outer", icon:"c-sign", what:"Entities, delegations, signing power, identity. Reference data, scattered across HR and org systems.",
-  state:"Read from the source", data:"Entity records, delegation chains, signing authority, and identity assertions, read live from the systems that own them.",
-  who:"Source systems own it; the platform wires it.",
-  note:"The failure mode is a stale copy: a lapsed authority relied on as live. Cache it if the architecture needs to; no decision reads a value whose freshness isn't proved."},
- {id:"T8", name:"Outcome data", ring:"outer", icon:"e-eval", what:"What happened after signing: performance, disputes traced to clauses, renewals won or lost.",
-  state:"Capture it or lose it", data:"Outcome events linked to agreement and clause IDs: performance, disputes, renewal results, where it hurt.",
-  who:"The platform records events; lawyers grade the outcome.",
-  note:"The rarest data in the map, and the feed every renewal call and every playbook revision needs."}
+ {id:"T4", name:"Public law", ring:"ext", holder:"out", icon:"a-audit",
+  what:"Statutes, regs, case law, and the feed of what changed: a new rule lands and some of your terms have to move with it.",
+  state:"Maintained outside",
+  data:"The authorities themselves, plus change events: what rule changed, when, and which terms it touches.",
+  who:"Maintained outside; lawyers apply it."},
+ {id:"T5", name:"Market terms", ring:"ext", holder:"out", icon:"b-ledger",
+  what:"What is market for a clause at this size, in this industry.",
+  state:"Maintained outside",
+  data:"Large samples of comparable clauses with acceptance signals: which language holds, at what deal size, in which industry.",
+  who:"Lawyers call what is market; the platform computes the sample."},
+ {id:"T1", name:"Business context", ring:"outer", holder:"ppl", icon:"a-handoff",
+  what:"Why this deal, the stakes, what the internal client says they need and where they would walk.",
+  state:"Capture it or lose it",
+  data:"Structured fields on the request record: deal rationale, stakes, walk-away, urgency, tied to the matter for its whole life.",
+  who:"The requester supplies it; lawyers size the stakes."},
+ {id:"T2", name:"Agreement data", ring:"inner", holder:"sys", icon:"c-repository",
+  what:"The company's executed agreements, amendments, and extracted terms.",
+  state:"Locked in documents",
+  data:"Executed agreements and amendments extracted into queryable terms: parties, clauses, values, dates, deviation flags.",
+  who:"The platform extracts; lawyers spot-check."},
+ {id:"T3", name:"The playbook", ring:"inner", holder:"sys", icon:"d-blueprint",
+  what:"Positions, fallbacks, walk-aways, templates, the approval matrix, and the reason behind each position.",
+  state:"Must be written",
+  data:"Positions, fallback ladders, and walk-aways as structured records per clause: versioned, owned, each carrying its rationale.",
+  who:"Lawyers own and ratify it; systems may draft."},
+ {id:"T6", name:"Negotiation history", ring:"outer", holder:"ppl", icon:"c-negotiate",
+  what:"What happened with this party before: their paper, their past concessions, how they negotiate.",
+  state:"Capture it or lose it",
+  data:"Concession events by counterparty: what was conceded, in exchange for what, when, plus their prior paper from the agreement data.",
+  who:"The team logs it; lawyers read what is real."},
+ {id:"T7", name:"Authority state", ring:"outer", holder:"sys", icon:"c-sign",
+  what:"Entities, delegations, signing power, identity. Reference data, scattered across HR and org systems.",
+  state:"Read from the source",
+  data:"Entity records, delegation chains, signing authority, and identity assertions, read live from the systems that own them.",
+  who:"Source systems own it; the platform wires it."},
+ {id:"T8", name:"Outcome data", ring:"outer", holder:"ppl", icon:"e-eval",
+  what:"What happened after signing: performance, disputes traced to clauses, renewals won or lost.",
+  state:"Capture it or lose it",
+  data:"Outcome events linked to agreement and clause IDs: performance, disputes, renewal results, and the clause each one traced back to.",
+  who:"The platform records events; lawyers grade the outcome."}
 ];
 
+/* lanes carried from part one (the full AI-native model) */
 const STEPS = [
- {n:1, name:"Intake", icon:"a-handoff", runs:[["T1",1],["T3",0]], emits:"The matter record and the why", data:"A structured request record: rationale, stakes, walk-away, urgency, requester, plus routing rules held as data"},
- {n:2, name:"Triage & routing", icon:"b-route", runs:[["T3",1],["T2",0],["T1",0]], emits:"Routing decision", data:"The risk taxonomy as rules, features of similar past matters, the stakes field from intake"},
- {n:3, name:"Conflicts & risk screen", icon:"a-audit", runs:[["T2",1],["T7",0],["T4",0]], emits:"Clearance record", data:"Extracted obligation terms indexed by party (exclusivity, MFN), a live entity graph, sanctions and watch lists"},
- {n:4, name:"Template & playbook", icon:"d-blueprint", runs:[["T3",1],["T5",0]], emits:"", data:"The template library with versions and owners, position records, a market signal per standard term"},
- {n:5, name:"Drafting", icon:"c-draft", runs:[["T3",1],["T2",0],["T1",0],["T4",0]], emits:"Draft", data:"A clause library with approved language and fallbacks per clause, deal parameters from intake, jurisdiction requirements"},
- {n:6, name:"Internal review", icon:"c-clause", runs:[["T3",1],["T2",0]], emits:"Issues list", data:"Checklist rules per agreement type, prior handling of the same clause from the agreement data"},
- {n:7, name:"Redline vs. playbook", icon:"c-redline", runs:[["T3",1],["T2",1],["T5",0]], emits:"Deviation decisions", data:"Playbook positions as machine-readable rules, deviation history per clause, market norms per clause"},
- {n:8, name:"Negotiation", icon:"c-negotiate", runs:[["T6",1],["T1",1],["T3",0],["T5",0]], emits:"Concession history, including the verbal layer no document captures", data:"Concession events for this counterparty, walk-away parameters from intake, the fallback ladder as data"},
- {n:9, name:"Escalation & approval", icon:"a-escalate", runs:[["T7",1],["T1",0],["T2",0]], emits:"Exception decisions and rationale", data:"The approval matrix as data, the exception register with rationale text, stakes from intake"},
- {n:10, name:"Signature & execution", icon:"c-sign", runs:[["T7",1]], emits:"The authorization record", data:"Authority records, identity assertions, signing order. The one step whose data the platform already keeps"},
- {n:11, name:"Storage & repository", icon:"c-repository", runs:[], makes:"T2", emits:"The agreement data: this step manufactures it", data:"The documents themselves; extraction turns them into the terms database every earlier step queries"},
- {n:12, name:"Obligation management", icon:"c-obligation", runs:[["T2",1],["T8",0]], emits:"Performance events", data:"Extracted commitments with dates and owners, performance events as they land"},
- {n:13, name:"Renewals & terminations", icon:"c-renewal", runs:[["T8",1],["T2",0],["T6",0],["T5",0]], emits:"Renewal decision", data:"Outcome tags linked to agreement and clause IDs, renewal dates and terms, negotiation history, current market signal"}
+ {n:1, name:"Intake", lane:"commodity", icon:"a-handoff", runs:[["T1",1],["T3",0]], emits:"The matter record and the why", data:"A structured request record: rationale, stakes, walk-away, urgency, requester, plus routing rules held as data"},
+ {n:2, name:"Triage & routing", lane:"craft", icon:"b-route", runs:[["T3",1],["T2",0],["T1",0]], emits:"Routing decision", data:"The risk taxonomy as rules, features of similar past matters, the stakes field from intake"},
+ {n:3, name:"Conflicts & risk screen", lane:"commodity", icon:"a-audit", runs:[["T2",1],["T7",0],["T4",0]], emits:"Clearance record", data:"Extracted obligation terms indexed by party (exclusivity, MFN), a live entity graph, sanctions and watch lists"},
+ {n:4, name:"Template & playbook", lane:"commodity", icon:"d-blueprint", runs:[["T3",1],["T5",0]], emits:"", data:"The template library with versions and owners, position records, a market signal per standard term"},
+ {n:5, name:"Drafting", lane:"commodity", icon:"c-draft", runs:[["T3",1],["T2",0],["T1",0],["T4",0]], emits:"Draft", data:"A clause library with approved language and fallbacks per clause, deal parameters from intake, jurisdiction requirements"},
+ {n:6, name:"Internal review", lane:"craft", icon:"c-clause", runs:[["T3",1],["T2",0]], emits:"Issues list", data:"Checklist rules per agreement type, prior handling of the same clause from the agreement data"},
+ {n:7, name:"Redline vs. playbook", lane:"craft", icon:"c-redline", runs:[["T3",1],["T2",1],["T5",0]], emits:"Deviation decisions", data:"Playbook positions as machine-readable rules, deviation history per clause, market norms per clause"},
+ {n:8, name:"Negotiation", lane:"craft", icon:"c-negotiate", runs:[["T6",1],["T1",1],["T3",0],["T5",0]], emits:"Concession history, including the verbal layer no document captures", data:"Concession events for this counterparty, walk-away parameters from intake, the fallback ladder as data"},
+ {n:9, name:"Escalation & approval", lane:"custody", icon:"a-escalate", runs:[["T7",1],["T1",0],["T2",0]], emits:"Exception decisions and rationale", data:"The approval matrix as data, the exception register with rationale text, stakes from intake"},
+ {n:10, name:"Signature & execution", lane:"custody", icon:"c-sign", runs:[["T7",1]], emits:"The authorization record", data:"Authority records, identity assertions, signing order. The one step whose data the platform already keeps"},
+ {n:11, name:"Storage & repository", lane:"commodity", icon:"c-repository", runs:[], makes:"T2", emits:"The agreement data itself: this step manufactures it", data:"The documents themselves; extraction turns them into the terms database every earlier step queries"},
+ {n:12, name:"Obligation management", lane:"commodity", icon:"c-obligation", runs:[["T2",1],["T8",0]], emits:"Performance events", data:"Extracted commitments with dates and owners, performance events as they land"},
+ {n:13, name:"Renewals & terminations", lane:"commodity", icon:"c-renewal", runs:[["T8",1],["T2",0],["T6",0],["T5",0]], emits:"Renewal decision", data:"Outcome tags linked to agreement and clause IDs, renewal dates and terms, negotiation history, current market signal"}
 ];
 
+const HOLDERS = {out:"Outside the company", sys:"In the company's systems", ppl:"In its people"};
+const HOLDER_ORDER = ["out","sys","ppl"];
 const typeById = id => TYPES.find(t=>t.id===id);
 const pad = n => String(n).padStart(2,"0");
-let selStep = 1, selType = null;
 
-function chipHtml(id, primary){
-  const t = typeById(id);
-  return `<span class="chip ${RINGS[t.ring].cls}${primary?' primary':''}">${t.id}</span>`;
+/* which steps each kind feeds, computed from STEPS so the cards never drift from the data */
+function feeds(id){
+  return STEPS.filter(s=>s.runs.some(r=>r[0]===id)||s.makes===id).map(s=>pad(s.n));
 }
 
 function renderTypes(){
-  const el = document.getElementById("types");
-  el.innerHTML = TYPES.map(t=>`
-    <button class="tcard ${RINGS[t.ring].cls}${selType===t.id?' sel':''}" data-type="${t.id}">
-      <div class="thead"><svg class="ic"><use href="#${t.icon}"></use></svg><span class="tid num">${t.id}</span></div>
-      <h3>${t.name}</h3>
+  document.getElementById("types").innerHTML = TYPES.map(t=>`
+    <div class="tcard h-${t.holder}">
+      <div class="thead"><svg class="ic"><use href="#${t.icon}"></use></svg></div>
+      <h4>${t.name}</h4>
       <p>${t.what}</p>
-      <div class="rg"><span class="sw" style="background:${RINGS[t.ring].color}"></span>${RINGS[t.ring].label} ring</div>
-      <div class="st">${t.state}</div>
-    </button>`).join("");
-  el.querySelectorAll(".tcard").forEach(b=>b.addEventListener("click",()=>{
-    selType = (selType===b.dataset.type) ? null : b.dataset.type;
-    selStep = null;
-    if(!selType){ selStep = 1; }
-    renderAll();
-    if(selType) document.getElementById("steps").scrollIntoView({behavior:"smooth",block:"center"});
-  }));
+      <div class="meta">
+        <div class="steps-line num"><b>Feeds steps</b> ${feeds(t.id).join(" · ")}</div>
+        <div class="bset"><span class="tbadge soft">${HOLDERS[t.holder]}</span><span class="tbadge">${t.state}</span></div>
+      </div>
+    </div>`).join("");
 }
 
-function stepUsesType(s, id){ return s.runs.some(r=>r[0]===id) || s.makes===id; }
-
-function renderSteps(){
-  const el = document.getElementById("steps");
-  el.innerHTML = STEPS.map(s=>{
-    const off = selType && !stepUsesType(s, selType);
-    const chips = s.runs.map(r=>chipHtml(r[0], r[1]===1)).join("") + (s.makes?`<span class="chip makes">→ ${s.makes}</span>`:"");
-    return `<button class="stage${selStep===s.n?' sel':''}${off?' off':''}" data-n="${s.n}">
-      <span class="stop"><svg class="ic ic-sm"><use href="#${s.icon}"></use></svg><span class="n num">${pad(s.n)}</span></span>
-      <span class="nm">${s.name}</span>
-      <span class="mix">${chips}</span>
-    </button>`;
-  }).join("");
-  el.querySelectorAll(".stage").forEach(b=>b.addEventListener("click",()=>{
-    selStep = Number(b.dataset.n); selType = null; renderAll();
-  }));
-}
-
-function renderDetail(){
-  const el = document.getElementById("detail");
-  if(selType){
-    const t = typeById(selType);
-    const feeds = STEPS.filter(s=>stepUsesType(s,t.id)).map(s=>pad(s.n)).join(", ");
-    el.innerHTML = `
-      <h3><svg class="ic"><use href="#${t.icon}"></use></svg> ${t.id} · ${t.name}<span class="lane-tag" style="border-color:${RINGS[t.ring].color}">${RINGS[t.ring].label} ring</span><span class="lane-tag">${t.state}</span></h3>
-      <p class="rline">${t.what}</p>
-      <div class="cols">
-        <div><h4>The data underneath</h4><p>${t.data}</p></div>
-        <div><h4>What it takes</h4><p>${t.note}</p></div>
-        <div><h4>Feeds steps</h4><p class="num">${feeds||"none"}</p></div>
-      </div>`;
-    return;
-  }
-  const s = STEPS.find(x=>x.n===selStep);
-  const runs = s.runs.length
-    ? s.runs.map(r=>{
-        const t = typeById(r[0]);
-        return `<p class="rline"><span class="sw" style="background:${RINGS[t.ring].color}"></span>${r[1]?"<b>"+t.id+" "+t.name+"</b> (primary)":t.id+" "+t.name}</p>`;
-      }).join("")
-    : `<p class="rline">Extraction itself. This step consumes little and manufactures the agreement data (T2) for every step that queries it.</p>`;
-  el.innerHTML = `
-    <h3><svg class="ic"><use href="#${s.icon}"></use></svg> ${pad(s.n)} · ${s.name}</h3>
-    <div class="cols">
-      <div><h4>Runs on</h4>${runs}</div>
-      <div><h4>Produces</h4><p>${s.emits||"Configuration, no new intelligence"}</p></div>
-      <div><h4>The data underneath</h4><p>${s.data}</p></div>
-    </div>`;
-}
-
+/* the table groups by holder, in the order the page teaches them; each group
+   header carries the holder's verb, so the state words live on the cards only */
+const HOLDER_VERB = {out:"kept for you", sys:"extract it, or read it from the source", ppl:"write it down, or capture it as it happens"};
 function renderTable(){
-  const tb = document.querySelector("#ttable tbody");
-  tb.innerHTML = TYPES.map(t=>`
+  document.querySelector("#ttable tbody").innerHTML = HOLDER_ORDER.map(h=>
+    `<tr class="grp h-${h}"><th colspan="2">${HOLDERS[h]}<span class="gv"> · ${HOLDER_VERB[h]}</span></th></tr>` +
+    TYPES.filter(t=>t.holder===h).map(t=>`
     <tr>
-      <td class="tcol"><span class="sw" style="background:${RINGS[t.ring].color}"></span>${t.id} ${t.name}</td>
+      <td class="tcol">${t.name}</td>
       <td>${t.data}</td>
-      <td class="scol">${t.state}</td>
-      <td class="wcol">${t.who}</td>
-    </tr>`).join("");
+    </tr>`).join("")
+  ).join("");
 }
 
-function renderNote(){
-  const note = document.getElementById("filterNote");
-  const btn = document.getElementById("clearBtn");
-  note.querySelector("b")?.remove();
-  const b = document.createElement("b");
-  if(selType){
-    const t = typeById(selType);
-    b.textContent = `every step that runs on ${t.id} ${t.name}`;
-    btn.disabled = false;
-  } else {
-    b.textContent = "step by step";
-    btn.disabled = true;
-  }
-  note.insertBefore(b, btn);
-}
-
-function renderAll(){ renderTypes(); renderSteps(); renderDetail(); renderNote(); }
-
-document.getElementById("clearBtn").addEventListener("click",()=>{ selType=null; selStep=1; renderAll(); });
-renderTable();
-renderAll();
+renderTypes(); renderTable();
 </script>
 </body>
 </html>
