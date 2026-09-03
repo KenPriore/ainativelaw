@@ -435,7 +435,7 @@ footer.sig-foot{border-top:4px solid var(--line-firm);padding:48px 0 64px;margin
         <li class="here"><span class="cell"><span class="s-no">01 · The work</span><span class="s-t">The agreement work, rewired</span><span class="s-d">You are here</span></span></li>
         <li class="soon"><span class="cell"><span class="s-no">02 · Intelligence</span><span class="s-t">What the work runs on</span><span class="s-d">Coming</span></span></li>
         <li class="soon"><span class="cell"><span class="s-no">03 · Memory</span><span class="s-t">What the work remembers</span><span class="s-d">Coming</span></span></li>
-        <li class="soon"><span class="cell"><span class="s-no">04 · Judgment</span><span class="s-t">What stays human</span><span class="s-d">Coming</span></span></li>
+        <li class="soon"><span class="cell"><span class="s-no">04 · Judgment</span><span class="s-t">What the work decides</span><span class="s-d">Coming</span></span></li>
       </ol>
     </div>
   </section>
@@ -471,7 +471,7 @@ footer.sig-foot{border-top:4px solid var(--line-firm);padding:48px 0 64px;margin
          taught once alongside the three kinds of work they belong to. This section
          now does one job: here is the work, and here is the thing AI moves. -->
     <div class="body-after one-col">
-      <p class="tprose">Nearly all of it is the same few moves, thousands of times a year: a request comes in, and an agreement gets drafted, negotiated, approved, signed, and one day renewed or ended. Today a lawyer touches every one of them, even the standard NDA that comes back signed with nothing changed. That is what AI changes. The question is which of those steps still needs a lawyer's hands on it.</p>
+      <p class="tprose">Nearly all of it is the same few moves, thousands of times a year: a request comes in, and an agreement gets drafted, negotiated, approved, signed, and one day renewed or ended. In most departments a lawyer still touches nearly every one of them, down to the standard NDA that comes back signed with nothing changed. That is what AI changes. The question is which of those steps still needs a lawyer's hands on it.</p>
     </div>
   </section>
 
@@ -696,7 +696,7 @@ footer.sig-foot{border-top:4px solid var(--line-firm);padding:48px 0 64px;margin
       </div>
     </div>
     <div class="colophon num">
-      <span>© 2026 Ken Priore · Personal views · Not legal advice</span>
+      <span>© 2026 Ken Priore · Personal views · The author works in-house at an agreement platform · Not legal advice</span>
       <span><a href="https://kenpriore.ai">kenpriore.ai</a> · <a href="https://kenpriore.com">kenpriore.com</a></span>
     </div>
   </div>
@@ -707,11 +707,11 @@ const STAGES = [
   {n:1, nm:"Intake", lane:"commodity", post:"over", agent:"Intake agent", icon:"a-handoff",
    today:"A request comes in by email or chat. Someone logs it by hand, if it gets logged at all. There is no real front door.",
    ai:"An agent captures every request, figures out what kind of document it is, pulls the key details, and opens a clean file for it.",
-   limit:"The threshold", guard:"The agent only hands off to a person once it is confident enough, and counterparty files are kept walled off.", owns:"No sign-off needed. Just a light log.", ss:true},
+   limit:"The threshold", guard:"The agent hands off to a person as soon as its confidence drops, and counterparty files are kept walled off.", owns:"No sign-off needed. Just a light log.", ss:true},
   {n:2, nm:"Triage & routing", lane:"craft", post:"on", pivot:"Pivot", agent:"Triage agent", icon:"b-route",
    today:"A senior lawyer sorts by gut, or the work just piles up in an inbox with no order to it.",
    ai:"The agent scores the matter and suggests which kind of work it is, routine, judgment, or accountable, and a person owns every close call and every high-stakes one.",
-   limit:"The watch", guard:"Sorting is treated as skilled work, and how often it mis-sorts is a number the team watches.", owns:"The Attorney-Architect owns the lane decision."},
+   limit:"The watch", guard:"Sorting is treated as skilled work, and how often it mis-sorts is a number the team watches.", owns:"A named senior lawyer owns the decision about which kind of work each step is."},
   {n:3, nm:"Conflicts & risk screen", lane:"commodity", post:"over", agent:"Screening agent", icon:"a-audit",
    today:"Manual checks against watchlists and past dealings, often skipped when things are busy.",
    ai:"The agent runs conflict, sanctions, and data-sensitivity checks and stops the work cold on a flag.",
@@ -729,7 +729,7 @@ const STAGES = [
    ai:"The agent checks it against the standards and sends only the clauses that need it to the right specialist, all at once.",
    limit:"The gate", guard:"Signing off on a high-stakes clause is itself an in-the-loop call.", owns:"Specialists own the clauses that land on their desk."},
   {n:7, nm:"Redline vs. playbook", lane:"craft", post:"on", neck:"Time sink", agent:"Redline agent", icon:"c-redline",
-   today:"The busiest part of the job. Roughly three hours a contract, line by line.",
+   today:"The busiest part of the job, line by line, and the slowest.",
    ai:"Standard markups within the safe range go out with a person attesting on send. On the risky clauses, the agent proposes and a lawyer owns the position.",
    limit:"The limit", guard:"A conservative safe range, and positions on the risky clauses are never sent automatically.", owns:"The lawyer owns the position on liability, indemnity, IP, and data.", att:true},
   {n:8, nm:"Negotiation", lane:"craft", post:"on", agent:"Negotiation agent", icon:"c-negotiate",
