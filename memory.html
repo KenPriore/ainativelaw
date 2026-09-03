@@ -152,16 +152,19 @@ h2,.h2{font-size:clamp(22px,2.8vw,32px);font-weight:800;letter-spacing:-.02em;li
 .legend b{color:var(--ink);font-weight:700}
 
 /* ---------- the four ways ---------- */
-.ways{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;margin-top:26px}
-@media(max-width:1100px){.ways{grid-template-columns:repeat(2,minmax(0,1fr))}}
+/* the four plates share row tracks (subgrid), so the labels sit on the same line across
+   all four whatever the length of the text above them. Parent row-gap is 0 because a
+   subgrid inherits it between its own rows; the gap between plate rows comes from a margin. */
+.ways{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));column-gap:24px;row-gap:0;margin-top:26px}
+@media(max-width:1100px){.ways{grid-template-columns:repeat(2,minmax(0,1fr))}.wplate{margin-bottom:24px}}
 @media(max-width:620px){.ways{grid-template-columns:1fr}}
-.wplate{border:2px solid var(--line-firm);border-top:6px solid var(--ink);padding:20px;display:flex;flex-direction:column}
+.wplate{border:2px solid var(--line-firm);border-top:6px solid var(--ink);padding:20px;display:grid;grid-row:span 7;grid-template-rows:subgrid;align-content:start}
 .wplate .wno{font-weight:800;font-size:11px;letter-spacing:.12em;color:var(--muted)}
 .wplate h4{font-size:19px;font-weight:800;letter-spacing:-.01em;margin:8px 0 0;line-height:1.15}
 .wplate .what{font-size:14.5px;color:var(--ink);line-height:1.5;margin:8px 0 0;font-weight:500}
 .wplate .lab{margin-top:14px;font-weight:700;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);border-top:1px solid var(--line);padding-top:9px}
 .wplate p{font-size:13.5px;color:var(--ink-soft);line-height:1.5;margin:5px 0 0}
-.wplate .catch{margin-top:auto}
+.wplate .catch{margin-top:14px}
 /* the fourth way is the machine learning by watching, so it carries the page hue,
    never rose: rose is the human colour everywhere else in the series */
 .wplate.w4{border-top-color:var(--ill-orange)}
@@ -364,9 +367,9 @@ footer.sig-foot{border-top:4px solid var(--line-firm);padding:48px 0 64px;margin
       <div class="wplate w3">
         <span class="wno">THREE</span>
         <h4>Fill it in</h4>
-        <p class="what">A field filled in while the work happens, for why the deal matters, what got conceded, why the exception got a yes, and how it turned out.</p>
+        <p class="what">A field filled in while the work happens: the why, the concession, the exception, the outcome.</p>
         <div class="lab">What ships</div>
-        <p>One free-text box on the exception request. Engineering teams have kept decision records like this since 2011.</p>
+        <p>One free-text box on the exception request. Engineering teams have kept decision records since 2011.</p>
         <div class="lab catch">The catch</div>
         <p>The field takes an afternoon. The habit takes a year, and needs an owner, a shared vocabulary, and rules for what gets recorded and who can see it.</p>
       </div>
