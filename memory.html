@@ -122,8 +122,10 @@ h2,.h2{font-size:clamp(22px,2.8vw,32px);font-weight:800;letter-spacing:-.02em;li
 .rplate h4{font-size:17px;font-weight:800;letter-spacing:-.01em;margin:8px 0 0}
 .rplate p{font-size:13.5px;color:var(--ink-soft);line-height:1.5;margin:8px 0 14px}
 .rplate .verb{margin-top:auto;border-top:1px solid var(--line);padding-top:9px;font-weight:700;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase}
+.rplate.h-out{border-top-color:var(--ink)}
 .rplate.h-sys{border-top-color:var(--ill-slate)}
 .rplate.h-ppl{border-top-color:var(--ill-rose)}
+.rplate p b{color:var(--ink)}
 .rplate.h-ppl .verb{color:var(--ill-rose)}
 
 /* ---------- the thirteen blocks (same visual as part 1, static here) ---------- */
@@ -177,6 +179,16 @@ h2,.h2{font-size:clamp(22px,2.8vw,32px);font-weight:800;letter-spacing:-.02em;li
 .ploop .step p{font-size:15px;line-height:1.55;color:var(--ink-soft)}
 .ploop .step p b{font-weight:700;color:var(--ink)}
 .ploop .step.sign{background:var(--fill-soft);padding-left:12px;padding-right:12px}
+/* the ladder (03): a left rule carries the holder colour from part two (slate = the
+   systems, rose = a person); the no-one row takes the page hue and steps back */
+.ladder .step{border-left:6px solid var(--ink);padding-left:16px}
+.ladder .step.h-sys{border-left-color:var(--ill-slate)}
+.ladder .step.h-ppl{border-left-color:var(--ill-rose)}
+.ladder .step.h-none{border-left-color:var(--ill-orange)}
+.ladder .step.dim{opacity:.55}
+.ladder .step p b{color:var(--ink)}
+.ladder .step .caps{display:block;margin-top:8px}
+.ladder .step .cap{display:inline-block;margin:0 22px 0 0;font-weight:700;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink)}
 
 /* ---------- handoff plates ---------- */
 .next{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:26px}
@@ -275,7 +287,7 @@ footer.sig-foot{border-top:4px solid var(--line-firm);padding:48px 0 64px;margin
     <div class="kicker">In-house legal · the agreement work · 3 of 4 · September 2026</div>
     <div class="hero-rule"></div>
     <h1 class="poster wipe">What the work remembers</h1>
-    <p class="dek" style="margin-top:20px">A legal department remembers in many places: the repository, the playbook, the inbox, and its people. A machine can only work from what it can read, so most of that memory has to be moved out of where it sits before the machine can use it, and once it is moved, someone owns it.</p>
+    <p class="dek" style="margin-top:20px">A legal department remembers in many places: the repository, the playbook, the inbox, and its people. A machine can only work from what it can read, so most of that memory has to be brought in before the machine can use it. Once it is in, the work in front of the machine decides which memory it draws on, and as whom.</p>
 
     <div class="series">
       <ol>
@@ -298,11 +310,11 @@ footer.sig-foot{border-top:4px solid var(--line-firm);padding:48px 0 64px;margin
       <div><h2>Memory lives in many places, and the machine can read from few of them</h2></div>
     </div>
     <div class="body-after pair">
-      <p class="tprose">The repository holds what was signed and the playbook holds what the department will accept. What got conceded is in the inbox, the fact that an exception was granted is in the approval record, and the reason it was granted is in a senior lawyer's head. Each piece is memory, and each sits somewhere different.</p>
+      <p class="tprose">The repository holds what was signed and the playbook holds what the department will accept. What got conceded is in the inbox, the fact that an exception was granted is in the approval record, and the reason it was granted is in a senior lawyer's head. What the company can risk this quarter, and what it needs closed by when, sits with the people running the business. Each piece is memory, and each sits somewhere different.</p>
       <p class="tprose">For a machine to carry more of the agreement work, that memory has to come out of where it sits and into a form the machine can read. Plenty of companies are working on that from different directions. Platforms pull terms out of signed documents, teams write their playbooks as rules, assistants keep what you tell them, and drafting tools learn positions by watching.</p>
     </div>
     <div class="body-after one" style="margin-top:18px">
-      <p class="tprose">Each of those brings in one kind of memory from one place. How far the machine can go depends on how much of the memory gets brought in, and whether a person can read it afterwards. The machine takes a step when the memory behind that step is in a form it can read and someone can show it got the step right. So what gets brought in is a step a lawyer stops touching, and what stays in someone's head keeps the step there with it.</p>
+      <p class="tprose">Each of those brings in one kind of memory from one place. How far the machine can go depends on how much of the memory gets brought in, and whether a person can read it afterwards. The machine takes a step when the memory behind that step is in a form it can read and someone can show it got the step right. So what gets brought in is a step a lawyer stops touching, and what stays in someone's head keeps that step with the person.</p>
     </div>
 
     <div class="rings">
@@ -315,13 +327,13 @@ footer.sig-foot{border-top:4px solid var(--line-firm);padding:48px 0 64px;margin
       <div class="rplate h-sys">
         <span class="kicker">In the playbook</span>
         <h4>What the department will accept</h4>
-        <p>Positions, fallbacks, walk-aways, most of them in a document and some in a senior lawyer's head. The reasons behind them are mostly in the head.</p>
+        <p>Positions, fallbacks, walk-aways, most of them in a document and some in a senior lawyer's head. The reasons behind them are rarely written down.</p>
         <div class="verb">In, once someone writes it</div>
       </div>
       <div class="rplate h-ppl">
         <span class="kicker">In a person</span>
         <h4>The reasons and the results</h4>
-        <p>Why this deal mattered, what got conceded and what it bought, why an exception got a yes, and whether the deal held up once it was live. Ask about any of it and you get a name.</p>
+        <p>Why this deal mattered, what got conceded and what it bought, why an exception got a yes, whether the deal held up once it was live, and what the business can risk this quarter. Ask about any of it and you get a name.</p>
         <div class="verb">In at the moment, or never</div>
       </div>
     </div>
@@ -385,17 +397,64 @@ footer.sig-foot{border-top:4px solid var(--line-firm);padding:48px 0 64px;margin
     </div>
 
     <div class="body-after one" style="margin-top:32px">
-      <p class="tprose">The memory you bring in the first three ways builds your team's judgment. What a tool picks up the fourth way goes into a store the department does not control, and no one on your side signed off on it, because there was never anything to sign. Ask any vendor where the learned patterns live, whether they leave with you, and who ratified them. You can buy the recorder. You can't buy the recordings.</p>
+      <p class="tprose"><b>Where to start.</b> Three things, in the order they take. Turn on keeping the corrections lawyers make to the machine's drafts, which is a setting on most tools. Put a required field for the reason on the exception request, which is an afternoon. Write each playbook position with its author, its date, and the reason behind it, which is a quarter. The fourth way you do not start; you ask the vendor the questions below. The habit of filling the fields in is the year's work.</p>
+    </div>
+  </section>
+
+  <!-- ===================== 03 THREE PERSONAS =====================
+       Recast 2026-09-03 per Ken: not rank, not ownership; the machine's memory has three
+       uses, and the persona it is working in decides which memory applies. The company's
+       persona is its priorities (risk it can take, timelines, launches, trust), not its
+       signing rules. The earlier "Whose it is" ladder is in MEMORY-NOTES.md, RESTORE. -->
+  <section class="group" id="s03">
+    <div class="group-head stack">
+      <div class="gh-meta">
+        <span class="gh-num num">03</span>
+        <svg class="ic ic-lg"><use href="#a-oversight"></use></svg>
+        <div><div class="hue-tick"></div><div class="kicker">Three personas</div></div>
+      </div>
+      <div><h2>The machine remembers as one lawyer, as the department, and as the company</h2></div>
+    </div>
+    <div class="body-after one">
+      <p class="tprose">The machine holds one store of memory and works in three personas. The work in front of it decides the persona, and the persona decides which memory applies.</p>
+    </div>
+
+    <div class="rings">
+      <div class="rplate h-ppl">
+        <span class="kicker">As one lawyer</span>
+        <h4>How she works</h4>
+        <p>How she drafts, the corrections she has made and the reasons she gave, and what she knows about this counterparty from the last three rounds.</p>
+        <p><b>Used when</b> the machine drafts her document or runs her negotiation.</p>
+        <div class="verb">In when she corrects and fills in</div>
+      </div>
+      <div class="rplate h-sys">
+        <span class="kicker">As the department</span>
+        <h4>What it will stand behind</h4>
+        <p>The positions, fallbacks, and walk-aways, each with an author, a date, and a reason.</p>
+        <p><b>Used when</b> the machine checks a draft against the playbook, whoever the lawyer is.</p>
+        <div class="verb">In when the department writes it</div>
+      </div>
+      <div class="rplate h-out">
+        <span class="kicker">As the company</span>
+        <h4>What it can risk, and by when</h4>
+        <p>The company's priorities: how much risk it will take this quarter, the launch it is working toward, and the customers and regulators whose trust it cannot spend.</p>
+        <p><b>Used when</b> the question is whether something can go out at all.</p>
+        <div class="verb">In when the priorities get written down</div>
+      </div>
+    </div>
+
+    <div class="body-after one" style="margin-top:32px">
+      <p class="tprose">The personas disagree sometimes: a lawyer's habit says concede, the department's position says never, and the company's quarter says close it. When that happens the company's memory sets the boundary and the other two work inside it. What the tool inferred by watching belongs to no persona until someone signs it into one.</p>
     </div>
     <div class="body-after one" style="margin-top:18px">
-      <p class="tprose"><b>Where to start.</b> Three things, in the order they take. Turn on keeping the corrections lawyers make to the machine's drafts, which is a setting on most tools. Put a required field for the reason on the exception request, which is an afternoon. Write each playbook position with its author, its date, and the reason behind it, which is a quarter. The fourth way you do not start; you ask the vendor the questions above. The habit of filling the fields in is the year's work.</p>
+      <p class="tprose">Ask any vendor where the learned patterns live, whether they leave with you, and who approved them. You can buy the recorder. You can't buy the recordings.</p>
     </div>
   </section>
 
   <!-- ===================== THE RECAP ===================== -->
   <section class="group" id="close">
     <div class="recap">
-      <div class="big">A legal department's memory sits in its systems and its people, and a machine can use the part it can read. Whatever is left in a person's head stays out of the machine. Every piece that gets written down is a step the machine can carry, and what the machine picks up by watching belongs to no one until someone signs it. The department that writes its memory down owns what the machine learns.</div>
+      <div class="big">A legal department's memory sits in its systems and its people, and a machine can use the part it can read. Whatever is left in a person's head never reaches the machine. Every piece that gets written down is a step the machine can carry, and the machine uses it as one lawyer, as the department, or as the company, depending on the work in front of it. What the machine picks up by watching stays outside all of them until someone signs it in. The department that writes its memory down is the one the machine works for.</div>
     </div>
 
     <div class="next" style="grid-template-columns:1fr">
