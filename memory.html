@@ -280,6 +280,18 @@ nav.top a:hover{border-bottom-color:var(--blue)}
 .rplate.h-ppl,.tcard.h-ppl{border-top-color:var(--rose)}
 .wplate.w4{border-top-color:var(--yellow)}
 .rplate .verb,.wplate .lab,.tcard .steps-line{border-top:1px solid var(--grey)}
+/* plate washes (Ken 9/13: bring colour into the cards). Frame colour-matched, fill = hue wash */
+.rplate.h-out,.tcard.h-out{border-color:var(--ink-2);background:color-mix(in srgb,var(--ink) 5%,var(--paper))}
+.rplate.h-sys,.tcard.h-sys{border-color:var(--blue);background:color-mix(in srgb,var(--blue) 9%,var(--paper))}
+.rplate.h-ppl,.tcard.h-ppl{border-color:var(--rose);background:color-mix(in srgb,var(--rose) 9%,var(--paper))}
+.wplate{border-color:var(--blue);border-top-color:var(--blue);background:color-mix(in srgb,var(--blue) 9%,var(--paper))}
+.wplate.w4{border-color:var(--yellow);border-top-color:var(--yellow);background:color-mix(in srgb,var(--yellow) 22%,var(--paper))}
+#s02 .rings .rplate:nth-child(1){border-color:var(--blue);border-top-color:var(--blue);background:color-mix(in srgb,var(--blue) 9%,var(--paper))}
+#s02 .rings .rplate:nth-child(2){border-color:var(--yellow);border-top-color:var(--yellow);background:color-mix(in srgb,var(--yellow) 22%,var(--paper))}
+#s02 .rings .rplate:nth-child(3){border-color:var(--rose);border-top-color:var(--rose);background:color-mix(in srgb,var(--rose) 9%,var(--paper))}
+.rplate,.tcard,.wplate{border-width:2px;border-top-width:6px}
+.rplate .verb,.wplate .lab,.tcard .steps-line,.rplate .lab{border-top-color:color-mix(in srgb,var(--ink) 14%,transparent)}
+.pcard .ex,.tcard .meta{background:transparent}
 .tbadge{border:1px solid var(--grey);color:var(--ink-2)}
 table.sig{border-top:2px solid var(--grey)}
 table.sig th{border-bottom:2px solid var(--grey)}

@@ -423,6 +423,12 @@ a.cell:hover .s-no{color:var(--yellow)}
 .pcard.on{border-top-color:var(--lane-craft)}
 .pcard.cust{border-top-color:var(--lane-custody)}
 .pcard .role{border-top:1px solid var(--grey)}
+/* the three postures: colour-matched frames with a wash, same treatment as the 01 cards */
+.pcard{border:2px solid var(--blue);border-top-width:4px;background:color-mix(in srgb,var(--blue) 9%,var(--paper))}
+.pcard.on{border-color:var(--yellow);background:color-mix(in srgb,var(--yellow) 22%,var(--paper))}
+.pcard.cust{border-color:var(--rose);background:color-mix(in srgb,var(--rose) 9%,var(--paper))}
+.pcard .role{border-top-color:color-mix(in srgb,var(--ink) 14%,transparent)}
+.pcard .ex{background:color-mix(in srgb,var(--paper) 55%,transparent)}
 .detail{border:2px solid var(--blue)}
 .detail .lane-tag{border:1.5px solid var(--blue);color:var(--blue)}
 .detail .cols h4{border-bottom:1px solid var(--grey)}
