@@ -4,7 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>What the work decides</title>
-<meta name="description" content="What the agreement work decides: the seven parts of a lawyer's call, how a machine learns a call by watching, where that stops, and what the record of a call has to show." />
+<meta name="description" content="What the agreement work decides: the seven parts of a lawyer's call, how technology acquires a call from a lawyer's corrections, where that stops, and what the record of a call has to show." />
 <meta name="robots" content="noindex" /><!-- soft launch: parts 2-4 are reachable by URL and from each other, unlisted on the root; remove this line to list -->
 
 <!-- MOCK: part 4 of 4 for ainativelaw.kenpriore.ai (judgment.html). Built 2026-09-02 on the part 3 chassis. Not deployed. -->
@@ -97,8 +97,13 @@ h2,.h2{font-size:clamp(22px,2.8vw,32px);font-weight:800;letter-spacing:-.02em;li
 .phase-label{font-weight:700;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin:26px 0 10px}
 
 /* ---------- the seven parts of a call: one row, three colours ---------- */
-.bleed{width:100vw;margin-left:calc(50% - 50vw);padding:0 var(--inset)}
 .parts{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:6px}
+/* the view switch: two hard-edged segments, ink on paper, filled when on */
+.seg{display:inline-flex;border:2px solid var(--ink)}
+.seg-b{font-family:var(--sans);font-weight:800;font-size:11px;letter-spacing:.12em;text-transform:uppercase;padding:10px 14px;background:var(--paper);color:var(--ink);border:0;cursor:pointer;transition:background 160ms var(--ease-snap),color 160ms var(--ease-snap)}
+.seg-b + .seg-b{border-left:2px solid var(--ink)}
+.seg-b.on{background:var(--ink);color:var(--paper)}
+.seg-b:hover:not(.on){background:var(--fill-soft)}
 /* concept state: white plates with an ink frame, no colour, so the seven read as ideas first.
    coded state (the toggle): the lane colours from part one say who holds each part today. */
 .part{--lane:var(--paper);--on-lane:var(--ink);background:var(--lane);color:var(--on-lane);border:2px solid var(--line-firm);
@@ -132,10 +137,13 @@ h2,.h2{font-size:clamp(22px,2.8vw,32px);font-weight:800;letter-spacing:-.02em;li
 .detail .ph{color:var(--ink-soft);font-size:14.5px}
 @media(max-width:1100px){.parts{grid-template-columns:repeat(4,minmax(0,1fr))}}
 @media(max-width:620px){.parts{grid-template-columns:repeat(2,minmax(0,1fr))}}
-.legend{display:flex;flex-wrap:wrap;gap:18px;margin-top:18px;font-size:13px;color:var(--ink-soft);align-items:center}
+.legend{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
 .legend[hidden]{display:none}
-.legend .sw{display:inline-block;width:15px;height:15px;margin-right:7px;vertical-align:-3px;border:1px solid var(--ink)}
-.legend b{color:var(--ink);font-weight:700}
+.legend .chip{display:inline-flex;align-items:baseline;gap:8px;border-left:10px solid var(--lane);border-top:1.5px solid var(--line-firm);border-right:1.5px solid var(--line-firm);border-bottom:1.5px solid var(--line-firm);padding:7px 12px 7px 10px;font-weight:800;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink)}
+.legend .chip i{font-style:normal;font-weight:500;font-size:12px;letter-spacing:0;text-transform:none;color:var(--ink-soft)}
+.legend .chip.in{--lane:var(--ill-slate)}
+.legend .chip.learning{--lane:var(--ill-orange)}
+.legend .chip.person{--lane:var(--ill-rose)}
 
 /* ---------- plates ---------- */
 .rings{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:26px}
@@ -160,7 +168,8 @@ h2,.h2{font-size:clamp(22px,2.8vw,32px);font-weight:800;letter-spacing:-.02em;li
 /* ---------- close + recap ---------- */
 .close-block{margin-top:34px;border-left:6px solid var(--ill-rose);padding:6px 0 6px 22px}
 .close-block .tprose{font-size:17px}
-.recap{margin-top:34px;background:var(--c-blue);color:#fff;padding:26px 28px}
+.recap{margin-top:0;background:var(--c-blue);color:#fff;padding:26px 28px}
+#close.group{padding-top:40px}
 .recap .big{font-size:clamp(19px,2.4vw,26px);font-weight:800;letter-spacing:-.02em;line-height:1.3}
 
 footer.sig-foot{border-top:4px solid var(--line-firm);padding:48px 0 64px;margin-top:72px}
@@ -217,13 +226,13 @@ footer.sig-foot{border-top:4px solid var(--line-firm);padding:48px 0 64px;margin
     <div class="kicker">In-house legal · the agreement work · 4 of 4 · September 2026</div>
     <div class="hero-rule"></div>
     <h1 class="poster wipe">What the work decides</h1>
-    <p class="dek" style="margin-top:20px">A lawyer uses judgment to connect an agreement to an outcome. It runs on knowledge, on memory of how past calls went, and on the seven parts laid out below. A machine is starting to learn some of those parts by watching, and how far that goes is the question on this page. Trusting it with any of them takes the same two things it takes to trust a lawyer: a record of the calls, and a person who answers for them.</p>
+    <p class="dek" style="margin-top:20px">A lawyer uses judgment to read the context in front of them, the knowledge of the company and the law, and to decide what matters and what does not. Knowledge and memory feed that judgment, and more of it is starting to be handled by technology. How much more comes down to the trust we can build in the process: how we review it, and how we know when it goes wrong.</p>
 
     <div class="series">
       <ol>
         <li><a href="/"><span class="c-no">01 · The work</span><span class="c-t">The agreement work, rewired</span><span class="c-d">The steps, three kinds, who runs each</span></a></li>
         <li><a href="/map.html"><span class="c-no">02 · Knowledge</span><span class="c-t">What the work runs on</span><span class="c-d">Eight kinds of knowledge, three places</span></a></li>
-        <li><a href="/memory.html"><span class="c-no">03 · Memory</span><span class="c-t">What the work remembers</span><span class="c-d">Where memory sits, how it gets in, who it works as</span></a></li>
+        <li><a href="/memory.html"><span class="c-no">03 · Memory</span><span class="c-t">What the work remembers</span><span class="c-d">Where memory sits, how it gets in, three levels</span></a></li>
         <li><div class="cell here"><span class="c-no">04 · Judgment</span><span class="c-t">What the work decides</span><span class="c-d">You are here</span></div></li>
       </ol>
     </div>
@@ -237,28 +246,27 @@ footer.sig-foot{border-top:4px solid var(--line-firm);padding:48px 0 64px;margin
         <svg class="ic ic-lg"><use href="#a-oversight"></use></svg>
         <div><div class="hue-tick"></div><div class="kicker">Where judgment comes from</div></div>
       </div>
-      <div><h2>Seven things happen when a person stops to make a call</h2></div>
+      <div><h2>Judgment, broken into seven steps</h2></div>
     </div>
-    <div class="body-after pair">
-      <p class="tprose">Something reads wrong before anyone can say why. The next step is a decision about what kind of problem this is and whose, and only then comes the research, the precedent and the draft language. Weighing the tradeoffs comes after that, without anyone handing over the weights: risk against speed, this deal against the precedent it sets. A look ahead follows, to how the other side reads it and how it looks in a dispute three years out, and at some point more analysis stops helping. Then a name goes on the result.</p>
-      <p class="tprose">The machine took the research first, because research has an answer you can check. It is learning what to flag, and how the department weighs tradeoffs, from the corrections lawyers make, and those corrections are the memory the last page was about. It can also forecast some of how a term will play out.</p>
-    </div>
-    <div class="body-after one" style="margin-top:18px">
-      <p class="tprose">The other three stay with a person. Framing the problem takes a relationship with the business, deciding when to stop takes having something at stake, and signing takes being someone a board or a court can hold to it. The machine has none of those.</p>
+    <div class="body-after one">
+      <p class="tprose">Sometimes you look at a deal and something seems off. That is intuition, and it is judgment, and until now nobody has had to explain it to technology. The seven steps below are what happens when a person stops to make a call, in the order it happens.</p>
     </div>
 
     <div class="ctl-row">
-      <div class="phase-label" style="margin:0">The seven parts · click one to open it</div>
-      <button class="tog" id="tog" type="button" aria-pressed="false"><span class="box"></span>Show who holds each part today</button>
+      <div class="phase-label" style="margin:0">The seven steps · click one to open it</div>
+      <div class="seg" role="group" aria-label="View">
+        <button class="seg-b on" id="seg-concepts" type="button" aria-pressed="true">The steps</button>
+        <button class="seg-b" id="seg-who" type="button" aria-pressed="false">Who holds each today</button>
+      </div>
     </div>
-    <div class="bleed"><div class="parts" id="parts" role="group" aria-label="The seven parts of a call"></div></div>
+    <div class="parts" id="parts" role="group" aria-label="The seven steps of a call"></div>
     <div class="legend" id="legend" hidden>
-      <span><span class="sw" style="background:var(--ill-slate)"></span><b>In the machine</b> · it has an answer you can check</span>
-      <span><span class="sw" style="background:var(--ill-orange)"></span><b>Learning by watching</b> · patterns it picks up from lawyers' corrections</span>
-      <span><span class="sw" style="background:var(--ill-rose)"></span><b>Stays with a lawyer</b> · needs a relationship, a stake, or a name</span>
+      <span class="chip in">In the technology <i>an answer you can check</i></span>
+      <span class="chip learning">Learning by watching <i>patterns from lawyers' corrections</i></span>
+      <span class="chip person">Stays with a lawyer <i>a relationship, a stake, or a name</i></span>
     </div>
     <div class="detail" id="detail" role="region" aria-live="polite" aria-label="The part you picked"></div>
-    <noscript><style>#tog,#detail{display:none}#parts::before{content:"The parts need JavaScript to open. In order: notice, frame, research, weigh, look ahead, stop, sign.";display:block;padding:16px 0;font-size:14px;color:var(--ink-soft)}</style></noscript>
+    <noscript><style>.seg,#detail{display:none}#parts::before{content:"The steps need JavaScript to open. In order: notice, frame, research, weigh, look ahead, stop, sign.";display:block;padding:16px 0;font-size:14px;color:var(--ink-soft)}</style></noscript>
   </section>
 
   <!-- ===================== 02 HOW IT LEARNS ===================== -->
@@ -267,20 +275,20 @@ footer.sig-foot{border-top:4px solid var(--line-firm);padding:48px 0 64px;margin
       <div class="gh-meta">
         <span class="gh-num num">02</span>
         <svg class="ic ic-lg"><use href="#a-override"></use></svg>
-        <div><div class="hue-tick"></div><div class="kicker">How a machine learns it</div></div>
+        <div><div class="hue-tick"></div><div class="kicker">How technology acquires it</div></div>
       </div>
-      <div><h2>The machine learns a call by watching where the lawyer changes its work</h2></div>
+      <div><h2>Technology acquires judgment from how the lawyer changes its work</h2></div>
     </div>
     <div class="body-after pair">
-      <p class="tprose">Every change a lawyer makes to a draft the machine produced is a call it could not make, and counting those changes at each part gives you a map of where to look. Where the count stays high, keep a person there, or write the rule and teach it. Where it falls over a few months, either that part has gone routine or the lawyer has stopped looking, and the rest of this section is about telling those two apart.</p>
-      <p class="tprose">The last page had four ways memory gets into a machine. Three of them can carry a call, and from the side of one senior lawyer on the team they look like this: ask her, show her two, or watch her. Whichever way it comes in, the loop after that is the same: the machine proposes, the lawyer corrects, the correction gets filed under the kind of matter it was, and when the same correction keeps showing up it becomes a candidate rule that someone senior signs into the playbook. Build that loop; most departments have only the first two steps of it.</p>
+      <p class="tprose">Every change a lawyer makes to a draft the technology produced is a call it could not make on its own. Count those changes at each step and you have a map of where the judgment still sits with the person. Where the count stays high, keep a person there, or write the rule and teach it. Where it falls over a few months, either that step has gone routine or the lawyer has stopped looking.</p>
+      <p class="tprose">If we want more of our judgment in the technology, we have to think about how we state it, because most of it has never been said out loud. Sometimes the technology asks us directly. Sometimes it puts two versions in front of us and we pick. Sometimes it watches what we change. From the side of one senior lawyer on the team, those three look like this.</p>
     </div>
 
     <div class="rings">
       <div class="rplate">
         <span class="kicker">Ask her</span>
-        <h4>State the criteria, then score against them</h4>
-        <p>By default every position gets written down and every draft gets checked against the list.</p>
+        <h4>It asks what she checks for, then scores against it</h4>
+        <p>The technology puts the question to her: what she looks for, what she will and will not accept. Her answers get written down, and every draft gets checked against the list.</p>
         <div class="lab">What you get</div>
         <p>A record anyone can read and contest.</p>
         <div class="lab catch">What you miss</div>
@@ -293,12 +301,12 @@ footer.sig-foot{border-top:4px solid var(--line-firm);padding:48px 0 64px;margin
         <div class="lab">What you get</div>
         <p>Her real ordering, faster than any list captures it.</p>
         <div class="lab catch">What you miss</div>
-        <p>The machine learns what she prefers and never learns why, because the choice carries no reasons with it.</p>
+        <p>The technology picks up what she prefers and never picks up why, because the choice carries no reasons with it.</p>
       </div>
       <div class="rplate">
         <span class="kicker">Watch her</span>
         <h4>Keep what she changed</h4>
-        <p>The corrections are already happening on every draft, and in most departments they get made and kept nowhere a machine can learn from.</p>
+        <p>The corrections are already happening on every draft, and in most departments they get made and kept nowhere the technology can read them back.</p>
         <div class="lab">What you get</div>
         <p>A signal the department has already paid for.</p>
         <div class="lab catch">What you miss</div>
@@ -306,9 +314,7 @@ footer.sig-foot{border-top:4px solid var(--line-firm);padding:48px 0 64px;margin
       </div>
     </div>
 
-    <div class="body-after one" style="margin-top:32px">
-      <p class="tprose">Most dashboards measure the wrong thing. A falling review rate tells you nothing on its own, because a lawyer who trusts the machine and a lawyer who stopped reading produce the same number. Measure the gate instead: how often a change by the lawyer changed the outcome, how often a second reviewer disagrees, and whether the rules that got promoted held up in the deals they touched. Plant a few defective drafts in the queue, because an empty override log means something only if the lawyers caught the plants. Route a slice of matters to full human review no matter how confident the score is, so the signal stays alive. Keep the machine off the job of grading itself: a lawyer writes the criteria, a senior one approves them, and a sample gets checked against human calls.</p>
-    </div>
+    <!-- CUT 2026-09-13 per Ken: the dashboards/gate-metrics/planted-defects paragraph. Text in JUDGMENT-NOTES.md. -->
   </section>
 
   <!-- ===================== 03 THE RECORD ===================== -->
@@ -319,34 +325,32 @@ footer.sig-foot{border-top:4px solid var(--line-firm);padding:48px 0 64px;margin
         <svg class="ic ic-lg"><use href="#b-ledger"></use></svg>
         <div><div class="hue-tick"></div><div class="kicker">How you trust it</div></div>
       </div>
-      <div><h2>What the record of a call has to show</h2></div>
+      <div><h2>What happened has to be observable, traceable, and auditable</h2></div>
     </div>
     <div class="body-after one">
-      <p class="tprose">If a machine took part in a call, the lawyer who signed should be able to show six things about it, in words a lawyer would use. Together they are the trace of the call.</p>
+      <p class="tprose">If technology took part in a call, the lawyer who signed should be able to see what it did, follow how it got there, and have someone else check it afterwards. That takes six things, in words a lawyer would use.</p>
     </div>
 
     <div class="ledger">
       <div class="row"><span class="lno num">01</span><div class="q">What it read</div><div class="a">Which agreements, which version of the playbook, which saved preferences, which past matters. The memory in force when it made its proposal, with the date on each piece.</div></div>
       <div class="row"><span class="lno num">02</span><div class="q">What rule it applied</div><div class="a">The position, the fallback, the walk-away it worked from, and who wrote that rule and why.</div></div>
-      <div class="row"><span class="lno num">03</span><div class="q">What it produced</div><div class="a">The draft, the redline, the recommendation, as it left the machine.</div></div>
-      <div class="row"><span class="lno num">04</span><div class="q">What the lawyer changed, and why</div><div class="a">Every place the lawyer overrode the machine, with the reason given at the time.</div></div>
-      <div class="row sign"><span class="lno num">05</span><div class="q">Who signed</div><div class="a">The person who stood behind the result, and what authority they had to do it.</div></div>
+      <div class="row"><span class="lno num">03</span><div class="q">What it produced</div><div class="a">The draft, the redline, the recommendation, as it left the technology.</div></div>
+      <div class="row"><span class="lno num">04</span><div class="q">What the lawyer changed, and why</div><div class="a">Every place the lawyer overrode the technology, with the reason given at the time.</div></div>
+      <div class="row"><span class="lno num">05</span><div class="q">Who signed</div><div class="a">The person who stood behind the result, and what authority they had to do it.</div></div>
       <div class="row"><span class="lno num">06</span><div class="q">What it learned</div><div class="a">What got written back to memory from this call, what got rewritten, and whether anyone approved it before it runs on the next deal.</div></div>
     </div>
 
-    <div class="body-after one" style="margin-top:32px">
-      <p class="tprose">The trace has to sit somewhere the people who run the machine cannot rewrite, because a trail the operator can edit is a story, and it has to show the call was made and who made it. Whether it was a good call is a separate question, and another lawyer answers it, against the outcome.</p>
-    </div>
+    <!-- CUT 2026-09-13 per Ken: the "trace has to sit somewhere the operator cannot rewrite" paragraph. Text in JUDGMENT-NOTES.md. -->
 
     <div class="close-block">
-      <p class="tprose">A company lawyer owes the company loyalty and care, and can be held to both. A machine can follow every instruction it is given and still owe nothing, because it has nothing to lose. So the duty stays with the lawyer even when the machine did most of the work, and the machine cannot vouch for its own part in it. With the record above, the lawyer who signed can show she carried the duty through that work.</p>
+      <p class="tprose">A company lawyer owes the company loyalty and care, and can be held to both. Technology can follow every instruction it is given and still owe nothing, because it has nothing to lose. So the duty stays with the lawyer even when the technology did most of the work, and the technology cannot vouch for its own part in it. With the record above, the lawyer who signed can show she carried the duty through that work.</p>
     </div>
   </section>
 
   <!-- ===================== THE RECAP ===================== -->
   <section class="group" id="close">
     <div class="recap">
-      <div class="big">Judgment is built out of parts. The machine takes the ones with an answer you can check and learns the ones it can watch, and what it learns belongs to the department once someone signs it. Whatever it cannot take needs a stake and a name. The record shows what the machine knew, what it did, what the lawyer changed, and who answered for the result.</div>
+      <div class="big">Judgment breaks into steps. Technology takes the ones with an answer you can check and acquires others from how lawyers ask, choose, and correct. The steps that need a stake and a name stay with a person. Trusting any of it comes down to a record that shows what the technology read, what it did, what the lawyer changed, and who answered for the result.</div>
     </div>
   </section>
 
@@ -373,7 +377,7 @@ footer.sig-foot{border-top:4px solid var(--line-firm);padding:48px 0 64px;margin
         <li><a href="https://linkedin.com/in/kennethpriore">LinkedIn</a></li></ul></div>
     </div>
     <div class="colophon num">
-      <span>© 2026 Ken Priore · Personal views · The author works in-house at an agreement platform · Not legal advice</span>
+      <span>© 2026 Ken Priore · Personal views</span>
       <span><a href="https://kenpriore.ai">kenpriore.ai</a> · <a href="https://kenpriore.com">kenpriore.com</a></span>
     </div>
   </div>
@@ -385,23 +389,23 @@ const PARTS = [
  {n:1, v:"Notice", d:"Something reads wrong before anyone can say why.", who:"learning", wl:"Learning by watching",
   what:"The problem shows before anyone can name it: a clause that reads wrong, a gap in the deal story, a request that does not match the reason given for it.",
   ex:"An indemnity that looks standard until you see the cap sits in a different section than usual.",
-  today:"The machine is starting to learn what to flag from the corrections lawyers make on its drafts, and what it flags today is a pattern picked up from watching, with no reason attached."},
+  today:"The technology is starting to pick up what to flag from the corrections lawyers make on its drafts, and what it flags today is a pattern picked up from watching, with no reason attached."},
  {n:2, v:"Frame", d:"What kind of problem this is, and whose.", who:"person", wl:"Stays with a lawyer",
   what:"What kind of problem this is, whose problem it is, what the business wants against what it asked for, and how far out to look. It never shows up in the file, and it sets every step after it.",
   ex:"A customer asking for unlimited liability is a pricing problem, a relationship problem, or a walk-away, and which one it is decides the next three weeks.",
-  today:"Framing the problem takes being in the relationship with the business, and a machine reframes only when someone asks it to."},
- {n:3, v:"Research", d:"Precedent, options, draft language, the part someone else can check.", who:"in", wl:"In the machine",
+  today:"Framing the problem takes being in the relationship with the business, and technology reframes only when someone asks it to."},
+ {n:3, v:"Research", d:"Precedent, options, draft language, the part someone else can check.", who:"in", wl:"In the technology",
   what:"Precedent, options, the market and the draft language make up the part of a call that someone else can check.",
   ex:"What the company agreed with the last three customers this size, and what the market treats as normal for the clause.",
-  today:"It sits in the machine and went first because it can be checked, and most of the knowledge the work runs on gets used here."},
+  today:"It sits in the technology and went first because it can be checked, and most of the knowledge the work runs on gets used here."},
  {n:4, v:"Weigh", d:"Risk against speed, this deal against the precedent it sets.", who:"learning", wl:"Learning by watching",
   what:"Risk against speed, the relationship against the rights, this deal against the precedent it sets. Research gives you the factors, and the weights come from somewhere else.",
   ex:"Accept the softer audit right to close this quarter, knowing the next customer will ask for the same.",
-  today:"From what its lawyers accept and reject the machine infers how the department trades risk against speed, and it learns the department's real risk tolerance along the way, including the habits nobody chose."},
+  today:"From what its lawyers accept and reject the technology infers how the department trades risk against speed, and it picks up the department's real risk tolerance along the way, including the habits nobody chose."},
  {n:5, v:"Look ahead", d:"How the other side reads it and how it looks in a dispute.", who:"learning", wl:"Learning by watching",
   what:"How the other side reads the term, how it looks in a dispute three years out, how a regulator reacts. The more deals someone has watched play out, the better they get at this.",
   ex:"The clause that is fine at signing and a problem at renewal.",
-  today:"This one splits. Whether a term will hold up is a forecast, and forecasts can be trained, while how this counterparty and this business will behave runs on context the machine does not hold."},
+  today:"This one splits. Whether a term will hold up is a forecast, and forecasts can be trained, while how this counterparty and this business will behave runs on context the technology does not hold."},
  {n:6, v:"Stop", d:"Enough analysis, and ready to stand behind it.", who:"person", wl:"Stays with a lawyer",
   what:"The analysis stops when more of it stops helping, with time short and the facts incomplete, and the question becomes whether you are prepared to stand behind this.",
   ex:"The redline is good enough to send at six on a closing day.",
@@ -409,13 +413,14 @@ const PARTS = [
  {n:7, v:"Sign", d:"Own the call, give reasons on challenge, watch how it turns out.", who:"person", wl:"Stays with a lawyer",
   what:"Someone owns the call, gives reasons when it is challenged, and watches how it turns out, so that next time something reads wrong sooner.",
   ex:"A name on the approval, and the question a year later about why.",
-  today:"A machine cannot be held to a call, and it cannot vouch for its own part in one, so this part runs on the record."}
+  today:"Technology cannot be held to a call, and it cannot vouch for its own part in one, so this step runs on the record."}
 ];
 const pad = n => String(n).padStart(2,"0");
 let sel = null;
 const partsEl = document.getElementById("parts");
 const detailEl = document.getElementById("detail");
-const tog = document.getElementById("tog");
+const segC = document.getElementById("seg-concepts");
+const segW = document.getElementById("seg-who");
 const legend = document.getElementById("legend");
 
 function renderParts(){
@@ -426,7 +431,7 @@ function renderParts(){
 }
 function renderDetail(){
   const p = PARTS.find(x=>x.n===sel);
-  if(!p){ detailEl.innerHTML = `<p class="ph">Click any part to see what it is, what it looks like in agreement work, and who holds it today.</p>`; return; }
+  if(!p){ detailEl.innerHTML = `<p class="ph">Click any step to see what it is, what it looks like in agreement work, and who holds it today.</p>`; return; }
   const coded = partsEl.classList.contains("coded");
   detailEl.innerHTML = `
     <h3>${pad(p.n)} · ${p.v}${coded?`<span class="tag">${p.wl}</span>`:""}</h3>
@@ -442,13 +447,15 @@ partsEl.addEventListener("click", e=>{
   sel = (sel===n) ? null : n;
   renderParts(); renderDetail();
 });
-tog.addEventListener("click", ()=>{
-  const on = tog.getAttribute("aria-pressed")!=="true";
-  tog.setAttribute("aria-pressed", String(on));
+function setMode(on){
+  segW.classList.toggle("on", on);  segW.setAttribute("aria-pressed", String(on));
+  segC.classList.toggle("on", !on); segC.setAttribute("aria-pressed", String(!on));
   partsEl.classList.toggle("coded", on);
   legend.hidden = !on;
   renderDetail();
-});
+}
+segC.addEventListener("click", ()=>setMode(false));
+segW.addEventListener("click", ()=>setMode(true));
 renderParts(); renderDetail();
 </script>
 </body>
