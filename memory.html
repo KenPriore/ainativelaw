@@ -11,7 +11,7 @@
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23FFFFFF'/%3E%3Crect x='6' y='7' width='20' height='4' fill='%234A6FA5'/%3E%3Crect x='6' y='14' width='20' height='4' fill='%23D4A24C'/%3E%3Crect x='6' y='21' width='20' height='4' fill='%23C76B7E'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;800&family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
 <style>
 /* ============================================================
    SIGNAL V2 — tokens (verbatim from signal.css §1)
@@ -236,6 +236,77 @@ footer.sig-foot{border-top:4px solid var(--line-firm);padding:48px 0 64px;margin
   *{transition:none !important}
 }
 </style>
+<!-- SIGNAL BOLD OVERRIDE (2026-09-13). One block appended to the v2 page: recolour, never rebuild.
+     Tokens: signal-v2-design-language/signal-bold/design-system/v1/tokens.css. Holders: outside → ink,
+     systems → Harbor, people → rose. Icons remain the v2 sprite. -->
+<style id="bold-override">
+:root{--blue:#2E5AA6;--blue-50:rgba(46,90,166,.5);--yellow:#F0C919;--rose:#C0455F;--ink:#17171C;--ink-2:#484951;--ink-soft:#484951;--muted:#5F5F5F;--grey:#E4E5E7;--line:var(--grey);--line-firm:var(--blue);--fill-soft:#F3F4F6;--c-blue:var(--blue);--c-yellow:var(--yellow);--c-red:var(--rose);--ill-slate:var(--blue);--ill-mustard:var(--yellow);--ill-rose:var(--rose);--ill-orange:var(--rose);--ill-sage:var(--blue);--hue:var(--blue);--slab:"Roboto Slab","Rockwell","Georgia",serif;--r-box:6px;--r-inner:4px;--r-pill:999px;--track-kicker:.075em}
+[data-lane]{--hue:var(--blue)}
+.rplate,.tcard,.wplate,.detail,.recap,.series,.part,.legend .chip{border-radius:var(--r-box) !important}
+.series li:first-child>*{border-radius:var(--r-box) 0 0 var(--r-box) !important}
+.series li:last-child>*{border-radius:0 var(--r-box) var(--r-box) 0 !important}
+.tbadge,.seg,.detail .tag,.detail .lane-tag,.hero-rule{border-radius:var(--r-pill) !important}
+.hue-tick{width:14px;height:14px;border-radius:var(--r-inner) !important}
+.poster{font-family:var(--slab);font-weight:400;color:var(--ink-2);letter-spacing:0;line-height:1.11}
+.poster b{color:var(--blue);font-weight:700}
+h2,.h2,.rplate h4,.tcard h4,.wplate h4,.detail h3,.ledger .q{font-family:var(--slab);letter-spacing:0}
+h2,.h2{font-weight:700;font-size:clamp(22px,2.4vw,30px);line-height:1.2}
+.gh-num{font-family:var(--slab);font-weight:400;color:var(--blue);letter-spacing:0}
+.wm-name{font-family:var(--slab);font-weight:700;color:var(--blue);letter-spacing:.01em}
+.kicker,.phase-label,.wm-sub,.colophon,.wplate .wno,.wplate .lab,.rplate .verb,.tcard .steps-line,table.sig th,.detail .cols h4,.legend .chip{letter-spacing:var(--track-kicker);text-transform:none;color:var(--ink-2)}
+.kicker b{color:var(--ink)}
+.rplate.h-ppl .verb{color:var(--rose)}
+.series .c-no{letter-spacing:var(--track-kicker);color:var(--ink-2)}
+nav.top a{letter-spacing:var(--track-kicker);text-transform:none;font-size:14px}
+nav.top a:hover{border-bottom-color:var(--blue)}
+.dek{color:var(--ink);line-height:1.35}
+.mast{border-bottom:2px solid var(--grey)}
+.group{border-top:2px solid var(--grey)}
+.series{border:1px solid var(--grey)}
+.series li{border-right:1px solid var(--grey)}
+.series .here{background:var(--blue);color:var(--paper)}
+.series .here .c-no{color:var(--yellow)}
+.series a:hover{background:var(--blue);color:var(--paper)}
+.series a:hover .c-no{color:var(--yellow)}
+.rplate,.tcard,.wplate{border:1px solid var(--grey);border-top:6px solid var(--ink)}
+.rplate.h-sys,.tcard.h-sys{border-top-color:var(--blue)}
+.rplate.h-ppl,.tcard.h-ppl{border-top-color:var(--rose)}
+.wplate.w4{border-top-color:var(--yellow)}
+.rplate .verb,.wplate .lab,.tcard .steps-line{border-top:1px solid var(--grey)}
+.tbadge{border:1px solid var(--grey);color:var(--ink-2)}
+table.sig{border-top:2px solid var(--grey)}
+table.sig th{border-bottom:2px solid var(--grey)}
+table.sig td{border-bottom:1px solid var(--grey)}
+table.sig tr.grp th{border-radius:var(--r-inner)}
+.detail{border:2px solid var(--blue)}
+.detail .tag,.detail .lane-tag{border:1.5px solid var(--blue);color:var(--blue)}
+.detail .cols h4{border-bottom:1px solid var(--grey)}
+.seg{border:2px solid var(--blue);overflow:hidden}
+.seg-b{color:var(--blue);text-transform:none;letter-spacing:var(--track-kicker);font-size:13px}
+.seg-b + .seg-b{border-left:2px solid var(--blue)}
+.seg-b.on{background:var(--blue);color:var(--paper)}
+.part{border:1px solid var(--grey)}
+.parts.coded .part{border-color:var(--lane)}
+.parts.coded .part.in{--lane:var(--blue);--on-lane:var(--paper)}
+.parts.coded .part.learning{--lane:var(--yellow);--on-lane:var(--ink)}
+.parts.coded .part.person{--lane:var(--rose);--on-lane:var(--paper)}
+.part:hover,.part.sel{outline-color:var(--ink)}
+.legend .chip{border:1px solid var(--grey);color:var(--ink);font-weight:700}
+.legend .chip.in{--lane:var(--blue)}
+.legend .chip.learning{--lane:var(--yellow)}
+.legend .chip.person{--lane:var(--rose)}
+.ledger{border-top:2px solid var(--grey)}
+.ledger .row{border-bottom:1px solid var(--grey)}
+.recap{border:2px solid var(--blue);background:var(--blue)}
+.recap .big{font-family:var(--slab);font-weight:400;font-size:clamp(20px,2.2vw,28px);line-height:1.3;letter-spacing:0}
+footer.sig-foot{border-top:2px solid var(--grey)}
+.foot-col.read .kicker{border-top-color:var(--blue)}
+.foot-col.interactive .kicker{border-top-color:var(--yellow)}
+.foot-col.record .kicker{border-top-color:var(--rose)}
+.foot-col.follow .kicker{border-top-color:var(--grey)}
+.colophon{border-top:1px solid var(--grey)}
+.colophon,.colophon a{text-transform:none;letter-spacing:var(--track-kicker);font-size:13px}
+</style>
 </head>
 <body data-lane="model">
 
@@ -288,7 +359,7 @@ footer.sig-foot{border-top:4px solid var(--line-firm);padding:48px 0 64px;margin
   <section class="hero">
     <div class="kicker">In-house legal · the agreement work · 3 of 4 · September 2026</div>
     <div class="hero-rule"></div>
-    <h1 class="poster wipe">What the work remembers</h1>
+    <h1 class="poster wipe">What the work <b>remembers</b></h1>
     <p class="dek" style="margin-top:20px">Inside an organization, memories live in many places: the repository, the playbook, the inbox, and its people. Technology can only work from what it can read, so most of that memory has to be brought in before it can be used. Once it is in, the work in front of the technology decides which memory it draws on, and as whom.</p>
 
     <div class="series">

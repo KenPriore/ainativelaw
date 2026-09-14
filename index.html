@@ -14,7 +14,7 @@
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23FFFFFF'/%3E%3Crect x='6' y='7' width='20' height='4' fill='%234A6FA5'/%3E%3Crect x='6' y='14' width='20' height='4' fill='%23D4A24C'/%3E%3Crect x='6' y='21' width='20' height='4' fill='%23C76B7E'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;800&family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
 <style>
 /* ============================================================
    SIGNAL V2 — tokens (verbatim from signal.css §1)
@@ -356,6 +356,91 @@ footer.sig-foot{border-top:4px solid var(--line-firm);padding:48px 0 64px;margin
 }
 </style>
 
+<!-- ============================================================
+     SIGNAL BOLD OVERRIDE — MOCK ONLY (2026-09-13). One block appended to the
+     live file, per the 9/7 lesson: recolour the live page, never rebuild.
+     Tokens from signal-v2-design-language/signal-bold/design-system/v1/tokens.css
+     (Harbor #2E5AA6 · yellow #F0C919 · rose #C0455F · ink #17171C).
+     Lane semantics: routine → Harbor (blue speaks) · judgment → yellow (yellow
+     warns) · accountable → rose (rose seals) · today → ink.
+     Icons are still the Signal v2 sprite (34 ids have no Bold drawing yet). -->
+<style id="bold-override">
+:root{
+  --blue:#2E5AA6; --blue-50:rgba(46,90,166,.5); --yellow:#F0C919; --rose:#C0455F;
+  --ink:#17171C; --ink-2:#484951; --ink-soft:#484951; --muted:#5F5F5F; --grey:#E4E5E7;
+  --line:var(--grey); --line-firm:var(--blue); --fill-soft:#F3F4F6;
+  --c-blue:var(--blue); --c-yellow:var(--yellow); --c-red:var(--rose);
+  --ill-slate:var(--blue); --ill-mustard:var(--yellow); --ill-rose:var(--rose); --ill-orange:var(--rose); --ill-sage:var(--blue);
+  --hue:var(--blue);
+  --slab:"Roboto Slab","Rockwell","Georgia",serif;
+  --r-box:6px; --r-inner:4px; --r-pill:999px; --track-kicker:.075em;
+}
+[data-lane="model"]{--hue:var(--blue)}
+/* radius: lift the v2 zero-radius law on containers, pills on chips and controls */
+.duo .card,.pcard,.detail,.recap,.series,.nplate,.stage,.pcard .ex,.legend .sw{border-radius:var(--r-box) !important}
+.series li:first-child .cell{border-radius:var(--r-box) 0 0 var(--r-box) !important}
+.series li:last-child .cell{border-radius:0 var(--r-box) var(--r-box) 0 !important}
+.toggle,.stages-ctl,.stage .post,.detail .lane-tag,.hero-rule,.hue-tick{border-radius:var(--r-pill) !important}
+.toggle,.stages-ctl{overflow:hidden}
+.hue-tick{width:14px;height:14px;border-radius:var(--r-inner) !important}
+/* type: slab for display, sans for text; kickers drop to .075em sentence case */
+.poster{font-family:var(--slab);font-weight:400;color:var(--ink-2);letter-spacing:0;line-height:1.11}
+.poster b{color:var(--blue);font-weight:700}
+h2,.h2,.duo h4,.pcard h4,.detail h3,.nplate h4,.fid .pt h5,.recap .big{font-family:var(--slab);letter-spacing:0}
+h2,.h2{font-weight:700;font-size:clamp(22px,2.4vw,30px);line-height:1.2}
+.gh-num{font-family:var(--slab);font-weight:400;color:var(--blue);letter-spacing:0}
+.wm-name{font-family:var(--slab);font-weight:700;color:var(--blue);letter-spacing:.01em}
+.kicker,.phase-label,.ctl-label,.pcard .pos,.pcard .role b,.detail .cols h4,.nplate .np-no,.wm-sub,.colophon{letter-spacing:var(--track-kicker);text-transform:none;color:var(--ink-2)}
+.kicker b{color:var(--ink)}
+.series .s-no{letter-spacing:var(--track-kicker);color:var(--ink-2)}
+nav.top a{letter-spacing:var(--track-kicker);text-transform:none;font-size:14px}
+nav.top a:hover{border-bottom-color:var(--blue)}
+.dek{color:var(--ink);line-height:1.35}
+.dek b{color:var(--blue)}
+/* structure: no rule heavier than 2px; frames colour-matched or hairline grey */
+.mast{border-bottom:2px solid var(--grey)}
+.group{border-top:2px solid var(--grey)}
+.series{border-top:0;border-bottom:0;border:var(--hairline,1px) solid var(--grey)}
+.series li{border-right:1px solid var(--grey)}
+.series li.here,.series li.here .cell{background:var(--blue);color:var(--paper)}
+.series li.here .s-no{color:var(--yellow)}
+a.cell:hover{background:var(--blue);color:var(--paper)}
+a.cell:hover .s-no{color:var(--yellow)}
+.duo .card,.pcard,.nplate{border:1px solid var(--grey);border-top-width:1px}
+.pcard{border-top:4px solid var(--lane-commodity)}
+.pcard.on{border-top-color:var(--lane-craft)}
+.pcard.cust{border-top-color:var(--lane-custody)}
+.pcard .role{border-top:1px solid var(--grey)}
+.detail{border:2px solid var(--blue)}
+.detail .lane-tag{border:1.5px solid var(--blue);color:var(--blue)}
+.detail .cols h4{border-bottom:1px solid var(--grey)}
+.toggle,.stages-ctl{border:2px solid var(--blue)}
+.toggle button,.stages-ctl button{color:var(--blue);text-transform:none;letter-spacing:var(--track-kicker);font-size:13px}
+.stages-ctl button{border-right:1px solid var(--grey)}
+.toggle button[aria-pressed="true"],.stages-ctl button[aria-pressed="true"]{background:var(--blue);color:var(--paper)}
+.toggle button[aria-pressed="true"]:hover,.stages-ctl button[aria-pressed="true"]:hover{background:var(--blue)}
+.stages-ctl.dim{border-color:var(--grey)}
+/* lanes: rose now clears paper text (4.93:1), so rose chips take paper, not ink */
+.stage.lane-custody{--on-lane:var(--paper)}
+.stage.today{--ring:var(--paper)}
+.stage:hover{outline-color:var(--ink)}
+.stage .pivot{background:var(--ink)}
+.stage .neck{border-color:var(--ink);color:var(--ink)}
+.fid-lens{border-top:2px solid var(--grey)}
+/* recap = the Bold hero bar: Harbor fill, slab regular, 6px frame */
+.recap{border:2px solid var(--blue);background:var(--blue)}
+.recap .big{font-weight:400;font-size:clamp(20px,2.2vw,28px);line-height:1.3;letter-spacing:0}
+/* footer */
+footer.sig-foot{border-top:2px solid var(--grey)}
+.foot-col .kicker{border-top-width:4px}
+.foot-col.read .kicker{border-top-color:var(--blue)}
+.foot-col.interactive .kicker{border-top-color:var(--yellow)}
+.foot-col.record .kicker{border-top-color:var(--rose)}
+.foot-col.follow .kicker{border-top-color:var(--grey)}
+.colophon{border-top:1px solid var(--grey)}
+.colophon,.colophon a{text-transform:none;letter-spacing:var(--track-kicker);font-size:13px}
+</style>
+
 <!-- GoatCounter · one code across all four properties; hostname folded into the path so they roll up in one dashboard -->
 <script>window.goatcounter={path:function(){return location.hostname+location.pathname}}</script>
 <script data-goatcounter="https://kenpriore.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
@@ -427,7 +512,7 @@ footer.sig-foot{border-top:4px solid var(--line-firm);padding:48px 0 64px;margin
          changed right now." Nothing on a dated explainer is live. See CHANGES.md. -->
     <div class="kicker">In-house legal · the agreement work · 1 of 4 · June 2026</div>
     <div class="hero-rule"></div>
-    <h1 class="poster wipe">The agreement work, rewired</h1>
+    <h1 class="poster wipe">The agreement work, <b>rewired</b></h1>
     <!-- DEK: the size clause is cut with section 04. It was the page promising a
          second argument in its first breath. Three claims down to two. -->
     <p class="dek" style="margin-top:20px">Not all of in-house legal is about agreements, but much of it is, and this is for the lawyers who work on them. Technology is changing how that work gets done. It brings assistance, a hand with judgment, room to work at volume, a new way of seeing the work, and a reach into far more information than any one lawyer holds. It will change how we lawyer. Who answers for the result stays the same.</p>
