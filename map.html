@@ -231,7 +231,8 @@ a.nplate:hover{border-bottom:2px solid var(--line-firm);background:var(--fill-so
 #ttable tr.grp:not(:first-child) th{border-top:14px solid var(--paper)}
 
 /* recap: the page's one large colour fill, as on the root */
-.recap{margin-top:34px;background:var(--c-blue);color:#fff;padding:26px 28px}
+.recap{margin-top:0;background:var(--c-blue);color:#fff;padding:26px 28px}
+#close.group{padding-top:40px}
 .recap .big{font-size:clamp(19px,2.4vw,26px);font-weight:800;letter-spacing:-.02em;line-height:1.3}
 
 /* ---------- footer ---------- */
@@ -409,7 +410,12 @@ footer.sig-foot{border-top:4px solid var(--line-firm);padding:48px 0 64px;margin
        Was a numbered section 04 (the offboarding test) plus a five/three recap. Both cut
        2026-09-02 per Ken. The recap now closes on the series spine: the line, what it runs
        on, what moves it. Scanned clean (battery + structural audit) before it went in. -->
-  <!-- CUT 2026-09-13 per Ken: blue recap box (text in MAP-NOTES.md) and the bottom navigation plates on all pages (masthead nav + strip carry it). -->
+  <!-- Recap restored 2026-09-13 (Ken picked option C); bottom navigation plates stay cut (masthead nav + strip carry it). -->
+  <section class="group" id="close">
+    <div class="recap">
+      <div class="big">Knowledge is what the work runs on. The outside world keeps its share current, the company's systems hold their share until someone extracts it, and its people hold the rest in their heads. The job is getting that last share into a form technology can read, and what it keeps of it is the next page.</div>
+    </div>
+  </section>
 
 </main>
 
