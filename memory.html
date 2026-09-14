@@ -325,6 +325,25 @@ footer.sig-foot{border-top:2px solid var(--grey)}
 .foot-col.follow .kicker{border-top-color:var(--grey)}
 .colophon{border-top:1px solid var(--grey)}
 .colophon,.colophon a{text-transform:none;letter-spacing:var(--track-kicker);font-size:13px}
+/* FAMILY MASTHEAD (2026-09-14): byte-matched to kenpriore.ai on Signal Bold. 18px padding, 34px loop mark
+   with the orbit, 20px/1.5 Archivo 800 caps wordmark, 11px/.22em sub-line, 4px ink rule, uppercase 13px nav,
+   active = Harbor. Resolves to 88.5px so crossing properties keeps content at the same y. */
+.mast{border-bottom:4px solid var(--ink)}
+.mast-in{padding:18px var(--inset);gap:16px}
+.wordmark{display:flex;align-items:center;gap:14px;color:var(--ink);text-decoration:none;border:0}
+.wordmark:hover{border:0;text-decoration:none}
+.loopmark{flex:none}
+.loopmark .orbit{transform-origin:17px 17px;animation:orbit-once calc(var(--beat)*4) var(--ease-cut) var(--beat) 1 forwards}
+@keyframes orbit-once{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+.wm-name{font-family:var(--sans);font-weight:800;letter-spacing:-.02em;font-size:20px;line-height:1.5;color:var(--ink)}
+.wm-sub{font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-top:2px;line-height:1.5}
+nav.top{display:flex;gap:28px;flex-wrap:wrap}
+nav.top a{font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ink);padding-bottom:3px;border-bottom:2px solid transparent;transition:border-color calc(var(--beat)/2) var(--ease-snap),color calc(var(--beat)/2) var(--ease-snap)}
+nav.top a:hover{color:var(--ink);border-bottom-color:var(--ink)}
+nav.top a[aria-current]{color:var(--ink);border-bottom-color:var(--blue)}
+html{scroll-padding-top:112px}
+@media(max-width:880px){.mast-in{flex-direction:column;align-items:stretch;gap:0}nav.top{gap:18px;margin-top:12px;padding-top:12px;border-top:1px solid var(--line);width:auto}html{scroll-padding-top:190px}}
+@media(prefers-reduced-motion:reduce){.loopmark .orbit{animation:none}}
 </style>
 </head>
 <body data-lane="model">
@@ -354,13 +373,16 @@ footer.sig-foot{border-top:2px solid var(--grey)}
 <!-- ===================== MASTHEAD ===================== -->
 <header class="mast">
   <div class="mast-in">
-    <div class="wordmark">
-      <svg class="ic ic-lg"><use href="#a-over-loop"></use></svg>
+    <a class="wordmark" href="/">
+      <svg class="loopmark" width="34" height="34" viewBox="0 0 34 34" aria-hidden="true">
+        <circle cx="17" cy="17" r="12" fill="none" stroke="var(--ink)" stroke-width="3"/>
+        <g class="orbit"><circle cx="17" cy="5" r="3.4" fill="var(--blue)"/></g>
+      </svg>
       <div>
-        <div class="wm-name">Ken Priore</div>
-        <div class="wm-sub">Law · Technology · Innovation</div>
+        <div class="wm-name">KEN PRIORE</div>
+        <div class="wm-sub">The operating model · kenpriore.ai</div>
       </div>
-    </div>
+    </a>
     <nav class="top">
       <a href="/">Rewired</a>
       <a href="/map.html">Knowledge</a>
