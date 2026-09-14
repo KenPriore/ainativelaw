@@ -414,6 +414,11 @@ nav.top a:hover{border-bottom-color:var(--blue)}
 a.cell:hover{background:var(--blue);color:var(--paper)}
 a.cell:hover .s-no{color:var(--yellow)}
 .duo .card,.pcard,.nplate{border:1px solid var(--grey);border-top-width:1px}
+/* the two jobs: colour-matched Bold panels with a wash. Engine = Harbor (blue speaks), risk = yellow (yellow warns) */
+.duo .card{border:2px solid var(--blue);background:color-mix(in srgb,var(--blue) 9%,var(--paper))}
+.duo .card:nth-child(2){border-color:var(--yellow);background:color-mix(in srgb,var(--yellow) 22%,var(--paper))}
+.duo .card .ic-xl{--signal:var(--blue);color:var(--ink)}
+.duo .card:nth-child(2) .ic-xl{--signal:var(--ink)}
 .pcard{border-top:4px solid var(--lane-commodity)}
 .pcard.on{border-top-color:var(--lane-craft)}
 .pcard.cust{border-top-color:var(--lane-custody)}
